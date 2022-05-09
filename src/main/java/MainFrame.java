@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainFrame {
+public class MainFrame extends JFrame{
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
     private JButton b7;
@@ -34,13 +34,24 @@ public class MainFrame {
     //Methodos que enviaran las entradas de los jugarores
     /**/
 
+
     public MainFrame() {
+
+        //Caracteristicas de la ventana que se va abrir
+        setSize(300,300);
+        setContentPane(PanelPrincipal);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(250,100,720,520);
+
+        //funcion del button
         b7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
             }
         });
+        setVisible(true);//mostrar la venta FirstPanel
+
     }
 
     public JPanel getPanelPrincipal(){
