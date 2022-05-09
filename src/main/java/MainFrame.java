@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainFrame {
     private JPanel PanelPrincipal;
@@ -31,6 +33,15 @@ public class MainFrame {
 
     //Methodos que enviaran las entradas de los jugarores
     /**/
+
+    public MainFrame() {
+        b7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
 
     public JPanel getPanelPrincipal(){
         return  PanelPrincipal;

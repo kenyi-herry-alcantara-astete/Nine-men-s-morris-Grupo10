@@ -1,5 +1,7 @@
+import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class Main {
 
@@ -15,7 +17,7 @@ public class Main {
         MainFrame myNineFrame = new MainFrame();
         frame.setContentPane(myNineFrame.getPanelPrincipal());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(250,100,720,480);
+        frame.setBounds(250,100,720,520);
         frame.setVisible(true);
     }
 }
