@@ -11,7 +11,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="49cfc" class="javax.swing.JButton" default-binding="true">
+      <component id="49cfc" class="javax.swing.JButton" binding="pieceLeft1">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -24,13 +24,13 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
-          <rolloverIcon value="Image/IconContentPiece.png"/>
+          <rolloverIcon value="Image/"/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="1313a" class="javax.swing.JButton" default-binding="true">
+      <component id="1313a" class="javax.swing.JButton" binding="pieceLeft9">
         <constraints>
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -43,12 +43,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="f5237" class="javax.swing.JButton" default-binding="true">
+      <component id="f5237" class="javax.swing.JButton" binding="pieceLeft8">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -61,12 +61,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="baa3a" class="javax.swing.JButton" default-binding="true">
+      <component id="baa3a" class="javax.swing.JButton" binding="pieceLeft7">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -79,12 +79,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="776cd" class="javax.swing.JButton" default-binding="true">
+      <component id="776cd" class="javax.swing.JButton" binding="pieceLeft6">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -97,12 +97,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="bcaa2" class="javax.swing.JButton" default-binding="true">
+      <component id="bcaa2" class="javax.swing.JButton" binding="pieceLeft5">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -115,12 +115,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="f4bb9" class="javax.swing.JButton" default-binding="true">
+      <component id="f4bb9" class="javax.swing.JButton" binding="pieceLeft2">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -133,12 +133,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="76f77" class="javax.swing.JButton" default-binding="true">
+      <component id="76f77" class="javax.swing.JButton" binding="pieceLeft4">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -151,7 +151,7 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
@@ -181,7 +181,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
               <text value=" "/>
             </properties>
           </component>
@@ -218,7 +217,7 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
+              <rolloverIcon value="Image/"/>
               <text value=" "/>
             </properties>
           </component>
@@ -237,7 +236,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
               <text value=" "/>
             </properties>
           </component>
@@ -256,7 +254,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
               <text value=" "/>
             </properties>
           </component>
@@ -547,7 +544,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
               <text value=" "/>
             </properties>
           </component>
@@ -584,7 +580,7 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/AvailableContent.png"/>
+              <rolloverIcon value="Image/"/>
               <text value=" "/>
             </properties>
           </component>
@@ -608,7 +604,7 @@
           </component>
         </children>
       </grid>
-      <component id="eb95c" class="javax.swing.JButton" default-binding="true">
+      <component id="eb95c" class="javax.swing.JButton" binding="pieceLeft3">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -621,12 +617,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="b8d00" class="javax.swing.JButton" default-binding="true">
+      <component id="b8d00" class="javax.swing.JButton" binding="pieceRight1">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -639,12 +635,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="72a64" class="javax.swing.JButton" default-binding="true">
+      <component id="72a64" class="javax.swing.JButton" binding="pieceRight2">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -657,12 +653,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="dc559" class="javax.swing.JButton" default-binding="true">
+      <component id="dc559" class="javax.swing.JButton" binding="pieceRight3">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -675,12 +671,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="eb21b" class="javax.swing.JButton" default-binding="true">
+      <component id="eb21b" class="javax.swing.JButton" binding="pieceRight4">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -693,12 +689,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="d648f" class="javax.swing.JButton" default-binding="true">
+      <component id="d648f" class="javax.swing.JButton" binding="pieceRight5">
         <constraints>
           <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -711,12 +707,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="cfb72" class="javax.swing.JButton" default-binding="true">
+      <component id="cfb72" class="javax.swing.JButton" binding="pieceRight6">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -729,12 +725,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="679d2" class="javax.swing.JButton" default-binding="true">
+      <component id="679d2" class="javax.swing.JButton" binding="pieceRight7">
         <constraints>
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -747,12 +743,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="4ff3f" class="javax.swing.JButton" default-binding="true">
+      <component id="4ff3f" class="javax.swing.JButton" binding="pieceRight8">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -765,12 +761,12 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>
       </component>
-      <component id="305c3" class="javax.swing.JButton" default-binding="true">
+      <component id="305c3" class="javax.swing.JButton" binding="pieceRight9">
         <constraints>
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="40" height="40"/>
@@ -783,7 +779,7 @@
           <borderPainted value="false"/>
           <foreground color="-14670774"/>
           <horizontalTextPosition value="0"/>
-          <icon value="Image/IconContentPiece.png"/>
+          <icon value="Image/IconWithPiece2.png"/>
           <label value=" "/>
           <text value=" "/>
         </properties>

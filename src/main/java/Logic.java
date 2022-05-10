@@ -37,7 +37,15 @@ public class Logic {
         insertPiece(newPositionPiece);
     }
 
-
+    //Is available a content piece?
+    public boolean isAvailableContentPiece(String positionPiece){
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+        if (myTable[indexRow][indexColumn] != " "){
+            return true;
+        }
+        return false;
+    }
 
 
 //Definir una matriz de adyacencia del grafo
@@ -228,19 +236,16 @@ int[][]   adjacencyMatrix = {{1,1,0,0,0,0,0,0,0,1, 0,0 ,0 ,0 ,0 ,0 , 0 , 0 ,0  ,
         }
         return node;
     }
-    //Return the adjacent nodes
+    //Return the adjacent empty nodes
     public String adjacentNodes(String positionPiece){
         int myNode = findingTheNode(positionPiece.charAt(0)+positionPiece.charAt(1)+"");
         //Finding pieces adjacent
         String pieces = "";
         for (int j = 0; j<24;j++){
-                if (adjacencyMatrix[myNode][j] == 1){
+                if (adjacencyMatrix[myNode][j] == 1 && isAvailableContentPiece(positionPiece)){
                     pieces  = pieces + findingThePiece(j);
-                //Falta ver si esta vacio o no (I want to go to bed). Please complete
                 }
             }
-
-
         return pieces;
     }
 

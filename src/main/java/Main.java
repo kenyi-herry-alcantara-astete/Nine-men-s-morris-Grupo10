@@ -1,16 +1,9 @@
 import javax.sound.sampled.Line;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Line2D;
 
 public class Main {
 
-    //Methodos
-    /*
-    1.Elegir el turno del jugador
-    2.Configurar un juego
-    */
-
+    //Start Game
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Nines men's morris");
