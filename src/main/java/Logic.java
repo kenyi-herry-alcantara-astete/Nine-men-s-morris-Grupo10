@@ -1,26 +1,40 @@
 public class Logic {
-
+    // Orden de la matriz
+    private int n = 7;
+    // Matriz de casillas disponibles
+    private boolean[][] availableBox = new boolean[n][n];
     //Matriz tabla que muestra las jugadas en el tiempo
+    private String [][] myTable = new String[n][n];
 
-    private String [][] myTable ={{" ","0","0"," ","0","0"," "},
-                                  {"0"," ","0"," ","0"," ","0"},
-                                  {"0","0"," "," "," ","0","0"},
-                                  {" "," "," ","0"," "," "," "},
-                                  {"0","0"," "," "," ","0","0"},
-                                  {"0"," ","0"," ","0"," ","0"},
-                                  {" ","0","0"," ","0","0"," "}};
-
-    public void showMatrixTableInTHeConsole (){
-        System.out.print("\n--------------------------------: '_':No permitido  1: jugaros left  2: jugador right\n");
-
-        for (int i = 0; i < 7; i++) {
-            String row = "";
-            for (int j = 0; j < 7; j++) {
-                row = row + " " + myTable[i][j];
+    public Logic(){
+        fillInBoxes();
+        fillMyTable();
+    }
+    public void fillInBoxes(){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                availableBox[i][j] = true;
             }
-            row=row+"\n";
-            System.out.print(row);
         }
+    }
+
+    public void fillMyTable(){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                myTable[i][j] = "0";
+            }
+        }
+    }
+    public void showMatrixTableInTHeConsole (){
+        System.out.println("--------------------------------");
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                System.out.print(myTable[i][j] + " ");
+            }
+            System.out.println();
+        }
+
     }
 
     private int whatIndexColumn(char notationColumn){
@@ -80,8 +94,12 @@ public class Logic {
     public void insertPiece(String positionPiece, String player1o2){
         int indexRow = whatIndexRow(positionPiece.charAt(2));
         int indexColumn = whatIndexColumn(positionPiece.charAt(1));
-        myTable[indexRow][indexColumn] = player1o2;
-        showMatrixTableInTHeConsole();
+        if(availableBox[indexRow][indexColumn]){
+            myTable[indexRow][indexColumn] = player1o2;
+            showMatrixTableInTHeConsole();
+            availableBox[indexRow][indexColumn] = false;
+        }
+
     }
 
     public String removePiece(String positionPiece){
