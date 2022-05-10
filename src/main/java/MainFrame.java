@@ -1,12 +1,13 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
 public class MainFrame {
 
-    public Player player2 = new Player("Herry","right", "dos");
-    public Player player1 = new Player("Kenyi","left", "uno");
+    public Player player1;
+    public Player player2;
 
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
@@ -56,6 +57,9 @@ public class MainFrame {
     private JButton pieceRight7;
     private JButton pieceRight8;
     private JButton pieceRight9;
+    private JLabel namePlayerLeft;
+    private JLabel namePlayerRight;
+
 
 
     //Methodos que enviaran las entradas de los jugarores
@@ -68,11 +72,35 @@ public class MainFrame {
         }else return player2;
     }
 
+    //Show the turn
+    public void showTurnInUI(){
+        if (player1.turn == "uno"){
+            if (namePlayerLeft.getText() == player1.name){
+                namePlayerLeft.setBackground(new Color(94,0,215));
+                namePlayerRight.setBackground(new Color(32,36,74));
+            }else {
+                namePlayerRight.setBackground(new Color(94,0,215));
+                namePlayerLeft.setBackground(new Color(32,36,74));
+            }
+        }else{
+            if (namePlayerRight.getText() == player2.name){
+                namePlayerRight.setBackground(new Color(94,0,215));
+                namePlayerLeft.setBackground(new Color(32,36,74));
+            }else {
+                namePlayerLeft.setBackground(new Color(94,0,215));
+                namePlayerRight.setBackground(new Color(32,36,74));
+            }
+        }
+    }
+
+
     //Change turn
     public void changeTurn(){
         String aux = player1.turn;
         player1.turn = player2.turn;
         player2.turn = aux;
+        showTurnInUI();
+
     }
 
     // insetPieceToUI
@@ -123,6 +151,10 @@ insertPieceToUI(d6);
             public void actionPerformed(ActionEvent e) {
 insertPieceToUI(f6);
             }
+
+    //
+
+
         });
         c5.addActionListener(new ActionListener() {
             @Override
@@ -232,10 +264,17 @@ insertPieceToUI(d1);
 insertPieceToUI(g1);
             }
         });
+
+    //Players
+        this.player1 = new Player("Kenyi","left", "uno");
+        this.player2 = new Player("Herry","right", "dos");
+
+        namePlayerLeft.setText(player1.name);
+        namePlayerRight.setText(player2.name);
+        showTurnInUI();
     }
 
 
-    //Start Game
 
 
     public JPanel getPanelPrincipal(){

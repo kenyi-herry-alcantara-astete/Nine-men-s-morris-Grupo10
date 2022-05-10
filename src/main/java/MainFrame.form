@@ -217,7 +217,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/"/>
               <text value=" "/>
             </properties>
           </component>
@@ -580,7 +579,6 @@
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
               <label value=" "/>
-              <rolloverIcon value="Image/"/>
               <text value=" "/>
             </properties>
           </component>
@@ -784,24 +782,26 @@
           <text value=" "/>
         </properties>
       </component>
-      <component id="15057" class="javax.swing.JLabel">
+      <component id="15057" class="javax.swing.JLabel" binding="namePlayerLeft">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-721413"/>
+          <background color="-14670774"/>
           <font name="Roboto Light" size="16" style="0"/>
+          <foreground color="-721413"/>
           <opaque value="true"/>
           <text value="Jugador 1"/>
         </properties>
       </component>
-      <component id="1d9c9" class="javax.swing.JLabel">
+      <component id="1d9c9" class="javax.swing.JLabel" binding="namePlayerRight">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-721413"/>
+          <background color="-14670774"/>
           <font name="Roboto Light" size="16" style="0"/>
+          <foreground color="-721413"/>
           <opaque value="true"/>
           <text value="Jugador 2"/>
         </properties>
