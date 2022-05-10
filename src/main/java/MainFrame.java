@@ -9,13 +9,14 @@ public class MainFrame {
     public Player player1;
     public Player player2;
 
+    public Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
-    private JButton b7;
+    private JButton a7;
     private JButton d7;
     private JButton g7;
     private JButton b6;
@@ -108,18 +109,21 @@ public class MainFrame {
         if (player1.turn == "uno"){
             contentPiece.setIcon(IconWithPiece1);
             player1.numberPieces--;
+            currentLogicGame.insertPiece(contentPiece.getText(),"1");
         }else {
             contentPiece.setIcon(IconWithPiece2);
             player2.numberPieces--;
+            currentLogicGame.insertPiece(contentPiece.getText(),"2");
         }
         changeTurn();
+
     }
 
     public MainFrame() {
-        b7.addActionListener(new ActionListener() {
+        a7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                insertPieceToUI(b7);
+                insertPieceToUI(a7);
             }
         });
         b6.addActionListener(new ActionListener() {
