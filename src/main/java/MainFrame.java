@@ -15,13 +15,6 @@ public class MainFrame {
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
 
-    // Orden de la matriz
-    private int n = 7;
-    // Matriz de casillas disponibles
-    private boolean[][] availableBox = new boolean[n][n];
-    //Matriz tabla que muestra las jugadas en el tiempo
-    private String [][] myTable = new String[n][n];
-
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
     private JButton a7;
@@ -114,139 +107,9 @@ public class MainFrame {
 
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-        String positionPiece = contentPiece.getText();
-        int indexRow = whatIndexRow(positionPiece.charAt(2));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(1));
-
-        if(availableBox[indexRow][indexColumn]){
-            if (player1.turn == "uno"){
-                contentPiece.setIcon(IconWithPiece1);
-                player1.numberPieces--;
-                insertPiece(indexRow, indexColumn,"1");
-            }else {
-                contentPiece.setIcon(IconWithPiece2);
-                player2.numberPieces--;
-                insertPiece(indexRow, indexColumn,"2");
-            }
-            changeTurn();
-        }
-    }
-
-    // Inicializa casillas disponibles
-    public void fillInBoxes(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                availableBox[i][j] = true;
-            }
-        }
-    }
-
-    // Inicializa tablero
-    public void fillMyTable(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                myTable[i][j] = "0";
-            }
-        }
-    }
-
-
-    public void showMatrixTableInTHeConsole (){
-        System.out.println("--------------------------------");
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                System.out.print(myTable[i][j] + " ");
-            }
-            System.out.println();
-        }
 
     }
-    private int whatIndexColumn(char notationColumn){
-        int indexColum = -1;
-        switch (notationColumn){
-            case 'a':
-                indexColum = 0;
-                break;
-            case 'b':
-                indexColum = 1;
-                break;
-            case 'c':
-                indexColum = 2;
-                break;
-            case 'd':
-                indexColum = 3;
-                break;
-            case 'e':
-                indexColum = 4;
-                break;
-            case 'f':
-                indexColum = 5;
-                break;
-            case 'g':
-                indexColum = 6;
-                break;
-        }
-        return indexColum;
-    }
-    private  int whatIndexRow(char notationRow){
-        int indexRow = -1;
-        switch (notationRow){
-            case '7':
-                indexRow = 0;
-                break;
-            case '6':
-                indexRow = 1;
-                break;
-            case '5':
-                indexRow = 2;
-                break;
-            case '4':
-                indexRow = 3;
-                break;
-            case '3':
-                indexRow = 4;
-                break;
-            case '2':
-                indexRow = 5;
-                break;
-            case '1':
-                indexRow = 6;
-                break;
-        }
-        return indexRow;
-    }
-    public void insertPiece(int indexRow, int indexColumn, String player1o2){
-        if(availableBox[indexRow][indexColumn]){
-            myTable[indexRow][indexColumn] = player1o2;
-            showMatrixTableInTHeConsole();
-            availableBox[indexRow][indexColumn] = false;
-        }
-    }
 
-    public String removePiece(String positionPiece){
-        int indexRow = whatIndexRow(positionPiece.charAt(1));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        String pieceToRemove = myTable[indexRow][indexColumn];
-        myTable[indexRow][indexColumn] = " ";
-        return pieceToRemove;
-    }
-
-    public void movePiece(String positionPieceToRemove,String  newPositionPiece){
-        //RemovePiece
-        //SetNewPiece
-        //insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
-    }
-
-    //Is available a content piece?
-    public boolean isAvailableContentPiece(String positionPiece){
-        int indexRow = whatIndexRow(positionPiece.charAt(1));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] != " "){
-            return true;
-        }
-        return false;
-    }
 
     public MainFrame() {
 
@@ -399,10 +262,6 @@ insertPieceToUI(g1);
             }
         });
 
-        // Inicializa casillas disponibles
-        fillInBoxes();
-        // Inicializa tablero
-        fillMyTable();
         //Players
         this.player1 = new Player("Kenyi","left", "uno");
         this.player2 = new Player("Herry","right", "dos");
@@ -411,8 +270,6 @@ insertPieceToUI(g1);
         namePlayerRight.setText(player2.name);
         showTurnInUI();
     }
-
-
 
 
     public JPanel getPanelPrincipal(){
