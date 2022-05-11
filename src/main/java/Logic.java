@@ -78,8 +78,8 @@ public class Logic {
         return indexRow;
     }
     public void insertPiece(String positionPiece, String player1o2){
-        int indexRow = whatIndexRow(positionPiece.charAt(2));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(1));
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         myTable[indexRow][indexColumn] = player1o2;
         showMatrixTableInTHeConsole();
     }
@@ -102,9 +102,11 @@ public class Logic {
     public boolean isAvailableContentPiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] != " "){
+        if (myTable[indexRow][indexColumn] == " "){
+         showMatrixTableInTHeConsole();
             return true;
         }
+        showMatrixTableInTHeConsole();
         return false;
     }
 
