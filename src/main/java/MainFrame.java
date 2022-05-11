@@ -9,18 +9,11 @@ public class MainFrame {
     public Player player1;
     public Player player2;
 
-    //public Logic currentLogicGame = new Logic();
+    private Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
-
-    // Orden de la matriz
-    private int n = 7;
-    // Matriz de casillas disponibles
-    private boolean[][] availableBox = new boolean[n][n];
-    //Matriz tabla que muestra las jugadas en el tiempo
-    private String [][] myTable = new String[n][n];
 
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
@@ -114,186 +107,57 @@ public class MainFrame {
 
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-        String positionPiece = contentPiece.getText();
-        int indexRow = whatIndexRow(positionPiece.charAt(2));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(1));
 
-        if(availableBox[indexRow][indexColumn]){
-            if (player1.turn == "uno"){
-                contentPiece.setIcon(IconWithPiece1);
-                player1.numberPieces--;
-                insertPiece(indexRow, indexColumn,"1");
-            }else {
-                contentPiece.setIcon(IconWithPiece2);
-                player2.numberPieces--;
-                insertPiece(indexRow, indexColumn,"2");
-            }
-            changeTurn();
-        }
-    }
-
-    // Inicializa casillas disponibles
-    public void fillInBoxes(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                availableBox[i][j] = true;
-            }
-        }
-    }
-
-    // Inicializa tablero
-    public void fillMyTable(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                myTable[i][j] = "0";
-            }
-        }
     }
 
     // Verifica tres en raya
     public boolean scoreThreeInARow(String num){
         boolean ganador = false;
         // Filas
-        if(myTable[0][0].equals(num) && myTable[0][3].equals(num) && myTable[0][6].equals(num)){
+        if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)){
             ganador = true;
-        }else if(myTable[1][1].equals(num) && myTable[1][3].equals(num) && myTable[1][5].equals(num)){
+        }else if(currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)){
             ganador = true;
-        }else if(myTable[2][2].equals(num) && myTable[2][3].equals(num) && myTable[2][4].equals(num)){
+        }else if(currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)){
             ganador = true;
-        }else if(myTable[3][0].equals(num) && myTable[3][1].equals(num) && myTable[3][2].equals(num)){
+        }else if(currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)){
             ganador = true;
-        }else if(myTable[3][4].equals(num) && myTable[3][5].equals(num) && myTable[3][6].equals(num)){
+        }else if(currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)){
             ganador = true;
-        }else if(myTable[4][2].equals(num) && myTable[4][3].equals(num) && myTable[4][4].equals(num)){
+        }else if(currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)){
             ganador = true;
-        }else if(myTable[5][1].equals(num) && myTable[5][3].equals(num) && myTable[5][5].equals(num)){
+        }else if(currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)){
             ganador = true;
-        }else if(myTable[6][0].equals(num) && myTable[6][3].equals(num) && myTable[6][6].equals(num)){
+        }else if(currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
             ganador = true;
         } // Columnas
-        else if(myTable[0][0].equals(num) && myTable[3][0].equals(num) && myTable[6][0].equals(num)){
+        else if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)){
             ganador = true;
-        }else if(myTable[1][1].equals(num) && myTable[3][1].equals(num) && myTable[5][1].equals(num)){
+        }else if(currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)){
             ganador = true;
-        }else if(myTable[2][2].equals(num) && myTable[3][2].equals(num) && myTable[4][2].equals(num)){
+        }else if(currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)){
             ganador = true;
-        }else if(myTable[0][3].equals(num) && myTable[1][3].equals(num) && myTable[2][3].equals(num)){
+        }else if(currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)){
             ganador = true;
-        }else if(myTable[4][3].equals(num) && myTable[5][3].equals(num) && myTable[6][3].equals(num)){
+        }else if(currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)){
             ganador = true;
-        }else if(myTable[2][4].equals(num) && myTable[3][4].equals(num) && myTable[4][4].equals(num)){
+        }else if(currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)){
             ganador = true;
-        }else if(myTable[1][5].equals(num) && myTable[3][5].equals(num) && myTable[5][5].equals(num)){
+        }else if(currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)){
             ganador = true;
-        }else if(myTable[0][6].equals(num) && myTable[3][6].equals(num) && myTable[6][6].equals(num)){
+        }else if(currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
             ganador = true;
         }// Diagonal
-        else if(myTable[0][0].equals(num) && myTable[1][1].equals(num) && myTable[2][2].equals(num)){
+        else if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)){
             ganador = true;
-        }else if(myTable[2][4].equals(num) && myTable[1][5].equals(num) && myTable[0][6].equals(num)){
+        }else if(currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)){
             ganador = true;
-        }else if(myTable[4][2].equals(num) && myTable[5][1].equals(num) && myTable[6][0].equals(num)){
+        }else if(currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)){
             ganador = true;
-        }else if(myTable[4][4].equals(num) && myTable[5][5].equals(num) && myTable[6][6].equals(num)){
+        }else if(currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
             ganador = true;
         }
         return ganador;
-    }
-    public void showMatrixTableInTHeConsole (){
-        System.out.println("--------------------------------");
-
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                System.out.print(myTable[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-    }
-    private int whatIndexColumn(char notationColumn){
-        int indexColum = -1;
-        switch (notationColumn){
-            case 'a':
-                indexColum = 0;
-                break;
-            case 'b':
-                indexColum = 1;
-                break;
-            case 'c':
-                indexColum = 2;
-                break;
-            case 'd':
-                indexColum = 3;
-                break;
-            case 'e':
-                indexColum = 4;
-                break;
-            case 'f':
-                indexColum = 5;
-                break;
-            case 'g':
-                indexColum = 6;
-                break;
-        }
-        return indexColum;
-    }
-    private  int whatIndexRow(char notationRow){
-        int indexRow = -1;
-        switch (notationRow){
-            case '7':
-                indexRow = 0;
-                break;
-            case '6':
-                indexRow = 1;
-                break;
-            case '5':
-                indexRow = 2;
-                break;
-            case '4':
-                indexRow = 3;
-                break;
-            case '3':
-                indexRow = 4;
-                break;
-            case '2':
-                indexRow = 5;
-                break;
-            case '1':
-                indexRow = 6;
-                break;
-        }
-        return indexRow;
-    }
-    public void insertPiece(int indexRow, int indexColumn, String player1o2){
-        if(availableBox[indexRow][indexColumn]){
-            myTable[indexRow][indexColumn] = player1o2;
-            showMatrixTableInTHeConsole();
-            availableBox[indexRow][indexColumn] = false;
-        }
-    }
-
-    public String removePiece(String positionPiece){
-        int indexRow = whatIndexRow(positionPiece.charAt(1));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        String pieceToRemove = myTable[indexRow][indexColumn];
-        myTable[indexRow][indexColumn] = " ";
-        return pieceToRemove;
-    }
-
-    public void movePiece(String positionPieceToRemove,String  newPositionPiece){
-        //RemovePiece
-        //SetNewPiece
-        //insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
-    }
-
-    //Is available a content piece?
-    public boolean isAvailableContentPiece(String positionPiece){
-        int indexRow = whatIndexRow(positionPiece.charAt(1));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] != " "){
-            return true;
-        }
-        return false;
     }
 
     public MainFrame() {
@@ -437,20 +301,16 @@ insertPieceToUI(a1);
         d1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d1);
+                insertPieceToUI(d1);
             }
         });
         g1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(g1);
+                insertPieceToUI(g1);
             }
         });
 
-        // Inicializa casillas disponibles
-        fillInBoxes();
-        // Inicializa tablero
-        fillMyTable();
         //Players
         this.player1 = new Player("Kenyi","left", "uno");
         this.player2 = new Player("Herry","right", "dos");

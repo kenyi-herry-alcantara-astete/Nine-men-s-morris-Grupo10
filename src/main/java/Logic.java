@@ -2,9 +2,9 @@ public class Logic {
     // Orden de la matriz
     private int n = 7;
     // Matriz de casillas disponibles
-    private boolean[][] availableBox = new boolean[n][n];
+    protected boolean[][] availableBox = new boolean[n][n];
     //Matriz tabla que muestra las jugadas en el tiempo
-    private String [][] myTable = new String[n][n];
+    protected String [][] myTable = new String[n][n];
 
     public Logic(){
         fillInBoxes();
@@ -37,7 +37,7 @@ public class Logic {
 
     }
 
-    private int whatIndexColumn(char notationColumn){
+    public int whatIndexColumn(char notationColumn){
         int indexColum = -1;
         switch (notationColumn){
             case 'a':
@@ -64,7 +64,7 @@ public class Logic {
         }
         return indexColum;
     }
-    private  int whatIndexRow(char notationRow){
+    public int whatIndexRow(char notationRow){
         int indexRow = -1;
         switch (notationRow){
             case '7':
