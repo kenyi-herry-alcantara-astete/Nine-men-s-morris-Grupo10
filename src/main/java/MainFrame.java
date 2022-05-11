@@ -9,7 +9,7 @@ public class MainFrame {
     public Player player1;
     public Player player2;
 
-    //public Logic currentLogicGame = new Logic();
+    public Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
@@ -108,14 +108,6 @@ public class MainFrame {
 
     }
 
-    // insetPieceToUI
-<<<<<<< HEAD
-    public void insertPieceToUI(JButton contentPiece){
-
-    }
-
-
-=======
     public int numberPiecesLeft = 9;
     public int numberPiecesRight = 9;
 
@@ -174,7 +166,7 @@ public class MainFrame {
             }
         }
     }
->>>>>>> 7c506f67b4123d411d8ba7f3e46331cdb7d7be58
+
     public MainFrame() {
 
         a7.addActionListener(new ActionListener() {
