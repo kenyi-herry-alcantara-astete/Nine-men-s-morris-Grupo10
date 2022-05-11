@@ -150,7 +150,55 @@ public class MainFrame {
         }
     }
 
-
+    // Verifica tres en raya
+    public boolean scoreThreeInARow(String num){
+        boolean ganador = false;
+        // Filas
+        if(myTable[0][0].equals(num) && myTable[0][3].equals(num) && myTable[0][6].equals(num)){
+            ganador = true;
+        }else if(myTable[1][1].equals(num) && myTable[1][3].equals(num) && myTable[1][5].equals(num)){
+            ganador = true;
+        }else if(myTable[2][2].equals(num) && myTable[2][3].equals(num) && myTable[2][4].equals(num)){
+            ganador = true;
+        }else if(myTable[3][0].equals(num) && myTable[3][1].equals(num) && myTable[3][2].equals(num)){
+            ganador = true;
+        }else if(myTable[3][4].equals(num) && myTable[3][5].equals(num) && myTable[3][6].equals(num)){
+            ganador = true;
+        }else if(myTable[4][2].equals(num) && myTable[4][3].equals(num) && myTable[4][4].equals(num)){
+            ganador = true;
+        }else if(myTable[5][1].equals(num) && myTable[5][3].equals(num) && myTable[5][5].equals(num)){
+            ganador = true;
+        }else if(myTable[6][0].equals(num) && myTable[6][3].equals(num) && myTable[6][6].equals(num)){
+            ganador = true;
+        } // Columnas
+        else if(myTable[0][0].equals(num) && myTable[3][0].equals(num) && myTable[6][0].equals(num)){
+            ganador = true;
+        }else if(myTable[1][1].equals(num) && myTable[3][1].equals(num) && myTable[5][1].equals(num)){
+            ganador = true;
+        }else if(myTable[2][2].equals(num) && myTable[3][2].equals(num) && myTable[4][2].equals(num)){
+            ganador = true;
+        }else if(myTable[0][3].equals(num) && myTable[1][3].equals(num) && myTable[2][3].equals(num)){
+            ganador = true;
+        }else if(myTable[4][3].equals(num) && myTable[5][3].equals(num) && myTable[6][3].equals(num)){
+            ganador = true;
+        }else if(myTable[2][4].equals(num) && myTable[3][4].equals(num) && myTable[4][4].equals(num)){
+            ganador = true;
+        }else if(myTable[1][5].equals(num) && myTable[3][5].equals(num) && myTable[5][5].equals(num)){
+            ganador = true;
+        }else if(myTable[0][6].equals(num) && myTable[3][6].equals(num) && myTable[6][6].equals(num)){
+            ganador = true;
+        }// Diagonal
+        else if(myTable[0][0].equals(num) && myTable[1][1].equals(num) && myTable[2][2].equals(num)){
+            ganador = true;
+        }else if(myTable[2][4].equals(num) && myTable[1][5].equals(num) && myTable[0][6].equals(num)){
+            ganador = true;
+        }else if(myTable[4][2].equals(num) && myTable[5][1].equals(num) && myTable[6][0].equals(num)){
+            ganador = true;
+        }else if(myTable[4][4].equals(num) && myTable[5][5].equals(num) && myTable[6][6].equals(num)){
+            ganador = true;
+        }
+        return ganador;
+    }
     public void showMatrixTableInTHeConsole (){
         System.out.println("--------------------------------");
 
@@ -411,9 +459,6 @@ insertPieceToUI(g1);
         namePlayerRight.setText(player2.name);
         showTurnInUI();
     }
-
-
-
 
     public JPanel getPanelPrincipal(){
         return  PanelPrincipal;
