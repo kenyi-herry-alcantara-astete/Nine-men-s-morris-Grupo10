@@ -450,8 +450,8 @@
               <foreground color="-14670774"/>
               <horizontalTextPosition value="0"/>
               <icon value="Image/IconContentPiece.png"/>
-              <label value="c4"/>
-              <text value="c4"/>
+              <label value=" c4"/>
+              <text value=" c4"/>
             </properties>
           </component>
           <component id="19576" class="javax.swing.JButton" binding="b4">

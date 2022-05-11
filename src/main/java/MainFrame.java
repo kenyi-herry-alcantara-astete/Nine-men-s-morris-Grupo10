@@ -58,6 +58,9 @@ public class MainFrame {
     private JButton pieceRight7;
     private JButton pieceRight8;
     private JButton pieceRight9;
+
+    private JButton [] pieceLeft = {pieceLeft1,pieceLeft2,pieceLeft3,pieceLeft4,pieceLeft5,pieceLeft6,pieceLeft7,pieceLeft8,pieceLeft9};
+    private JButton [] pieceRight = {pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9};
     private JLabel namePlayerLeft;
     private JLabel namePlayerRight;
 
@@ -106,16 +109,23 @@ public class MainFrame {
 
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-        if (player1.turn == "uno"){
-            contentPiece.setIcon(IconWithPiece1);
-            player1.numberPieces--;
-            currentLogicGame.insertPiece(contentPiece.getText(),"1");
+        if (player1.numberPieces != 0 || player2.numberPieces != 0){
+            if (player1.turn == "uno"){
+                contentPiece.setIcon(IconWithPiece1);
+                pieceLeft[9-player1.numberPieces].setIcon(IconContentEmpty);
+                player1.numberPieces--;
+                currentLogicGame.insertPiece(contentPiece.getText(),"1");
+
+            }else {
+                contentPiece.setIcon(IconWithPiece2);
+                pieceRight[9-player2.numberPieces].setIcon(IconContentEmpty);
+                player2.numberPieces--;
+                currentLogicGame.insertPiece(contentPiece.getText(),"2");
+            }
+            changeTurn();
         }else {
-            contentPiece.setIcon(IconWithPiece2);
-            player2.numberPieces--;
-            currentLogicGame.insertPiece(contentPiece.getText(),"2");
+            System.out.println("Todas las piezas insertadas");
         }
-        changeTurn();
 
     }
 
