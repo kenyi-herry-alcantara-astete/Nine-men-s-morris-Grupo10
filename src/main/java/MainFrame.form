@@ -1442,6 +1442,16 @@
           <text value="Jugador 2"/>
         </properties>
       </component>
+      <component id="7dbfa" class="javax.swing.JLabel" binding="showIUResult">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-14670774"/>
+          <foreground color="-721413"/>
+          <text value=""/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

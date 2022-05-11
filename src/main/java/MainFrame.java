@@ -64,6 +64,7 @@ public class MainFrame {
     private JButton [] pieceRight = {pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9};
     private JLabel namePlayerLeft;
     private JLabel namePlayerRight;
+    private JLabel showIUResult;
 
 
     //Methodos que enviaran las entradas de los jugarores
@@ -136,8 +137,22 @@ public class MainFrame {
 
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
-        myContentPieceToRemove.setIcon(IconContentEmpty);
-        currentLogicGame.removePiece(myContentPieceToRemove.getText());
+
+            if(myContentPieceToRemove.getIcon() == IconWithPiece1){
+                myContentPieceToRemove.setIcon(IconContentEmpty);
+                currentLogicGame.removePiece(myContentPieceToRemove.getText());
+                player1.numberPieces --;
+            }
+
+        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
+                myContentPieceToRemove.setIcon(IconContentEmpty);
+                currentLogicGame.removePiece(myContentPieceToRemove.getText());
+                player2.numberPieces --;
+            }
+        if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
+            System.out.println("Empate");
+            showIUResult.setText("Empate!");
+        }
     }
 
     //Action Player at the time
