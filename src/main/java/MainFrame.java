@@ -107,7 +107,7 @@ public class MainFrame {
 
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-        
+
     }
 
     // Verifica tres en raya
