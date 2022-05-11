@@ -9,7 +9,7 @@ public class MainFrame {
     public Player player1;
     public Player player2;
 
-    private Logic currentLogicGame = new Logic();
+    public Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
@@ -59,45 +59,48 @@ public class MainFrame {
     private JButton pieceRight7;
     private JButton pieceRight8;
     private JButton pieceRight9;
+
+    private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
+    private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
     private JLabel namePlayerLeft;
     private JLabel namePlayerRight;
-
+    private JLabel showIUResult;
 
 
     //Methodos que enviaran las entradas de los jugarores
     /**/
 
     //Current Player
-    public Player currentTurn(){
-        if (player1.turn == "uno"){
+    public Player currentTurn() {
+        if (player1.turn == "uno") {
             return player1;
-        }else return player2;
+        } else return player2;
     }
 
     //Show the turn
-    public void showTurnInUI(){
-        if (player1.turn == "uno"){
-            if (namePlayerLeft.getText() == player1.name){
-                namePlayerLeft.setBackground(new Color(94,0,215));
-                namePlayerRight.setBackground(new Color(32,36,74));
-            }else {
-                namePlayerRight.setBackground(new Color(94,0,215));
-                namePlayerLeft.setBackground(new Color(32,36,74));
+    public void showTurnInUI() {
+        if (player1.turn == "uno") {
+            if (namePlayerLeft.getText() == player1.name) {
+                namePlayerLeft.setBackground(new Color(94, 0, 215));
+                namePlayerRight.setBackground(new Color(32, 36, 74));
+            } else {
+                namePlayerRight.setBackground(new Color(94, 0, 215));
+                namePlayerLeft.setBackground(new Color(32, 36, 74));
             }
-        }else{
-            if (namePlayerRight.getText() == player2.name){
-                namePlayerRight.setBackground(new Color(94,0,215));
-                namePlayerLeft.setBackground(new Color(32,36,74));
-            }else {
-                namePlayerLeft.setBackground(new Color(94,0,215));
-                namePlayerRight.setBackground(new Color(32,36,74));
+        } else {
+            if (namePlayerRight.getText() == player2.name) {
+                namePlayerRight.setBackground(new Color(94, 0, 215));
+                namePlayerLeft.setBackground(new Color(32, 36, 74));
+            } else {
+                namePlayerLeft.setBackground(new Color(94, 0, 215));
+                namePlayerRight.setBackground(new Color(32, 36, 74));
             }
         }
     }
 
 
     //Change turn
-    public void changeTurn(){
+    public void changeTurn() {
         String aux = player1.turn;
         player1.turn = player2.turn;
         player2.turn = aux;
@@ -106,55 +109,80 @@ public class MainFrame {
     }
 
     // insetPieceToUI
-    public void insertPieceToUI(JButton contentPiece){
+    public int numberPiecesLeft = 9;
+    public int numberPiecesRight = 9;
 
+    // insetPieceToUI
+    public void insertPieceToUI(JButton contentPiece) {
+        int indexRow = currentLogicGame.whatIndexRow(contentPiece.getText().charAt(2));
+        int indexColumn = currentLogicGame.whatIndexColumn(contentPiece.getText().charAt(1));
+        if (currentLogicGame.availableBox[indexRow][indexColumn]) {
+            if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
+                if (player1.turn == "uno") {
+                    contentPiece.setIcon(IconWithPiece1);
+                    pieceLeft[9 - numberPiecesLeft].setIcon(IconContentEmpty);
+                    numberPiecesLeft--;
+                    currentLogicGame.insertPiece(contentPiece.getText(), "1");
+
+                } else {
+                    contentPiece.setIcon(IconWithPiece2);
+                    pieceRight[9 - numberPiecesRight].setIcon(IconContentEmpty);
+                    numberPiecesRight--;
+                    currentLogicGame.insertPiece(contentPiece.getText(), "2");
+                }
+                changeTurn();
+            } else {
+                System.out.println("Todas las piezas insertadas");
+            }
+            currentLogicGame.availableBox[indexRow][indexColumn] = false;
+        }
     }
 
     // Verifica tres en raya
-    public boolean scoreThreeInARow(String num){
+    public boolean scoreThreeInARow(String num) {
         boolean ganador = false;
         // Filas
-        if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)){
+        if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)){
+        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)){
+        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)){
+        } else if (currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)){
+        } else if (currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)){
+        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)){
+        } else if (currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
+        } else if (currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
             ganador = true;
         } // Columnas
-        else if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)){
+        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)){
+        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)){
+        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)){
+        } else if (currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)){
+        } else if (currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)){
+        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)){
+        } else if (currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
+        } else if (currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
             ganador = true;
         }// Diagonal
-        else if(currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)){
+        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)){
+        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)){
+        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
             ganador = true;
-        }else if(currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)){
+        } else if (currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
             ganador = true;
         }
         return ganador;
@@ -171,131 +199,131 @@ public class MainFrame {
         b6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            insertPieceToUI(b6);
+                insertPieceToUI(b6);
             }
         });
         d7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d7);
+                insertPieceToUI(d7);
             }
         });
         g7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(g7);
+                insertPieceToUI(g7);
             }
         });
         d6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d6);
+                insertPieceToUI(d6);
             }
         });
         f6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(f6);
+                insertPieceToUI(f6);
             }
 
-    //
+            //
 
 
         });
         c5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(c5);
+                insertPieceToUI(c5);
             }
         });
         d5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d5);
+                insertPieceToUI(d5);
             }
         });
         e5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(e5);
+                insertPieceToUI(e5);
             }
         });
         a4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(a4);
+                insertPieceToUI(a4);
             }
         });
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(b4);
+                insertPieceToUI(b4);
             }
         });
         c4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(c4);
+                insertPieceToUI(c4);
             }
         });
         e4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(e4);
+                insertPieceToUI(e4);
             }
         });
         f4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(f4);
+                insertPieceToUI(f4);
             }
         });
         g4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(g4);
+                insertPieceToUI(g4);
             }
         });
         c3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(c3);
+                insertPieceToUI(c3);
             }
         });
         d3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d3);
+                insertPieceToUI(d3);
             }
         });
         e3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(e3);
+                insertPieceToUI(e3);
             }
         });
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(b2);
+                insertPieceToUI(b2);
             }
         });
         d2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(d2);
+                insertPieceToUI(d2);
             }
         });
         f2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(f2);
+                insertPieceToUI(f2);
             }
         });
         a1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-insertPieceToUI(a1);
+                insertPieceToUI(a1);
             }
         });
         d1.addActionListener(new ActionListener() {
@@ -312,16 +340,16 @@ insertPieceToUI(a1);
         });
 
         //Players
-        this.player1 = new Player("Kenyi","left", "uno");
-        this.player2 = new Player("Herry","right", "dos");
+        this.player1 = new Player("Kenyi", "left", "uno");
+        this.player2 = new Player("Herry", "right", "dos");
 
         namePlayerLeft.setText(player1.name);
         namePlayerRight.setText(player2.name);
         showTurnInUI();
     }
 
-    public JPanel getPanelPrincipal(){
-        return  PanelPrincipal;
+    public JPanel getPanelPrincipal() {
+        return PanelPrincipal;
     }
 
 }
