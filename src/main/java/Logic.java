@@ -92,6 +92,7 @@ public class Logic {
         return indexRow;
     }
     public void insertPiece(String positionPiece, String player1o2){
+<<<<<<< HEAD
         int indexRow = whatIndexRow(positionPiece.charAt(2));
         int indexColumn = whatIndexColumn(positionPiece.charAt(1));
         if(availableBox[indexRow][indexColumn]){
@@ -100,6 +101,12 @@ public class Logic {
             availableBox[indexRow][indexColumn] = false;
         }
 
+=======
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+        myTable[indexRow][indexColumn] = player1o2;
+        showMatrixTableInTHeConsole();
+>>>>>>> 7c506f67b4123d411d8ba7f3e46331cdb7d7be58
     }
 
     public String removePiece(String positionPiece){
@@ -107,6 +114,7 @@ public class Logic {
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = " ";
+        showMatrixTableInTHeConsole();
         return pieceToRemove;
     }
 
@@ -120,9 +128,11 @@ public class Logic {
     public boolean isAvailableContentPiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] != " "){
+        if (myTable[indexRow][indexColumn] == " "){
+         showMatrixTableInTHeConsole();
             return true;
         }
+        showMatrixTableInTHeConsole();
         return false;
     }
 

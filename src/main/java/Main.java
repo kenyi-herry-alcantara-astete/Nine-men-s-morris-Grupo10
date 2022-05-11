@@ -10,7 +10,7 @@ public class Main {
         MainFrame myNineFrame = new MainFrame();
         frame.setContentPane(myNineFrame.getPanelPrincipal());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setBounds(250,100,720,520);
+        frame.setBounds(250,100,820,620);
         frame.setVisible(true);
     }
 }
