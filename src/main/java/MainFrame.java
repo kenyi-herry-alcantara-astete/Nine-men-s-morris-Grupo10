@@ -14,6 +14,7 @@ public class MainFrame {
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
+
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
     private JButton a7;
@@ -108,18 +109,20 @@ public class MainFrame {
     }
 
     // insetPieceToUI
+    public int numberPiecesLeft = 9;
+    public int numberPiecesRight = 9;
     public void insertPieceToUI(JButton contentPiece){
-        if (player1.numberPieces != 0 || player2.numberPieces != 0){
+        if (numberPiecesLeft != 0 || numberPiecesRight != 0){
             if (player1.turn == "uno"){
                 contentPiece.setIcon(IconWithPiece1);
-                pieceLeft[9-player1.numberPieces].setIcon(IconContentEmpty);
-                player1.numberPieces--;
+                pieceLeft[9-numberPiecesLeft].setIcon(IconContentEmpty);
+                numberPiecesLeft--;
                 currentLogicGame.insertPiece(contentPiece.getText(),"1");
 
             }else {
                 contentPiece.setIcon(IconWithPiece2);
-                pieceRight[9-player2.numberPieces].setIcon(IconContentEmpty);
-                player2.numberPieces--;
+                pieceRight[9-numberPiecesRight].setIcon(IconContentEmpty);
+                numberPiecesRight--;
                 currentLogicGame.insertPiece(contentPiece.getText(),"2");
             }
             changeTurn();
@@ -285,6 +288,9 @@ insertPieceToUI(g1);
 
         namePlayerLeft.setText(player1.name);
         namePlayerRight.setText(player2.name);
+
+
+
         showTurnInUI();
     }
 
