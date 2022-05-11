@@ -156,7 +156,7 @@
           <text value=" "/>
         </properties>
       </component>
-      <grid id="72b39" binding="CenterPanel" layout-manager="GridLayoutManager" row-count="19" column-count="19" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="72b39" binding="CenterPanel" layout-manager="GridLayoutManager" row-count="20" column-count="20" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="20" left="20" bottom="20" right="20"/>
         <constraints>
           <grid row="1" column="1" row-span="10" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -168,7 +168,7 @@
         <children>
           <component id="1224d" class="javax.swing.JButton" binding="a7">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -186,7 +186,7 @@
           </component>
           <component id="f89" class="javax.swing.JButton" binding="d7">
             <constraints>
-              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -204,7 +204,7 @@
           </component>
           <component id="13260" class="javax.swing.JButton" binding="d5">
             <constraints>
-              <grid row="6" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="6" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -222,7 +222,7 @@
           </component>
           <component id="953a0" class="javax.swing.JButton" binding="b6">
             <constraints>
-              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -240,7 +240,7 @@
           </component>
           <component id="aa0a9" class="javax.swing.JButton" binding="c5">
             <constraints>
-              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -258,7 +258,7 @@
           </component>
           <component id="64ee6" class="javax.swing.JButton" binding="d6">
             <constraints>
-              <grid row="3" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="3" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -276,7 +276,7 @@
           </component>
           <component id="cc4cf" class="javax.swing.JButton" binding="a1">
             <constraints>
-              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -294,7 +294,7 @@
           </component>
           <component id="7d0c" class="javax.swing.JButton" binding="e5">
             <constraints>
-              <grid row="6" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="6" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -312,7 +312,7 @@
           </component>
           <component id="d84ca" class="javax.swing.JButton" binding="g7">
             <constraints>
-              <grid row="0" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="0" column="19" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -330,7 +330,7 @@
           </component>
           <component id="5ad74" class="javax.swing.JButton" binding="f6">
             <constraints>
-              <grid row="3" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="3" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -348,7 +348,7 @@
           </component>
           <component id="28bf0" class="javax.swing.JButton" binding="g1">
             <constraints>
-              <grid row="18" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="18" column="19" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -366,7 +366,7 @@
           </component>
           <component id="94a7b" class="javax.swing.JButton" binding="d1">
             <constraints>
-              <grid row="18" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="18" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -384,7 +384,7 @@
           </component>
           <component id="48a7a" class="javax.swing.JButton" binding="f4">
             <constraints>
-              <grid row="9" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -402,7 +402,7 @@
           </component>
           <component id="817dd" class="javax.swing.JButton" binding="e4">
             <constraints>
-              <grid row="9" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -420,7 +420,7 @@
           </component>
           <component id="e3eb5" class="javax.swing.JButton" binding="g4">
             <constraints>
-              <grid row="9" column="18" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="19" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -438,7 +438,7 @@
           </component>
           <component id="40902" class="javax.swing.JButton" binding="c4">
             <constraints>
-              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -456,7 +456,7 @@
           </component>
           <component id="19576" class="javax.swing.JButton" binding="b4">
             <constraints>
-              <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -474,7 +474,7 @@
           </component>
           <component id="2a90c" class="javax.swing.JButton" binding="a4">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -492,7 +492,7 @@
           </component>
           <component id="eabad" class="javax.swing.JButton" binding="c3">
             <constraints>
-              <grid row="12" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -510,7 +510,7 @@
           </component>
           <component id="c6a05" class="javax.swing.JButton" binding="e3">
             <constraints>
-              <grid row="12" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="12" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -528,7 +528,7 @@
           </component>
           <component id="8171c" class="javax.swing.JButton" binding="d3">
             <constraints>
-              <grid row="12" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="12" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -546,7 +546,7 @@
           </component>
           <component id="1f248" class="javax.swing.JButton" binding="b2">
             <constraints>
-              <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="15" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -564,7 +564,7 @@
           </component>
           <component id="f7578" class="javax.swing.JButton" binding="d2">
             <constraints>
-              <grid row="15" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="15" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -582,7 +582,7 @@
           </component>
           <component id="a29b3" class="javax.swing.JButton" binding="f2">
             <constraints>
-              <grid row="15" column="15" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="15" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <minimum-size width="40" height="40"/>
                 <preferred-size width="40" height="40"/>
                 <maximum-size width="40" height="40"/>
@@ -601,7 +601,7 @@
           <grid id="4eacf" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="1" column="0" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="1" column="1" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -617,7 +617,7 @@
           <grid id="46679" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="0" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="1" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -633,7 +633,7 @@
           <grid id="d828a" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="1" column="18" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="1" column="19" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -649,7 +649,7 @@
           <grid id="25076" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="7" column="6" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="7" column="7" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -665,7 +665,7 @@
           <grid id="af7d8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="7" column="12" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="7" column="13" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -681,7 +681,7 @@
           <grid id="54324" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="12" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="13" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -697,7 +697,7 @@
           <grid id="c2005" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="6" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="7" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -713,7 +713,7 @@
           <grid id="c5ed" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="4" column="9" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="4" column="10" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -729,7 +729,7 @@
           <grid id="4697c" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="1" column="9" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="1" column="10" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -745,7 +745,7 @@
           <grid id="f8bdc" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="13" column="9" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="13" column="10" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -761,7 +761,7 @@
           <grid id="7c5b8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="16" column="9" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="16" column="10" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -777,7 +777,7 @@
           <grid id="2dbf" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="4" column="15" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="4" column="16" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -793,7 +793,7 @@
           <grid id="ff3f1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="4" column="3" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="4" column="4" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -809,7 +809,7 @@
           <grid id="50a4d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="18" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="19" row-span="8" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -825,7 +825,7 @@
           <grid id="e5416" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="15" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="16" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -841,7 +841,7 @@
           <grid id="a2ff1" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="10" column="3" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="10" column="4" row-span="5" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="5" height="-1"/>
                 <preferred-size width="5" height="-1"/>
                 <maximum-size width="5" height="-1"/>
@@ -857,7 +857,7 @@
           <grid id="dad7a" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="0" column="2" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -873,7 +873,7 @@
           <grid id="e0b22" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="0" column="10" row-span="1" col-span="6" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="0" column="11" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -889,7 +889,7 @@
           <grid id="4ef7b" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="3" column="4" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="3" column="5" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -905,7 +905,7 @@
           <grid id="a083e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="3" column="10" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="3" column="11" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -921,7 +921,7 @@
           <grid id="9fa87" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="6" column="7" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="6" column="8" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -937,7 +937,7 @@
           <grid id="b1b55" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="6" column="10" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="6" column="11" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -953,7 +953,7 @@
           <grid id="9382" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="9" column="4" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="9" column="5" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -969,7 +969,7 @@
           <grid id="c49c5" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="9" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -985,7 +985,7 @@
           <grid id="7f948" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="9" column="13" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="9" column="14" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1001,7 +1001,7 @@
           <grid id="8afc4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="9" column="16" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="9" column="17" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1017,7 +1017,7 @@
           <grid id="225ae" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="12" column="10" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="12" column="11" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1033,7 +1033,7 @@
           <grid id="d03aa" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="12" column="7" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="12" column="8" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1049,7 +1049,7 @@
           <grid id="4216" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="15" column="10" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="15" column="11" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1065,7 +1065,7 @@
           <grid id="55c56" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="15" column="4" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="15" column="5" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1081,7 +1081,7 @@
           <grid id="36aeb" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="18" column="1" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="18" column="2" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1097,7 +1097,7 @@
           <grid id="af2b2" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="18" column="10" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="18" column="11" row-span="1" col-span="8" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="5"/>
                 <preferred-size width="-1" height="5"/>
                 <maximum-size width="-1" height="5"/>
@@ -1110,6 +1110,132 @@
             <border type="none"/>
             <children/>
           </grid>
+          <component id="92748" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="6"/>
+            </properties>
+          </component>
+          <component id="c56eb" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="7"/>
+            </properties>
+          </component>
+          <component id="c4a68" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="5"/>
+            </properties>
+          </component>
+          <component id="b843f" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="4"/>
+            </properties>
+          </component>
+          <component id="e2361" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="3"/>
+            </properties>
+          </component>
+          <component id="436b5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="2"/>
+            </properties>
+          </component>
+          <component id="2693c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="1"/>
+            </properties>
+          </component>
+          <component id="7e99c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="a"/>
+            </properties>
+          </component>
+          <component id="55d1b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="b"/>
+            </properties>
+          </component>
+          <component id="acd65" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="c"/>
+            </properties>
+          </component>
+          <component id="36553" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="d"/>
+            </properties>
+          </component>
+          <component id="5d62e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="13" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="e"/>
+            </properties>
+          </component>
+          <component id="1f030" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="16" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="f"/>
+            </properties>
+          </component>
+          <component id="b2a6b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="19" column="19" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-721413"/>
+              <text value="g"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <component id="eb95c" class="javax.swing.JButton" binding="pieceLeft3">

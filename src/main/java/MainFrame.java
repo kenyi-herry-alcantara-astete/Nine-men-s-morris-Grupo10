@@ -64,8 +64,6 @@ public class MainFrame {
     private JButton [] pieceRight = {pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9};
     private JLabel namePlayerLeft;
     private JLabel namePlayerRight;
-    private JPanel ContentNamePlayerLeft;
-    private JPanel ContentNamePlayerRight;
 
 
     //Methodos que enviaran las entradas de los jugarores
@@ -91,10 +89,10 @@ public class MainFrame {
         }else{
             if (namePlayerRight.getText() == player2.name){
                 namePlayerRight.setBackground(new Color(94,0,215));
-                ContentNamePlayerLeft.setBackground(new Color(32,36,74));
+                namePlayerLeft.setBackground(new Color(32,36,74));
             }else {
                 namePlayerLeft.setBackground(new Color(94,0,215));
-                ContentNamePlayerRight.setBackground(new Color(32,36,74));
+                namePlayerRight.setBackground(new Color(32,36,74));
             }
         }
     }
