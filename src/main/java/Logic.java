@@ -93,8 +93,8 @@ public class Logic {
     }
     public void insertPiece(String positionPiece, String player1o2){
 
-        int indexRow = whatIndexRow(positionPiece.charAt(2));
-        int indexColumn = whatIndexColumn(positionPiece.charAt(1));
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         if(availableBox[indexRow][indexColumn]){
             myTable[indexRow][indexColumn] = player1o2;
             showMatrixTableInTHeConsole();
@@ -102,23 +102,23 @@ public class Logic {
         }
     }
 
-    /*public String removePiece(String positionPiece){
+    public String removePiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = " ";
         showMatrixTableInTHeConsole();
         return pieceToRemove;
-    }*/
+    }
 
-    /*public void movePiece(String positionPieceToRemove,String  newPositionPiece){
+    public void movePiece(String positionPieceToRemove,String  newPositionPiece){
         //RemovePiece
         //SetNewPiece
         insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
-    }*/
+    }
 
     //Is available a content piece?
-    /*public boolean isAvailableContentPiece(String positionPiece){
+    public boolean isAvailableContentPiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         if (myTable[indexRow][indexColumn] == " "){
@@ -127,6 +127,6 @@ public class Logic {
         }
         showMatrixTableInTHeConsole();
         return false;
-    }*/
+    }
 
 }

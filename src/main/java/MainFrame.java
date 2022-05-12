@@ -60,10 +60,9 @@ public class MainFrame {
     private JButton pieceRight8;
     private JButton pieceRight9;
 
-    private JButton[] pieceLeft = {pieceLeft1,pieceLeft2,pieceLeft3,pieceLeft4,pieceLeft5,pieceLeft6,pieceLeft7,pieceLeft8,pieceLeft9};
-    private JButton[] pieceRight = {pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9};
-    //private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
-    //private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
+
+    private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
+    private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
     private JLabel namePlayerLeft;
     private JLabel namePlayerRight;
     private JLabel showIUResult;
@@ -114,8 +113,8 @@ public class MainFrame {
     public int numberPiecesRight = 9;
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-            int indexRow = currentLogicGame.whatIndexRow(contentPiece.getText().charAt(2));
-            int indexColumn = currentLogicGame.whatIndexColumn(contentPiece.getText().charAt(1));
+            int indexRow = currentLogicGame.whatIndexRow(contentPiece.getText().charAt(1));
+            int indexColumn = currentLogicGame.whatIndexColumn(contentPiece.getText().charAt(0));
             if (currentLogicGame.availableBox[indexRow][indexColumn]) {
                 if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
                     if (player1.turn == "uno") {
@@ -139,7 +138,7 @@ public class MainFrame {
         }
 
     //Remove Opponent's pieces
-   /* public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
+    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
             if(myContentPieceToRemove.getIcon() == IconWithPiece1){
                 myContentPieceToRemove.setIcon(IconContentEmpty);
@@ -156,22 +155,21 @@ public class MainFrame {
             System.out.println("Empate");
             showIUResult.setText("Empate!");
         }
-    }*/
+    }
 
     //Action Player at the time
-    /*public void actionPlayerAtTheTime(JButton currentButtonAction){
-        if ((numberPiecesLeft != 0 || numberPiecesRight != 0)&&(currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))){
+    public void actionPlayerAtTheTime(JButton currentButtonAction) {
+        if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))) {
             //In the Beginning
             insertPieceToUI(currentButtonAction);
-        }else{
+        } else {
             //Remove Piece
-            if (numberPiecesLeft == 0 && numberPiecesRight == 0 *//* && Si se cumple el tres en raya*//*){
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0) { //* && Si se cumple el tres en raya*//*){
                 removeOpponentsPiecesOfUI(currentButtonAction);
             }
         }
-            currentLogicGame.availableBox[indexRow][indexColumn] = false;
-        }
-    }*/
+    }
+
 
     // Verifica tres en raya
 
@@ -229,42 +227,43 @@ public class MainFrame {
         a7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //actionPlayerAtTheTime(a7);
+                actionPlayerAtTheTime(a7);
+                insertPieceToUI(a7);
 
             }
         });
         b6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             //actionPlayerAtTheTime(b6);
+             actionPlayerAtTheTime(b6);
             insertPieceToUI(b6);
             }
         });
         d7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(d7);
+            actionPlayerAtTheTime(d7);
                 insertPieceToUI(d7);
             }
         });
         g7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(g7);
+            actionPlayerAtTheTime(g7);
                 insertPieceToUI(g7);
             }
         });
         d6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(d6);
+            actionPlayerAtTheTime(d6);
                 insertPieceToUI(d6);
             }
         });
         f6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(f6);
+            actionPlayerAtTheTime(f6);
                 insertPieceToUI(f6);
             }
 
@@ -272,63 +271,63 @@ public class MainFrame {
         c5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(c5);
+            actionPlayerAtTheTime(c5);
                 insertPieceToUI(c5);
             }
         });
         d5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(d5);
+            actionPlayerAtTheTime(d5);
                 insertPieceToUI(d5);
             }
         });
         e5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(e5);
+            actionPlayerAtTheTime(e5);
                 insertPieceToUI(e5);
             }
         });
         a4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(a4);
+            actionPlayerAtTheTime(a4);
                 insertPieceToUI(a4);
             }
         });
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(b4);
+            actionPlayerAtTheTime(b4);
                 insertPieceToUI(b4);
             }
         });
         c4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(c4);
+            actionPlayerAtTheTime(c4);
                 insertPieceToUI(c4);
             }
         });
         e4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(e4);
+            actionPlayerAtTheTime(e4);
                 insertPieceToUI(e4);
             }
         });
         f4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(f4);
+            actionPlayerAtTheTime(f4);
                 insertPieceToUI(f4);
             }
         });
         g4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(g4);
+            actionPlayerAtTheTime(g4);
                 insertPieceToUI(g4);
             }
         });
@@ -336,7 +335,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(c3);
+            actionPlayerAtTheTime(c3);
 
                 insertPieceToUI(c3);
             }
@@ -345,7 +344,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(d3);
+            actionPlayerAtTheTime(d3);
 
                 insertPieceToUI(d3);
             }
@@ -354,7 +353,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(e3);
+            actionPlayerAtTheTime(e3);
 
                 insertPieceToUI(e3);
             }
@@ -363,7 +362,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(b2);
+            actionPlayerAtTheTime(b2);
 
                 insertPieceToUI(b2);
             }
@@ -372,7 +371,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(d2);
+            actionPlayerAtTheTime(d2);
 
                 insertPieceToUI(d2);
             }
@@ -381,7 +380,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(f2);
+            actionPlayerAtTheTime(f2);
 
                 insertPieceToUI(f2);
             }
@@ -390,7 +389,7 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(a1);
+            actionPlayerAtTheTime(a1);
 
                 insertPieceToUI(a1);
             }
@@ -399,14 +398,14 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-            //actionPlayerAtTheTime(d1);
+            actionPlayerAtTheTime(d1);
                 insertPieceToUI(d1);
             }
         });
         g1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            //actionPlayerAtTheTime(g1);
+            actionPlayerAtTheTime(g1);
                 insertPieceToUI(g1);
             }
         });
