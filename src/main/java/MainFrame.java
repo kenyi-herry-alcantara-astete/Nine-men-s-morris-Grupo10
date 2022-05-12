@@ -155,18 +155,49 @@ public class MainFrame {
             System.out.println("Empate");
             showIUResult.setText("Empate!");
         }
+        changeTurn();
     }
 
     //Action Player at the time
+    boolean existTicTacToe = false;
+
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
-        if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))) {
-            //In the Beginning
-            insertPieceToUI(currentButtonAction);
-        } else {
-            //Remove Piece
-            if (numberPiecesLeft == 0 && numberPiecesRight == 0) { //* && Si se cumple el tres en raya*//*){
-                removeOpponentsPiecesOfUI(currentButtonAction);
-            }
+
+       if(!existTicTacToe){
+           if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))) {
+               showIUResult.setText("");
+               //In the Beginning
+               insertPieceToUI(currentButtonAction);
+               //Verificando el tres en raya
+
+
+
+               if (player1.turn == "dos"){
+                   existTicTacToe =  scoreThreeInARow("1");
+                   if(existTicTacToe){
+                       // Mostrando alerta de tres en raya
+                       showIUResult.setText("Tres en raya para el jugador 1");
+                       //Regresando el tunos, para que jueue nuevamente
+                       changeTurn();
+                   }
+               }
+              else {
+                   if(player2.turn == "dos"){
+                       existTicTacToe= scoreThreeInARow("2");
+                       if (existTicTacToe){
+                           // Mostrando alerta de tres en raya
+                           showIUResult.setText("Tres en raya para el jugador 2");
+                           //Regresando el tunos, para que jueue nuevamente
+                           changeTurn();
+                       }
+                   }
+               }
+
+           }
+       }else{
+            removeOpponentsPiecesOfUI(currentButtonAction);
+            existTicTacToe = false;
+            showIUResult.setText("");
         }
     }
 
