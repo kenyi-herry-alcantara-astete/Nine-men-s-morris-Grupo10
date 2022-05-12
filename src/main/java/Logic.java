@@ -106,7 +106,7 @@ public class Logic {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         String pieceToRemove = myTable[indexRow][indexColumn];
-        myTable[indexRow][indexColumn] = " ";
+        myTable[indexRow][indexColumn] = "0";
         showMatrixTableInTHeConsole();
         return pieceToRemove;
     }
@@ -121,7 +121,7 @@ public class Logic {
     public boolean isAvailableContentPiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] == " "){
+        if (myTable[indexRow][indexColumn] == "0"){
          showMatrixTableInTHeConsole();
             return true;
         }
