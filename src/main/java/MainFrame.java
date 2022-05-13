@@ -1,11 +1,25 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainFrame extends JFrame{
+
+public class MainFrame extends JFrame {
+
+    public Player player1;
+    public Player player2;
+
+    public Logic currentLogicGame = new Logic();
+
+    ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
+    ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
+    ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
+
+    ImageIcon IconMove = new ImageIcon("src/main/resources/Image/AvailableContent.png");
+
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
-    private JButton b7;
+    private JButton a7;
     private JButton d7;
     private JButton g7;
     private JButton b6;
@@ -29,36 +43,498 @@ public class MainFrame extends JFrame{
     private JButton a1;
     private JButton d1;
     private JButton g1;
+    private JButton pieceLeft1;
+    private JButton pieceLeft2;
+    private JButton pieceLeft3;
+    private JButton pieceLeft4;
+    private JButton pieceLeft5;
+    private JButton pieceLeft6;
+    private JButton pieceLeft7;
+    private JButton pieceLeft8;
+    private JButton pieceLeft9;
+    private JButton pieceRight1;
+    private JButton pieceRight2;
+    private JButton pieceRight3;
+    private JButton pieceRight4;
+    private JButton pieceRight5;
+    private JButton pieceRight6;
+    private JButton pieceRight7;
+    private JButton pieceRight8;
+    private JButton pieceRight9;
+
+    private JButton [] pieceLeft = {pieceLeft1,pieceLeft2,pieceLeft3,pieceLeft4,pieceLeft5,pieceLeft6,pieceLeft7,pieceLeft8,pieceLeft9};
+    private JButton [] pieceRight = {pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9};
+     JLabel namePlayerLeft;
+     JLabel namePlayerRight;
+    private JLabel showIUResult;
 
 
     //Methodos que enviaran las entradas de los jugarores
     /**/
 
+    //Current Player
+    public Player currentTurn(){
+        if (player1.turn == "uno"){
+            return player1;
+        }else return player2;
+    }
+
+    //Show the turn
+    public void showTurnInUI(){
+        if (player1.turn == "uno"){
+            if (namePlayerLeft.getText() == player1.name){
+                namePlayerLeft.setBackground(new Color(32,36,74));
+                namePlayerRight.setBackground(new Color(94,0,215));
+            }else {
+                namePlayerRight.setBackground(new Color(32,36,74));
+                namePlayerLeft.setBackground(new Color(94,0,215));
+            }
+        }else{
+            if (namePlayerRight.getText() == player2.name){
+                namePlayerRight.setBackground(new Color(32,36,74));
+                namePlayerLeft.setBackground(new Color(94,0,215));
+            }else {
+                namePlayerLeft.setBackground(new Color(32,36,74));
+                namePlayerRight.setBackground(new Color(94,0,215));
+            }
+        }
+    }
+
+
+    //Change turn
+    public void changeTurn(){
+        String aux1 ;
+                aux1 = player1.turn;
+        player1.turn  = player2.turn;
+
+        player2.turn = aux1;
+
+
+        showTurnInUI();
+
+    }
+
+
+    // insetPieceToUI
+    public int numberPiecesLeft = 9;
+    public int numberPiecesRight = 9;
+
+
+    //Action Player at the time
+    boolean existTicTacToe = false;
+    public void actionPlayerAtTheTime(JButton currentButtonAction) {
+
+        if(!existTicTacToe){
+            if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))) {
+                showIUResult.setText("");
+                //In the Beginning
+                insertPieceToUI(currentButtonAction);
+                //Verificando el tres en raya
+
+
+
+                if (player1.turn == "dos"){
+                    existTicTacToe =  scoreThreeInARow("1");
+                    if(existTicTacToe){
+                        // Mostrando alerta de tres en raya
+                        showIUResult.setText("Tres en raya para el jugador 1");
+                        //Regresando el tunos, para que jueue nuevamente
+                        changeTurn();
+                    }
+                }
+                else {
+                    if(player2.turn == "dos"){
+                        existTicTacToe= scoreThreeInARow("2");
+                        if (existTicTacToe){
+                            // Mostrando alerta de tres en raya
+                            showIUResult.setText("Tres en raya para el jugador 2");
+                            //Regresando el tunos, para que jueue nuevamente
+                            changeTurn();
+                        }
+                    }
+                }
+
+            }
+        }else{
+            removeOpponentsPiecesOfUI(currentButtonAction);
+            existTicTacToe = false;
+            showIUResult.setText("");
+        }
+    }
+
+
+
+    //Remove Opponent's pieces
+    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
+
+        if(myContentPieceToRemove.getIcon() == IconWithPiece1){
+            myContentPieceToRemove.setIcon(IconContentEmpty);
+            currentLogicGame.removePiece(myContentPieceToRemove.getText());
+            player1.numberPieces --;
+        }
+
+        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
+            myContentPieceToRemove.setIcon(IconContentEmpty);
+            currentLogicGame.removePiece(myContentPieceToRemove.getText());
+            player2.numberPieces --;
+        }
+        if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
+            System.out.println("Empate");
+            showIUResult.setText("Empate!");
+        }
+        changeTurn();
+    }
+    private JButton lastButton = a7;
+    public int numberMove = 0;
+
+    public void insertPieceToUI(JButton contentPiece){
+        int indexRow = currentLogicGame.whatIndexRow(contentPiece.getText().charAt(1));
+        int indexColumn = currentLogicGame.whatIndexColumn(contentPiece.getText().charAt(0));
+        //condicion para seleccionar una pieza para moverse
+        if(numberPiecesLeft == 0 && numberPiecesRight == 0 && (contentPiece.getIcon() == IconWithPiece1 ||
+                contentPiece.getIcon() == IconWithPiece2 )) {
+            movePieceToUI(contentPiece);
+        }
+        if (currentLogicGame.availableBox[indexRow][indexColumn]) {
+            if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
+                if (player1.turn == "uno") {
+                    if(numberMove == 1 /*&& contentPiece.getIcon() == IconContentEmpty*/){
+                        lastButton.setIcon(IconContentEmpty);
+                        int indexRow1 = currentLogicGame.whatIndexRow(lastButton.getText().charAt(1));
+                        int indexColumn2 = currentLogicGame.whatIndexColumn(lastButton.getText().charAt(0));
+                        currentLogicGame.availableBox[indexRow1][indexColumn2] = true;
+                        numberMove=0;
+                        System.out.println(numberMove);
+
+                    }
+                    contentPiece.setIcon(IconWithPiece1);
+                    pieceLeft[9 - numberPiecesLeft].setIcon(IconContentEmpty);
+                    numberPiecesLeft--;
+                    currentLogicGame.insertPiece(contentPiece.getText(), "1");
+
+
+                } else {
+                    if(numberMove == 1 /*&& contentPiece.getIcon() == IconContentEmpty*/){
+                        lastButton.setIcon(IconContentEmpty);
+                        int indexRow1 = currentLogicGame.whatIndexRow(lastButton.getText().charAt(1));
+                        int indexColumn2 = currentLogicGame.whatIndexColumn(lastButton.getText().charAt(0));
+                        currentLogicGame.availableBox[indexRow1][indexColumn2] = true;
+                        numberMove=0;
+                        System.out.println(numberMove);
+                    }
+                    contentPiece.setIcon(IconWithPiece2);
+                    pieceRight[9 - numberPiecesRight].setIcon(IconContentEmpty);
+                    numberPiecesRight--;
+                    currentLogicGame.insertPiece(contentPiece.getText(), "2");
+                }
+
+                changeTurn();
+            } else {
+                System.out.println("Todas las piezas insertadas");
+
+            }
+
+            currentLogicGame.availableBox[indexRow][indexColumn] = false;
+
+
+        }
+
+    }
+    //mover pieza
+    public void movePieceToUI(JButton myMoveContentPiece){
+            if (player1.turn == "uno"){
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberPiecesLeft++;
+                numberMove++;
+                System.out.println(numberMove);
+            }else {
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberPiecesRight++;
+                numberMove++;
+                System.out.println(numberMove);
+            }
+        //}
+    }
+
+    //Action Player at the time
+
+
+    public boolean scoreThreeInARow(String num) {
+        boolean ganador = false;
+        // Filas
+        if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
+            ganador = true;
+        } // Columnas
+        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
+            ganador = true;
+        }// Diagonal
+        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
+            ganador = true;
+        } else if (currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
+            ganador = true;
+        }
+        return ganador;
+    }
+
 
     public MainFrame() {
-
         //Caracteristicas de la ventana que se va abrir
         setSize(300,300);
         setContentPane(PanelPrincipal);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(250,100,720,520);
+        setBounds(250,100,820,620);
+        setVisible(true);//mostrar la venta FirstPanel
 
-        //funcion del button
-        b7.addActionListener(new ActionListener() {
+        a7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a7);
+                insertPieceToUI(a7);
 
             }
         });
-        setVisible(true);//mostrar la venta FirstPanel
 
+        b6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b6);
+                insertPieceToUI(b6);
+
+            }
+        });
+        d7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d7);
+                insertPieceToUI(d7);
+
+            }
+        });
+        g7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g7);
+                insertPieceToUI(g7);
+
+            }
+        });
+        d6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d6);
+                insertPieceToUI(d6);
+
+            }
+        });
+        f6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f6);
+                insertPieceToUI(f6);
+
+            }
+
+    //
+
+
+        });
+        c5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c5);
+                insertPieceToUI(c5);
+
+            }
+        });
+        d5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d5);
+                insertPieceToUI(d5);
+
+            }
+        });
+        e5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e5);
+                insertPieceToUI(e5);
+
+            }
+        });
+        a4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a4);
+                insertPieceToUI(a4);
+
+            }
+        });
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b4);
+                insertPieceToUI(b4);
+
+            }
+        });
+        c4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c4);
+                insertPieceToUI(c4);
+
+            }
+        });
+        e4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e4);
+                insertPieceToUI(e4);
+
+            }
+        });
+        f4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f4);
+                insertPieceToUI(f4);
+
+            }
+        });
+        g4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g4);
+                insertPieceToUI(g4);
+
+            }
+        });
+        c3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c3);
+                insertPieceToUI(c3);
+
+            }
+        });
+        d3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d3);
+                insertPieceToUI(d3);
+
+            }
+        });
+        e3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e3);
+                insertPieceToUI(e3);
+
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b2);
+                insertPieceToUI(b2);
+
+            }
+        });
+        d2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d2);
+                insertPieceToUI(d2);
+
+            }
+        });
+        f2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f2);
+                insertPieceToUI(f2);
+
+            }
+        });
+        a1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a1);
+                insertPieceToUI(a1);
+
+            }
+        });
+        d1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d1);
+                insertPieceToUI(d1);
+
+            }
+        });
+        g1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g1);
+                insertPieceToUI(g1);
+
+            }
+        });
+
+
+        player1 = new Player("kenyi","left", "uno");
+        player2 = new Player("Herry","right", "dos");
+
+
+
+        //namePlayerLeft.setText("sd");
+        //namePlayerRight.setText("ndf");
+        showTurnInUI();
     }
+
+
+
 
     public JPanel getPanelPrincipal(){
         return  PanelPrincipal;
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
 }

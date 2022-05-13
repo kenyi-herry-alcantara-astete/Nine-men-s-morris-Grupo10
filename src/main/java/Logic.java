@@ -1,248 +1,136 @@
 public class Logic {
+    // Orden de la matriz
+    private int n = 7;
+    // Matriz de casillas disponibles
+    protected boolean[][] availableBox = new boolean[n][n];
+    //Matriz tabla que muestra las jugadas en el tiempo
+    protected String [][] myTable = new String[n][n];
 
-    //Definir una matriz de 7x7 [1,2,..,7][a,b,c...,g]
-    //Este nos dira la disponibilidad de los campos en el tiempo
-
-    private String [][] myTable ={{" ","0","0"," ","0","0"," "},
-                                  {"0"," ","0"," ","0"," ","0"},
-                                  {"0","0"," "," "," ","0","0"},
-                                  {" "," "," ","0"," "," "," "},
-                                  {"0","0"," "," "," ","0","0"},
-                                  {"0"," ","0"," ","0"," ","0"},
-                                  {" ","0","0"," ","0","0"," "}};
-
-    private int whatIndexColumn(char notationColumn){
-        return  notationColumn - 60;
+    public Logic(){
+        fillInBoxes();
+        fillMyTable();
     }
-    private  int whatIndexRow(char notationRow){
-        int indexRow = notationRow;
-        return (indexRow)%7;
+    public void fillInBoxes(){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                availableBox[i][j] = true;
+            }
+        }
     }
-    public void insertPiece(String positionPiece){
+
+    public void fillMyTable(){
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                myTable[i][j] = "0";
+            }
+        }
+    }
+    public void showMatrixTableInTHeConsole (){
+        System.out.println("--------------------------------");
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                System.out.print(myTable[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public int whatIndexColumn(char notationColumn){
+        int indexColum = -1;
+        switch (notationColumn){
+            case 'a':
+                indexColum = 0;
+                break;
+            case 'b':
+                indexColum = 1;
+                break;
+            case 'c':
+                indexColum = 2;
+                break;
+            case 'd':
+                indexColum = 3;
+                break;
+            case 'e':
+                indexColum = 4;
+                break;
+            case 'f':
+                indexColum = 5;
+                break;
+            case 'g':
+                indexColum = 6;
+                break;
+        }
+        return indexColum;
+    }
+    public  int whatIndexRow(char notationRow){
+        int indexRow = -1;
+        switch (notationRow){
+            case '7':
+                indexRow = 0;
+                break;
+            case '6':
+                indexRow = 1;
+                break;
+            case '5':
+                indexRow = 2;
+                break;
+            case '4':
+                indexRow = 3;
+                break;
+            case '3':
+                indexRow = 4;
+                break;
+            case '2':
+                indexRow = 5;
+                break;
+            case '1':
+                indexRow = 6;
+                break;
+        }
+        return indexRow;
+    }
+    public void insertPiece(String positionPiece, String player1o2){
+
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        myTable[indexRow][indexColumn] = positionPiece + positionPiece.charAt(2);
+        if(availableBox[indexRow][indexColumn]){
+            myTable[indexRow][indexColumn] = player1o2;
+            showMatrixTableInTHeConsole();
+            availableBox[indexRow][indexColumn] = false;
+        }
     }
 
-    public void removePiece(String positionPiece){
+
+
+    public String removePiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+        String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = " ";
+        showMatrixTableInTHeConsole();
+        return pieceToRemove;
     }
 
     public void movePiece(String positionPieceToRemove,String  newPositionPiece){
-        //RemovePiece
-        removePiece(positionPieceToRemove);
-        //SetNewPiece
-        insertPiece(newPositionPiece);
+
+       /* if(myTable[i][j] =) {
+            insertPiece(newPositionPiece, removePiece(positionPieceToRemove));
+        }*/
     }
 
-
-
-
-//Definir una matriz de adyacencia del grafo
-//Este nos dira los conectores por donde podemos movernos
-
-int[][]   adjacencyMatrix = {{1,1,0,0,0,0,0,0,0,1, 0,0 ,0 ,0 ,0 ,0 , 0 , 0 ,0  ,0  ,0  ,0  ,0  ,0  },
-        {1,1,1,0,1,0,0, 0, 0, 0,0  ,  0, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ,0  , 0 },
-        {0,1,1,0 , 0, 0, 0, 0, 0, 0, 0 , 0 ,  0,  0, 1, 0 , 0 , 0 ,  0,  0,  0,  0,  0, 0 },
-        { 0, 0, 0,1,1,0 ,0 , 0,0 , 0, 1, 0 ,  0,  0,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        {0,1,0 ,1,1,1,0 ,1, 0, 0, 0 , 0 ,  0,  0,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        {0, 0, 0, 0,1,1, 0, 0, 0, 0, 0 , 0 , 0 , 1,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        { 0, 0, 0, 0,0 , 0,1,1, 0, 0, 0 , 1, 0 ,  0,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        { 0,0 ,0 ,0 ,1,0 ,1,1,1, 0,  0, 0 ,  0,  0,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        { 0,0 ,0 ,0 ,0 ,0 ,0 ,1,1, 0,  0, 0 , 1,  0,  0, 0 , 0 , 0 ,  0,  0,  0,  0,  0,  0},
-        {1, 0, 0, 0, 0, 0, 0,0 , 0,1, 1,  0,  0,  0,  0, 0 , 0 , 0 ,0  , 0 , 0 , 1,  0, 0 },
-        {0 ,0 , 0,1,0 , 0,0 , 0,0 ,1, 1, 1,  0,  0,0  , 0 , 0 ,  0, 1, 0 ,  0, 0 ,  0, 0 },
-        {0 ,0 , 0, 0, 0, 0,1,0 ,0 , 0, 1, 1,  0,  0, 0 , 1, 0 , 0 , 0 , 0 ,0  , 0 ,  0, 0 },
-        {0 ,0 , 0, 0, 0,0 , 0, 0,1, 0, 0 ,  0, 1, 1,  0, 0 ,  0, 1, 0 ,  0,  0, 0 ,  0, 0 },
-        {0 ,0 , 0, 0, 0,1, 0, 0, 0, 0,  0,  0, 1, 1, 1,  0, 0 , 0 , 0 , 0 , 1,  0,  0, 0 },
-        {0 ,0 ,1, 0, 0, 0,0 ,0 , 0, 0,  0,0  ,  0, 1, 1,  0, 0 , 0 ,  0, 0 , 0 ,0  , 0 , 1},
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 , 1, 0 , 0 , 0 , 1, 1,  0, 0 , 0 ,  0, 0 , 0 ,  0},
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 0 ,  0, 0 , 1, 1, 1,  0, 1, 0 ,  0,  0, 0 },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 1,  0,  0,  0, 1, 1, 0 ,  0, 0 ,  0,  0, 0 },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 1,  0, 0 ,  0,  0,  0,  0, 0 , 1, 1, 0 ,  0,  0, 0 },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 0 , 0 , 0 , 0 , 1, 0 , 1, 1, 1, 0 , 1,0  },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 0 , 1, 0 , 0 ,  0, 0 , 0 , 1, 1,  0, 0 ,0  },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 ,1, 0 ,  0, 0 ,  0,  0,  0,  0, 0 , 0 ,  0, 0 , 1, 1,0  },
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 0 , 0 , 0 , 0 , 0 ,0  ,0  , 1,  0, 1, 1, 1},
-        {0 ,0 , 0,0 ,0 ,0 , 0, 0,0 , 0, 0 ,  0, 0 , 0 , 1, 0 ,  0, 0 , 0 , 0 ,  0, 0 , 1, 1}};
-
-
-    //Finding the node
-    public int findingTheNode(String positionPiece) {
-        int node = -1;
-        switch (positionPiece) {
-            case "a7":
-                node = 0;
-                break;
-            case "d7":
-                node = 1;
-                break;
-            case "g7":
-                node = 2;
-                break;
-            case "b6":
-                node = 3;
-                break;
-            case "d6":
-                node = 4;
-                break;
-            case "f6":
-                node = 5;
-                break;
-            case "c5":
-                node = 6;
-                break;
-            case "d5":
-                node = 7;
-                break;
-            case "e5":
-                node = 8;
-                break;
-            case "a4":
-                node = 9;
-                break;
-            case "b4":
-                node = 10;
-            case "c4":
-                node = 11;
-                break;
-            case "e4":
-                node = 12;
-                break;
-            case "f4":
-                node = 13;
-                break;
-            case "g4":
-                node = 14;
-                break;
-            case "c3":
-                node = 15;
-                break;
-            case "d3":
-                node = 16;
-                break;
-            case "e3":
-                node = 17;
-                break;
-            case "b2":
-                node = 18;
-                break;
-            case "d2":
-                node = 19;
-                break;
-            case "f2":
-                node = 20;
-                break;
-            case "a1":
-                node = 21;
-                break;
-            case "d1":
-                node = 22;
-                break;
-            case "g1":
-                node = 23;
-                break;
-
+    //Is available a content piece?
+    //Is available a content piece?
+    public boolean isAvailableContentPiece(String positionPiece){
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+        if (myTable[indexRow][indexColumn] == " "){
+            showMatrixTableInTHeConsole();
+            return true;
         }
-        return node;
+        showMatrixTableInTHeConsole();
+        return false;
     }
-
-    //Finding the piece
-    public int findingThePiece(int node) {
-        String piece = "";
-        switch (node) {
-            case 0:
-                piece = "a7";
-                break;
-            case 1:
-                piece = "d7";
-                break;
-            case 2:
-                piece = "g7";
-                break;
-            case 3:
-                piece = "b6";
-                break;
-            case 4:
-                piece = "d6";
-                break;
-            case 5:
-                piece = "f6";
-                break;
-            case 6:
-                piece = "c5";
-                break;
-            case 7:
-                piece = "d5";
-                break;
-            case 8:
-                piece = "e5";
-                break;
-            case 9:
-                piece = "a4";
-                break;
-            case 10:
-                piece = "b4";
-            case 11:
-                piece = "c4";
-                break;
-            case 12:
-                piece = "e4";
-                break;
-            case 13:
-                piece = "f4";
-                break;
-            case 14:
-                piece = "g4";
-                break;
-            case 15:
-                piece = "c3";
-                break;
-            case 16:
-                piece = "d3";
-                break;
-            case 17:
-                piece = "e3";
-                break;
-            case 18:
-                piece = "b2";
-                break;
-            case 19:
-                piece = "d2";
-                break;
-            case 20:
-                piece = "f2";
-                break;
-            case 21:
-                piece = "a1";
-                break;
-            case 22:
-                piece = "d1";
-                break;
-            case 23:
-                piece = "g1";
-                break;
-
-        }
-        return node;
-    }
-    //Return the adjacent nodes
-    public String adjacentNodes(String positionPiece){
-        int myNode = findingTheNode(positionPiece.charAt(0)+positionPiece.charAt(1)+"");
-        //Finding pieces adjacent
-        String pieces = "";
-        for (int j = 0; j<24;j++){
-                if (adjacencyMatrix[myNode][j] == 1){
-                    pieces  = pieces + findingThePiece(j);
-                //Falta ver si esta vacio o no (I want to go to bed). Please complete
-                }
-            }
-
-
-        return pieces;
-    }
-
 
 }
