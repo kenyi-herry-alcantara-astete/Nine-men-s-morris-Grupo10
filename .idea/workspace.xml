@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
->>>>>>> 6c340aada940932bf17856d64e073d307014085c
+      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +30,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -61,7 +64,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.LogicTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Nine-men-s-morris-Grupo10" />
@@ -78,6 +81,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LogicTest.getIsAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Nine-men-s-morris-Grupo10" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LogicTest" />
+      <option name="METHOD_NAME" value="getIsAvailableContentPieceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogicTest.isAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Nine-men-s-morris-Grupo10" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,9 +103,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LogicTest" />
         <item itemvalue="JUnit.LogicTest.isAvailableContentPieceTest" />
+        <item itemvalue="JUnit.LogicTest.getIsAvailableContentPieceTest" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

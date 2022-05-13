@@ -108,6 +108,7 @@ public class Logic {
         String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = "0";
         showMatrixTableInTHeConsole();
+        setAvailableContentPiece(positionPiece,true);
         return pieceToRemove;
     }
 
