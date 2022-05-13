@@ -2,7 +2,7 @@ public class Logic {
     // Orden de la matriz
     private int n = 7;
     // Matriz de casillas disponibles
-    protected boolean[][] availableBox = new boolean[n][n];
+    private boolean[][] availableBox = new boolean[n][n];
     //Matriz tabla que muestra las jugadas en el tiempo
     protected String [][] myTable = new String[n][n];
 
@@ -117,16 +117,22 @@ public class Logic {
         insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
     }
 
-    //Is available a content piece?
-    public boolean isAvailableContentPiece(String positionPiece){
+    // obtener verificación si la casilla está vacía
+    public boolean getIsAvailableContentPiece(String positionPiece){
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] == "0"){
-         showMatrixTableInTHeConsole();
+        if (availableBox[indexRow][indexColumn]) {
+            showMatrixTableInTHeConsole();
             return true;
         }
-        showMatrixTableInTHeConsole();
         return false;
+    }
+
+    // establecer si la casilla esta vacia o llena
+    public void setAvailableContentPiece(String positionPiece, boolean available){
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+        availableBox[indexRow][indexColumn] = available;
     }
 
 }

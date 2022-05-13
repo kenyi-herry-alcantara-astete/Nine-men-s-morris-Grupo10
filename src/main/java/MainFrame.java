@@ -113,9 +113,7 @@ public class MainFrame {
     public int numberPiecesRight = 9;
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
-            int indexRow = currentLogicGame.whatIndexRow(contentPiece.getText().charAt(1));
-            int indexColumn = currentLogicGame.whatIndexColumn(contentPiece.getText().charAt(0));
-            if (currentLogicGame.availableBox[indexRow][indexColumn]) {
+            if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
                 if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
                     if (player1.turn == "uno") {
                         contentPiece.setIcon(IconWithPiece1);
@@ -133,7 +131,7 @@ public class MainFrame {
                 } else {
                     System.out.println("Todas las piezas insertadas");
                 }
-                currentLogicGame.availableBox[indexRow][indexColumn] = false;
+                currentLogicGame.setAvailableContentPiece(contentPiece.getText(), false);
             }
         }
 
@@ -164,7 +162,7 @@ public class MainFrame {
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
 
        if(!existTicTacToe){
-           if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.isAvailableContentPiece(currentButtonAction.getText()))) {
+           if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                showIUResult.setText("");
                //In the Beginning
                insertPieceToUI(currentButtonAction);
