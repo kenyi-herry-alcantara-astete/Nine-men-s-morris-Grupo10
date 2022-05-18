@@ -1,35 +1,64 @@
+
 public class Logic {
     // Orden de la matriz
     private int n = 7;
     // Matriz de casillas disponibles
-    private boolean[][] availableBox = new boolean[n][n];
+    protected boolean[][] availableBox = new boolean[n][n];
     //Matriz tabla que muestra las jugadas en el tiempo
-    protected String [][] myTable = new String[n][n];
+    protected String[][] myTable = new String[n][n];
 
-    public Logic(){
+    public Logic() {
         fillInBoxes();
         fillMyTable();
     }
-    public void fillInBoxes(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
+
+    public void fillInBoxes() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 availableBox[i][j] = true;
             }
         }
+        availableBox[1][0] = false;
+        availableBox[0][1] = false;
+        availableBox[0][2] = false;
+        availableBox[3][3] = false;
+        availableBox[2][0] = false;
+        availableBox[2][1] = false;
+        availableBox[1][2] = false;
+        availableBox[4][0] = false;
+        availableBox[4][1] = false;
+        availableBox[5][2] = false;
+        availableBox[5][0] = false;
+        availableBox[6][1] = false;
+        availableBox[6][2] = false;
+
+        availableBox[0][4] = false;
+        availableBox[0][5] = false;
+        availableBox[1][6] = false;
+        availableBox[1][4] = false;
+        availableBox[2][5] = false;
+        availableBox[2][6] = false;
+        availableBox[5][4] = false;
+        availableBox[4][5] = false;
+        availableBox[4][6] = false;
+        availableBox[6][4] = false;
+        availableBox[6][5] = false;
+        availableBox[5][6] = false;
     }
 
-    public void fillMyTable(){
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
+    public void fillMyTable() {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 myTable[i][j] = "0";
             }
         }
     }
-    public void showMatrixTableInTHeConsole (){
+
+    public void showMatrixTableInTHeConsole() {
         System.out.println("--------------------------------");
 
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 System.out.print(myTable[i][j] + " ");
             }
             System.out.println();
@@ -37,9 +66,9 @@ public class Logic {
 
     }
 
-    public int whatIndexColumn(char notationColumn){
+    public int whatIndexColumn(char notationColumn) {
         int indexColum = -1;
-        switch (notationColumn){
+        switch (notationColumn) {
             case 'a':
                 indexColum = 0;
                 break;
@@ -64,9 +93,10 @@ public class Logic {
         }
         return indexColum;
     }
-    public int whatIndexRow(char notationRow){
+
+    public int whatIndexRow(char notationRow) {
         int indexRow = -1;
-        switch (notationRow){
+        switch (notationRow) {
             case '7':
                 indexRow = 0;
                 break;
@@ -91,35 +121,38 @@ public class Logic {
         }
         return indexRow;
     }
-    public void insertPiece(String positionPiece, String player1o2){
+
+    public void insertPiece(String positionPiece, String player1o2) {
 
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if(availableBox[indexRow][indexColumn]){
+        if (availableBox[indexRow][indexColumn]) {
             myTable[indexRow][indexColumn] = player1o2;
             showMatrixTableInTHeConsole();
             availableBox[indexRow][indexColumn] = false;
         }
     }
 
-    public String removePiece(String positionPiece){
+    public String removePiece(String positionPiece) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = "0";
         showMatrixTableInTHeConsole();
-        setAvailableContentPiece(positionPiece,true);
+        setAvailableContentPiece(positionPiece, true);
         return pieceToRemove;
     }
 
-    public void movePiece(String positionPieceToRemove,String  newPositionPiece){
+    public void movePiece(String positionPieceToRemove) {
         //RemovePiece
         //SetNewPiece
-        insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
+        setAvailableContentPiece(positionPieceToRemove, true);
+        removePiece(positionPieceToRemove);
+        //insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
     }
 
     // obtener verificación si la casilla está vacía
-    public boolean getIsAvailableContentPiece(String positionPiece){
+    public boolean getIsAvailableContentPiece(String positionPiece) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         if (availableBox[indexRow][indexColumn]) {
@@ -130,10 +163,111 @@ public class Logic {
     }
 
     // establecer si la casilla esta vacia o llena
-    public void setAvailableContentPiece(String positionPiece, boolean available){
+    public void setAvailableContentPiece(String positionPiece, boolean available) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         availableBox[indexRow][indexColumn] = available;
+    }
+
+    public boolean validateMove(String positionPiece, String lastButton) {
+
+        int indexRow = whatIndexRow(lastButton.charAt(1));
+        int indexColumn = whatIndexColumn(lastButton.charAt(0));
+        int indexRow1 = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn1 = whatIndexColumn(positionPiece.charAt(0));
+
+        //column
+        if (indexColumn == indexColumn1) {
+            //porAbajo
+            if (indexRow - indexRow1< 0) {
+                if (Math.abs(indexRow1 - indexRow) == 1) {
+                    return true;
+                }
+                if (Math.abs(indexRow1 - indexRow) == 2) {
+
+                    if (!availableBox[indexRow + 1][indexColumn] && myTable[indexRow+1][indexColumn] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+                if (Math.abs(indexRow1 - indexRow) == 3) {
+
+                    if (!availableBox[indexRow + 1][indexColumn] && !availableBox[indexRow + 2][indexColumn] &&
+                            myTable[indexRow + 1][indexColumn] == "0" && myTable[indexRow + 2][indexColumn] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            //porArriba
+            if (indexRow - indexRow1 > 0) {
+                if (Math.abs(indexRow1 - indexRow) == 1) {
+                    return true;
+                }
+                if (Math.abs(indexRow1 - indexRow) == 2) {
+
+                    if (!availableBox[indexRow - 1][indexColumn] && myTable[indexRow+1][indexColumn] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+                if (Math.abs(indexRow1 - indexRow) == 3) {
+
+                    if (!availableBox[indexRow - 1][indexColumn] && !availableBox[indexRow - 2][indexColumn] &&
+                            myTable[indexRow - 1][indexColumn] == "0" && myTable[indexRow - 2][indexColumn] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+        //filas
+        if (indexRow == indexRow1) {
+            //a la derecha
+            if (indexColumn - indexColumn1 < 0) {
+                System.out.println("entro a la derecha");
+                if (Math.abs(indexColumn1 - indexColumn) == 1) {
+                    return true;
+                }
+                if (Math.abs(indexColumn1 - indexColumn) == 2) {
+
+                    if (!availableBox[indexRow][indexColumn+1] && myTable[indexRow][indexColumn+1] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+                if (Math.abs(indexColumn1 - indexColumn) == 3) {
+
+                    if ((!availableBox[indexRow ][indexColumn+1] && !availableBox[indexRow][indexColumn+2]) &&
+                            (myTable[indexRow ][indexColumn+1] == "0" && myTable[indexRow][indexColumn+2] == "0")) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            //a la izquierda
+            if (indexColumn - indexColumn1 > 0) {
+                if (Math.abs(indexColumn1 - indexColumn) == 1) {
+                    return true;
+                }
+                if (Math.abs(indexColumn1 - indexColumn) == 2) {
+
+                    if (!availableBox[indexRow ][indexColumn-1] && myTable[indexRow][indexColumn-1] == "0") {
+                        return true;
+                    }
+                    return false;
+                }
+                if (Math.abs(indexColumn1 - indexColumn) == 3) {
+
+                    if ((!availableBox[indexRow ][indexColumn - 1] && !availableBox[indexRow ][indexColumn - 2]) &&
+                            (myTable[indexRow ][indexColumn - 1] == "0" && myTable[indexRow ][indexColumn - 2] == "0")) {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 
 }

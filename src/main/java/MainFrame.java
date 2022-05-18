@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class MainFrame {
+public class MainFrame extends JFrame {
 
     public Player player1;
     public Player player2;
@@ -14,6 +14,7 @@ public class MainFrame {
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
+    ImageIcon IconMove = new ImageIcon("src/main/resources/Image/AvailableContent.png");
 
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
@@ -63,8 +64,8 @@ public class MainFrame {
 
     private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
     private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
-    private JLabel namePlayerLeft;
-    private JLabel namePlayerRight;
+    JLabel namePlayerLeft;
+    JLabel namePlayerRight;
     private JLabel showIUResult;
 
 
@@ -111,6 +112,9 @@ public class MainFrame {
 
     public int numberPiecesLeft = 9;
     public int numberPiecesRight = 9;
+
+    private JButton lastButton = a7;
+    public int numberMove = 0;
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
             if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
@@ -135,6 +139,59 @@ public class MainFrame {
             }
         }
 
+        int pushKeybord = 0;
+
+    //mover pieza
+    public void movePieceToUI(JButton myMoveContentPiece){
+
+            if (player1.turn == "uno") {
+
+                if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0) {
+
+                    lastButton = myMoveContentPiece;
+                    myMoveContentPiece.setIcon(IconMove);
+                    numberMove++;
+                    System.out.println(numberMove);
+                }
+            }
+            if (player2.turn == "uno") {
+
+                if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0) {
+
+                    lastButton = myMoveContentPiece;
+                    myMoveContentPiece.setIcon(IconMove);
+                    numberMove++;
+                    pushKeybord++;
+                    System.out.println(numberMove);
+                }
+            }
+
+
+
+        if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
+            System.out.println("logic");
+            if(currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
+                if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
+                    System.out.println(numberMove);
+                    if (player1.turn == "uno") {
+                        System.out.println(numberMove);
+                        numberPiecesLeft++;
+                        insertPieceToUI(myMoveContentPiece);
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    } else {
+                        System.out.println(numberMove);
+                        numberPiecesRight++;
+                        insertPieceToUI(myMoveContentPiece);
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    }
+                    numberMove--;
+                }
+            }
+        }
+
+    }
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
@@ -252,10 +309,18 @@ public class MainFrame {
     }
 
     public MainFrame() {
+        //Caracteristicas de la ventana que se va abrir
+        setSize(300,300);
+        setContentPane(PanelPrincipal);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(250,100,720,520);
+        setBounds(250,100,820,620);
+        setVisible(true);//mostrar la venta FirstPanel
 
         a7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(a7);
                 actionPlayerAtTheTime(a7);
                 insertPieceToUI(a7);
 
@@ -264,6 +329,7 @@ public class MainFrame {
         b6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(b6);
              actionPlayerAtTheTime(b6);
             insertPieceToUI(b6);
             }
@@ -271,6 +337,7 @@ public class MainFrame {
         d7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d7);
             actionPlayerAtTheTime(d7);
                 insertPieceToUI(d7);
             }
@@ -278,6 +345,7 @@ public class MainFrame {
         g7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(g7);
             actionPlayerAtTheTime(g7);
                 insertPieceToUI(g7);
             }
@@ -285,6 +353,7 @@ public class MainFrame {
         d6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d6);
             actionPlayerAtTheTime(d6);
                 insertPieceToUI(d6);
             }
@@ -292,6 +361,7 @@ public class MainFrame {
         f6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(f6);
             actionPlayerAtTheTime(f6);
                 insertPieceToUI(f6);
             }
@@ -300,6 +370,7 @@ public class MainFrame {
         c5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(c5);
             actionPlayerAtTheTime(c5);
                 insertPieceToUI(c5);
             }
@@ -307,6 +378,7 @@ public class MainFrame {
         d5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d5);
             actionPlayerAtTheTime(d5);
                 insertPieceToUI(d5);
             }
@@ -314,6 +386,7 @@ public class MainFrame {
         e5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(e5);
             actionPlayerAtTheTime(e5);
                 insertPieceToUI(e5);
             }
@@ -321,6 +394,7 @@ public class MainFrame {
         a4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(a4);
             actionPlayerAtTheTime(a4);
                 insertPieceToUI(a4);
             }
@@ -328,6 +402,7 @@ public class MainFrame {
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(b4);
             actionPlayerAtTheTime(b4);
                 insertPieceToUI(b4);
             }
@@ -335,6 +410,7 @@ public class MainFrame {
         c4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(c4);
             actionPlayerAtTheTime(c4);
                 insertPieceToUI(c4);
             }
@@ -342,6 +418,7 @@ public class MainFrame {
         e4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(e4);
             actionPlayerAtTheTime(e4);
                 insertPieceToUI(e4);
             }
@@ -349,6 +426,7 @@ public class MainFrame {
         f4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(f4);
             actionPlayerAtTheTime(f4);
                 insertPieceToUI(f4);
             }
@@ -356,6 +434,7 @@ public class MainFrame {
         g4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(g4);
             actionPlayerAtTheTime(g4);
                 insertPieceToUI(g4);
             }
@@ -363,6 +442,7 @@ public class MainFrame {
         c3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(c3);
 
             actionPlayerAtTheTime(c3);
 
@@ -372,6 +452,7 @@ public class MainFrame {
         d3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d3);
 
             actionPlayerAtTheTime(d3);
 
@@ -381,6 +462,7 @@ public class MainFrame {
         e3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(e3);
 
             actionPlayerAtTheTime(e3);
 
@@ -390,6 +472,7 @@ public class MainFrame {
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(b2);
 
             actionPlayerAtTheTime(b2);
 
@@ -399,6 +482,7 @@ public class MainFrame {
         d2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d2);
 
             actionPlayerAtTheTime(d2);
 
@@ -408,6 +492,7 @@ public class MainFrame {
         f2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(f2);
 
             actionPlayerAtTheTime(f2);
 
@@ -417,6 +502,7 @@ public class MainFrame {
         a1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(a1);
 
             actionPlayerAtTheTime(a1);
 
@@ -426,6 +512,7 @@ public class MainFrame {
         d1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(d1);
 
             actionPlayerAtTheTime(d1);
                 insertPieceToUI(d1);
@@ -434,6 +521,7 @@ public class MainFrame {
         g1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                movePieceToUI(g1);
             actionPlayerAtTheTime(g1);
                 insertPieceToUI(g1);
             }
