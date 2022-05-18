@@ -446,8 +446,6 @@ public class MainFrame {
         namePlayerLeft.setText(player1.name);
         namePlayerRight.setText(player2.name);
 
-
-
         showTurnInUI();
     }
 
