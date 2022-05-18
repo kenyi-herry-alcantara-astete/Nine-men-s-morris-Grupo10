@@ -346,7 +346,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 movePieceToUI(g7);
-            actionPlayerAtTheTime(g7);
+                actionPlayerAtTheTime(g7);
                 insertPieceToUI(g7);
             }
         });
@@ -354,7 +354,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 movePieceToUI(d6);
-            actionPlayerAtTheTime(d6);
+                actionPlayerAtTheTime(d6);
                 insertPieceToUI(d6);
             }
         });
@@ -533,8 +533,6 @@ public class MainFrame extends JFrame {
 
         namePlayerLeft.setText(player1.name);
         namePlayerRight.setText(player2.name);
-
-
 
         showTurnInUI();
     }
