@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Logic {
     // Orden de la matriz
@@ -6,6 +7,113 @@ public class Logic {
     protected boolean[][] availableBox = new boolean[n][n];
     //Matriz tabla que muestra las jugadas en el tiempo
     protected String[][] myTable = new String[n][n];
+
+    //CasesTresEnRaya
+    int[][][] CasesTresEnRaya = {
+            //Filas
+            {
+                    {0,0},
+                    {0,3},
+                    {0,6}
+            },
+            {
+                    {1,1},
+                    {1,3},
+                    {1,5}
+            },
+            {
+                    {2,2},
+                    {2,3},
+                    {2,4}
+            },
+            {
+                    {3,0},
+                    {3,1},
+                    {3,2}
+            },
+            {
+                    {3,4},
+                    {3,5},
+                    {3,6}
+            },
+            {
+                    {4,2},
+                    {4,3},
+                    {4,4}
+            },
+            {
+                    {5,1},
+                    {5,3},
+                    {5,5}
+            },
+            {
+                    {6,0},
+                    {6,3},
+                    {6,6}
+            },
+            //Columnas
+            {
+                    {0,0},
+                    {3,0},
+                    {6,0}
+            },
+            {
+                    {1,1},
+                    {3,1},
+                    {5,1}
+            },
+            {
+                    {2,2},
+                    {3,2},
+                    {4,2}
+            },
+            {
+                    {0,3},
+                    {1,3},
+                    {2,3}
+            },
+            {
+                    {4,3},
+                    {5,3},
+                    {6,3}
+            },
+            {
+                    {2,4},
+                    {3,4},
+                    {4,4}
+            },
+            {
+                    {1,5},
+                    {3,5},
+                    {5,5}
+            },
+            {
+                    {0,6},
+                    {3,6},
+                    {6,6}
+            }
+    };
+
+    //Matriz recuerdo
+    ArrayList<String> MenoryTreEnRaya = new ArrayList<String>();
+
+    public boolean isInTheMemory(String caseTresEnRaya){
+        boolean res = false;
+
+        for (String oneCase: MenoryTreEnRaya){
+            if(oneCase.equals(caseTresEnRaya)){
+                res = true;
+            }
+        }
+        return  res;
+    }
+    public void addToMemory(String caseTresEnRaya){
+        MenoryTreEnRaya.add(caseTresEnRaya);
+    }
+
+    public void removeFoTheMemory(String caseTresEnRaya){
+        MenoryTreEnRaya.remove(caseTresEnRaya);
+    }
 
     public Logic() {
         fillInBoxes();

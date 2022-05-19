@@ -223,9 +223,6 @@ public class MainFrame extends JFrame {
                showIUResult.setText("");
                //In the Beginning
                insertPieceToUI(currentButtonAction);
-               //Verificando el tres en raya
-
-
 
                if (player1.turn == "dos"){
                    existTicTacToe =  scoreThreeInARow("1");
@@ -261,50 +258,28 @@ public class MainFrame extends JFrame {
 
     public boolean scoreThreeInARow(String num) {
         boolean ganador = false;
-        // Filas
-        if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
-        } // Columnas
-        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
-        }// Diagonal
-        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
+
+            for (int [][] oneGroupCase: currentLogicGame.CasesTresEnRaya) {
+                int x = oneGroupCase[0][0];
+                int y = oneGroupCase[0][1];
+                int r = oneGroupCase[1][0];
+                int s = oneGroupCase[1][1];
+                int m = oneGroupCase[2][0];
+                int n = oneGroupCase[2][1];
+
+                if (currentLogicGame.myTable[x][y].equals(num) && currentLogicGame.myTable[r][s].equals(num) && currentLogicGame.myTable[m][n].equals(num)) {
+                    String caseTresEnRaya = ""+x+y+r+s+m+n;
+                    System.out.println(caseTresEnRaya);
+                    if(currentLogicGame.isInTheMemory(caseTresEnRaya)){
+                        break;
+                    }else{
+                        currentLogicGame.addToMemory(caseTresEnRaya);
+                        ganador = true;
+                    }
+                }
+
         }
+
         return ganador;
     }
 
