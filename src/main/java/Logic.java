@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Logic {
+
+
     // Orden de la matriz
     private int n = 7;
     // Matriz de casillas disponibles

@@ -8,4 +8,5 @@ public class Main {
     public static void main(String[] args) {
         FirstPanel obj2 = new FirstPanel();
     }
+
 }

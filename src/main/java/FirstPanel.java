@@ -4,10 +4,11 @@ import java.awt.event.ActionListener;
 
 public class FirstPanel extends JFrame {
 
+
     private JButton jugarButton;
     private JPanel firstPanel;
-    private JTextField textNombre;
-    private JTextField miNombre;
+    private JTextField Nombre1;
+    private JTextField Nombre2;
     public  JCheckBox jugador2CheckBox ;
     public  JCheckBox jugador1CheckBox1;
     private JLabel LabelNamePlayer1;
@@ -30,11 +31,13 @@ public class FirstPanel extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 String nombre1 , nombre2;
-                nombre1 = getNamePlayer(1); //textNombre.getText();
-                nombre2 = getNamePlayer(2);//miNombre.getText();
+                //nombre1 = getNamePlayer(1); //textNombre.getText();
+                //nombre2 = getNamePlayer(2);//miNombre.getText();
                 MainFrame obj = new MainFrame();
-                //obj.namePlayerLeft.setText(nombre1);
-                //obj.namePlayerRight.setText(nombre2);
+                obj.player1.name = Nombre1.getText();
+                obj.player2.name = Nombre2.getText();
+                obj.setNameInTheUI();
+
                 dispose();
 
 
@@ -44,10 +47,10 @@ public class FirstPanel extends JFrame {
     }
     public String getNamePlayer(int n){
         if(n==1) {
-           return textNombre.getText();
+           return Nombre1.getText();
         }
         if(n==2) {
-           return miNombre.getText();
+           return Nombre2.getText();
         }
             return " ";
     }

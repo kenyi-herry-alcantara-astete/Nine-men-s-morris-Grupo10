@@ -16,7 +16,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="5a180" class="javax.swing.JTextField" binding="miNombre">
+      <component id="5a180" class="javax.swing.JTextField" binding="Nombre2">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -39,7 +39,7 @@
           <text value="Jugador 2"/>
         </properties>
       </component>
-      <component id="f2948" class="javax.swing.JTextField" binding="textNombre">
+      <component id="f2948" class="javax.swing.JTextField" binding="Nombre1">
         <constraints>
           <grid row="2" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

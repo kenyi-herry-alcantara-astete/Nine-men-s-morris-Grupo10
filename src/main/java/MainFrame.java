@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 
-    public Player player1;
-    public Player player2;
+
+
+    public Player player1 = new Player("left","uno");
+    public Player player2 = new Player("right","dos");
 
     public Logic currentLogicGame = new Logic();
 
@@ -141,6 +143,12 @@ public class MainFrame extends JFrame {
 
         int pushKeybord = 0;
 
+
+    //
+    public void setNameInTheUI(){
+        namePlayerLeft.setText(player1.name);
+        namePlayerRight.setText(player2.name);
+    }
     //mover pieza
     public void movePieceToUI(JButton myMoveContentPiece){
 
@@ -502,15 +510,14 @@ public class MainFrame extends JFrame {
             }
         });
 
-        //Players
-        this.player1 = new Player("Kenyi", "left", "uno");
-        this.player2 = new Player("Herry", "right", "dos");
+        //Player
 
-        namePlayerLeft.setText(player1.name);
-        namePlayerRight.setText(player2.name);
+        //this.player1 = new Player("Kenyi", "left", "uno");
+        //this.player2 = new Player("Herry", "right", "dos");
 
         showTurnInUI();
     }
+
 
 
     public JPanel getPanelPrincipal(){
