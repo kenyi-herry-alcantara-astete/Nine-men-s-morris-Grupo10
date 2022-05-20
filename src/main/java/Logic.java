@@ -266,7 +266,6 @@ public class Logic {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         if (availableBox[indexRow][indexColumn]) {
-            showMatrixTableInTHeConsole();
             return true;
         }
         return false;

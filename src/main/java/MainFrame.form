@@ -26,7 +26,6 @@
           <horizontalTextPosition value="0"/>
           <icon value="Image/IconWithPiece1.png"/>
           <label value=" "/>
-          <rolloverIcon value="Image/"/>
           <text value=" "/>
         </properties>
       </component>
