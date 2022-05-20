@@ -177,20 +177,16 @@ public class MainFrame extends JFrame {
 
 
         if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
-            System.out.println("logic");
             if(currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
                 if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
-                    System.out.println(numberMove);
                     if (player1.turn == "uno") {
                         System.out.println(numberMove);
                         numberPiecesLeft++;
-                        insertPieceToUI(myMoveContentPiece);
                         currentLogicGame.movePiece(lastButton.getText());
                         lastButton.setIcon(IconContentEmpty);
                     } else {
                         System.out.println(numberMove);
                         numberPiecesRight++;
-                        insertPieceToUI(myMoveContentPiece);
                         currentLogicGame.movePiece(lastButton.getText());
                         lastButton.setIcon(IconContentEmpty);
                     }
@@ -203,20 +199,17 @@ public class MainFrame extends JFrame {
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
-        if(myContentPieceToRemove.getIcon().equals(IconWithPiece1)){
+            if(myContentPieceToRemove.getIcon() == IconWithPiece1){
+                myContentPieceToRemove.setIcon(IconContentEmpty);
                 currentLogicGame.removePiece(myContentPieceToRemove.getText());
                 player1.numberPieces --;
-        }
+            }
 
-        if(myContentPieceToRemove.getIcon().equals(IconWithPiece2)){
+        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
+                myContentPieceToRemove.setIcon(IconContentEmpty);
                 currentLogicGame.removePiece(myContentPieceToRemove.getText());
                 player2.numberPieces --;
-        }
-
-        myContentPieceToRemove.setIcon(IconContentEmpty);
-        existTicTacToe = false;
-        showIUResult.setText("");
-
+            }
         if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
             System.out.println("Empate");
             showIUResult.setText("Empate!");
@@ -228,6 +221,9 @@ public class MainFrame extends JFrame {
     boolean existTicTacToe = false;
 
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
+
+        movePieceToUI(currentButtonAction);
+
        if(!existTicTacToe){
            if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                showIUResult.setText("");
@@ -258,6 +254,9 @@ public class MainFrame extends JFrame {
            }
        }else{
             removeOpponentsPiecesOfUI(currentButtonAction);
+            existTicTacToe = false;
+            showIUResult.setText("");
+            currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(),true);
         }
     }
 
@@ -282,7 +281,6 @@ public class MainFrame extends JFrame {
                         break;
                     }else{
                         currentLogicGame.addToMemory(caseTresEnRaya);
-                        existTicTacToe = true;
                         ganador = true;
                     }
                 }
@@ -304,210 +302,147 @@ public class MainFrame extends JFrame {
         a7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(a7);
                 actionPlayerAtTheTime(a7);
-               // insertPieceToUI(a7);
 
             }
         });
         b6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(b6);
              actionPlayerAtTheTime(b6);
-            //insertPieceToUI(b6);
             }
         });
         d7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d7);
             actionPlayerAtTheTime(d7);
-              //  insertPieceToUI(d7);
             }
         });
         g7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(g7);
                 actionPlayerAtTheTime(g7);
-                //insertPieceToUI(g7);
             }
         });
         d6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d6);
                 actionPlayerAtTheTime(d6);
-                //insertPieceToUI(d6);
             }
         });
         f6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(f6);
             actionPlayerAtTheTime(f6);
-                //insertPieceToUI(f6);
             }
 
         });
         c5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(c5);
             actionPlayerAtTheTime(c5);
-                //insertPieceToUI(c5);
             }
         });
         d5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d5);
             actionPlayerAtTheTime(d5);
-                //insertPieceToUI(d5);
             }
         });
         e5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(e5);
             actionPlayerAtTheTime(e5);
-                //insertPieceToUI(e5);
             }
         });
         a4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(a4);
             actionPlayerAtTheTime(a4);
-                //insertPieceToUI(a4);
             }
         });
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(b4);
             actionPlayerAtTheTime(b4);
-                //insertPieceToUI(b4);
             }
         });
         c4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(c4);
             actionPlayerAtTheTime(c4);
-                //insertPieceToUI(c4);
             }
         });
         e4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(e4);
             actionPlayerAtTheTime(e4);
-                //insertPieceToUI(e4);
             }
         });
         f4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(f4);
             actionPlayerAtTheTime(f4);
-                //insertPieceToUI(f4);
             }
         });
         g4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(g4);
             actionPlayerAtTheTime(g4);
-                //insertPieceToUI(g4);
             }
         });
         c3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(c3);
-
             actionPlayerAtTheTime(c3);
-
-                //insertPieceToUI(c3);
             }
         });
         d3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d3);
-
             actionPlayerAtTheTime(d3);
-
-                //insertPieceToUI(d3);
             }
         });
         e3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(e3);
-
             actionPlayerAtTheTime(e3);
-
-                //insertPieceToUI(e3);
             }
         });
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(b2);
-
             actionPlayerAtTheTime(b2);
-
-                //insertPieceToUI(b2);
             }
         });
         d2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d2);
-
             actionPlayerAtTheTime(d2);
-
-                //insertPieceToUI(d2);
             }
         });
         f2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(f2);
-
             actionPlayerAtTheTime(f2);
-
-                //insertPieceToUI(f2);
             }
         });
         a1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(a1);
-
             actionPlayerAtTheTime(a1);
-
-                //insertPieceToUI(a1);
             }
         });
         d1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(d1);
-
             actionPlayerAtTheTime(d1);
-                //insertPieceToUI(d1);
             }
         });
         g1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                movePieceToUI(g1);
             actionPlayerAtTheTime(g1);
-                //insertPieceToUI(g1);
             }
         });
 
