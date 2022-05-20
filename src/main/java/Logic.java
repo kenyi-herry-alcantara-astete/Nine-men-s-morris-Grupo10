@@ -335,7 +335,6 @@ public class Logic {
         if (indexRow == indexRow1) {
             //a la derecha
             if (indexColumn - indexColumn1 < 0) {
-                System.out.println("entro a la derecha");
                 if (Math.abs(indexColumn1 - indexColumn) == 1) {
                     return true;
                 }
