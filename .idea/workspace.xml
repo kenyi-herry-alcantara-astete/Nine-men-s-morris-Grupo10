@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FirstPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
     </list>
@@ -21,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,7 +69,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="NIneGame" />
@@ -112,8 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LogicTest" />
         <item itemvalue="JUnit.LogicTest.isAvailableContentPieceTest" />
         <item itemvalue="JUnit.LogicTest.getIsAvailableContentPieceTest" />

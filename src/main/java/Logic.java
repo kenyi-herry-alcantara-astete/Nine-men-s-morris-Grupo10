@@ -11,90 +11,7 @@ public class Logic {
     protected String[][] myTable = new String[n][n];
 
     //CasesTresEnRaya
-    int[][][] CasesTresEnRaya = {
-            //Filas
-            {
-                    {0,0},
-                    {0,3},
-                    {0,6}
-            },
-            {
-                    {1,1},
-                    {1,3},
-                    {1,5}
-            },
-            {
-                    {2,2},
-                    {2,3},
-                    {2,4}
-            },
-            {
-                    {3,0},
-                    {3,1},
-                    {3,2}
-            },
-            {
-                    {3,4},
-                    {3,5},
-                    {3,6}
-            },
-            {
-                    {4,2},
-                    {4,3},
-                    {4,4}
-            },
-            {
-                    {5,1},
-                    {5,3},
-                    {5,5}
-            },
-            {
-                    {6,0},
-                    {6,3},
-                    {6,6}
-            },
-            //Columnas
-            {
-                    {0,0},
-                    {3,0},
-                    {6,0}
-            },
-            {
-                    {1,1},
-                    {3,1},
-                    {5,1}
-            },
-            {
-                    {2,2},
-                    {3,2},
-                    {4,2}
-            },
-            {
-                    {0,3},
-                    {1,3},
-                    {2,3}
-            },
-            {
-                    {4,3},
-                    {5,3},
-                    {6,3}
-            },
-            {
-                    {2,4},
-                    {3,4},
-                    {4,4}
-            },
-            {
-                    {1,5},
-                    {3,5},
-                    {5,5}
-            },
-            {
-                    {0,6},
-                    {3,6},
-                    {6,6}
-            }
-    };
+    int[][][] CasesTresEnRaya = Constants.getCasesTresEnRaya();
 
     //Matriz recuerdo
     ArrayList<String> MenoryTreEnRaya = new ArrayList<String>();
@@ -128,32 +45,9 @@ public class Logic {
                 availableBox[i][j] = true;
             }
         }
-        availableBox[1][0] = false;
-        availableBox[0][1] = false;
-        availableBox[0][2] = false;
-        availableBox[3][3] = false;
-        availableBox[2][0] = false;
-        availableBox[2][1] = false;
-        availableBox[1][2] = false;
-        availableBox[4][0] = false;
-        availableBox[4][1] = false;
-        availableBox[5][2] = false;
-        availableBox[5][0] = false;
-        availableBox[6][1] = false;
-        availableBox[6][2] = false;
-
-        availableBox[0][4] = false;
-        availableBox[0][5] = false;
-        availableBox[1][6] = false;
-        availableBox[1][4] = false;
-        availableBox[2][5] = false;
-        availableBox[2][6] = false;
-        availableBox[5][4] = false;
-        availableBox[4][5] = false;
-        availableBox[4][6] = false;
-        availableBox[6][4] = false;
-        availableBox[6][5] = false;
-        availableBox[5][6] = false;
+        for (int [] onePositionInvalid : Constants.getPositionInvalid()) {
+            availableBox[onePositionInvalid[0]][onePositionInvalid[1]] = false;
+        }
     }
 
     public void fillMyTable() {
@@ -177,60 +71,13 @@ public class Logic {
     }
 
     public int whatIndexColumn(char notationColumn) {
-        int indexColum = -1;
-        switch (notationColumn) {
-            case 'a':
-                indexColum = 0;
-                break;
-            case 'b':
-                indexColum = 1;
-                break;
-            case 'c':
-                indexColum = 2;
-                break;
-            case 'd':
-                indexColum = 3;
-                break;
-            case 'e':
-                indexColum = 4;
-                break;
-            case 'f':
-                indexColum = 5;
-                break;
-            case 'g':
-                indexColum = 6;
-                break;
-        }
-        return indexColum;
+        return Character.getNumericValue(notationColumn) - 10;
     }
 
     public int whatIndexRow(char notationRow) {
-        int indexRow = -1;
-        switch (notationRow) {
-            case '7':
-                indexRow = 0;
-                break;
-            case '6':
-                indexRow = 1;
-                break;
-            case '5':
-                indexRow = 2;
-                break;
-            case '4':
-                indexRow = 3;
-                break;
-            case '3':
-                indexRow = 4;
-                break;
-            case '2':
-                indexRow = 5;
-                break;
-            case '1':
-                indexRow = 6;
-                break;
-        }
-        return indexRow;
+     return 7-Character.getNumericValue(notationRow);
     }
+
 
     public void insertPiece(String positionPiece, String player1o2) {
 

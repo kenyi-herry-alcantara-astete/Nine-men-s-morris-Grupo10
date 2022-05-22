@@ -446,10 +446,6 @@ public class MainFrame extends JFrame {
             }
         });
 
-        //Player
-
-        //this.player1 = new Player("Kenyi", "left", "uno");
-        //this.player2 = new Player("Herry", "right", "dos");
 
         showTurnInUI();
     }
