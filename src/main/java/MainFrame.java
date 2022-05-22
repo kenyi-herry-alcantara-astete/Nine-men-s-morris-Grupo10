@@ -76,23 +76,25 @@ public class MainFrame extends JFrame {
 
     //Current Player
     public Player currentTurn() {
-        if (player1.turn == "uno") {
+        if (player1.turn.equals("uno")) {
             return player1;
         } else return player2;
     }
 
     //Show the turn
     public void showTurnInUI() {
-        if (player1.turn == "uno") {
-            if (namePlayerLeft.getText() == player1.name) {
+        if (player1.turn.equals("uno")) {
+            if (namePlayerLeft.getText().equals(player1.name)) {
                 namePlayerLeft.setBackground(new Color(94, 0, 215));
                 namePlayerRight.setBackground(new Color(32, 36, 74));
             } else {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
             }
-        } else {
-            if (namePlayerRight.getText() == player2.name) {
+        }
+
+        if (player2.turn.equals("uno")){
+            if (namePlayerRight.getText().equals(player2.name)) {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
             } else {
@@ -446,8 +448,6 @@ public class MainFrame extends JFrame {
             }
         });
 
-
-        showTurnInUI();
     }
 
 
