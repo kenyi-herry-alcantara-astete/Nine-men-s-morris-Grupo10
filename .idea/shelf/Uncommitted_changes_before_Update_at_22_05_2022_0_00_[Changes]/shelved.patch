@@ -1,0 +1,850 @@
+Index: src/main/java/Logic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Logic {\r\n    // Orden de la matriz\r\n    private int n = 7;\r\n    // Matriz de casillas disponibles\r\n    private boolean[][] availableBox = new boolean[n][n];\r\n    //Matriz tabla que muestra las jugadas en el tiempo\r\n    protected String [][] myTable = new String[n][n];\r\n\r\n    public Logic(){\r\n        fillInBoxes();\r\n        fillMyTable();\r\n    }\r\n    public void fillInBoxes(){\r\n        for(int i=0; i<n; i++){\r\n            for(int j=0; j<n; j++){\r\n                availableBox[i][j] = true;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void fillMyTable(){\r\n        for(int i=0; i<n; i++){\r\n            for(int j=0; j<n; j++){\r\n                myTable[i][j] = \"0\";\r\n            }\r\n        }\r\n    }\r\n    public void showMatrixTableInTHeConsole (){\r\n        System.out.println(\"--------------------------------\");\r\n\r\n        for(int i=0; i<n; i++){\r\n            for(int j=0; j<n; j++){\r\n                System.out.print(myTable[i][j] + \" \");\r\n            }\r\n            System.out.println();\r\n        }\r\n\r\n    }\r\n\r\n    public int whatIndexColumn(char notationColumn){\r\n        int indexColum = -1;\r\n        switch (notationColumn){\r\n            case 'a':\r\n                indexColum = 0;\r\n                break;\r\n            case 'b':\r\n                indexColum = 1;\r\n                break;\r\n            case 'c':\r\n                indexColum = 2;\r\n                break;\r\n            case 'd':\r\n                indexColum = 3;\r\n                break;\r\n            case 'e':\r\n                indexColum = 4;\r\n                break;\r\n            case 'f':\r\n                indexColum = 5;\r\n                break;\r\n            case 'g':\r\n                indexColum = 6;\r\n                break;\r\n        }\r\n        return indexColum;\r\n    }\r\n    public int whatIndexRow(char notationRow){\r\n        int indexRow = -1;\r\n        switch (notationRow){\r\n            case '7':\r\n                indexRow = 0;\r\n                break;\r\n            case '6':\r\n                indexRow = 1;\r\n                break;\r\n            case '5':\r\n                indexRow = 2;\r\n                break;\r\n            case '4':\r\n                indexRow = 3;\r\n                break;\r\n            case '3':\r\n                indexRow = 4;\r\n                break;\r\n            case '2':\r\n                indexRow = 5;\r\n                break;\r\n            case '1':\r\n                indexRow = 6;\r\n                break;\r\n        }\r\n        return indexRow;\r\n    }\r\n    public void insertPiece(String positionPiece, String player1o2){\r\n\r\n        int indexRow = whatIndexRow(positionPiece.charAt(1));\r\n        int indexColumn = whatIndexColumn(positionPiece.charAt(0));\r\n        if(availableBox[indexRow][indexColumn]){\r\n            myTable[indexRow][indexColumn] = player1o2;\r\n            showMatrixTableInTHeConsole();\r\n            availableBox[indexRow][indexColumn] = false;\r\n        }\r\n    }\r\n\r\n    public String removePiece(String positionPiece){\r\n        int indexRow = whatIndexRow(positionPiece.charAt(1));\r\n        int indexColumn = whatIndexColumn(positionPiece.charAt(0));\r\n        String pieceToRemove = myTable[indexRow][indexColumn];\r\n        myTable[indexRow][indexColumn] = \"0\";\r\n        showMatrixTableInTHeConsole();\r\n        setAvailableContentPiece(positionPiece,true);\r\n        return pieceToRemove;\r\n    }\r\n\r\n    public void movePiece(String positionPieceToRemove,String  newPositionPiece){\r\n        //RemovePiece\r\n        //SetNewPiece\r\n        insertPiece(newPositionPiece,removePiece(positionPieceToRemove));\r\n    }\r\n\r\n    // obtener verificación si la casilla está vacía\r\n    public boolean getIsAvailableContentPiece(String positionPiece){\r\n        int indexRow = whatIndexRow(positionPiece.charAt(1));\r\n        int indexColumn = whatIndexColumn(positionPiece.charAt(0));\r\n        if (availableBox[indexRow][indexColumn]) {\r\n            //showMatrixTableInTHeConsole();\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n    // establecer si la casilla esta vacia o llena\r\n    public void setAvailableContentPiece(String positionPiece, boolean available){\r\n        int indexRow = whatIndexRow(positionPiece.charAt(1));\r\n        int indexColumn = whatIndexColumn(positionPiece.charAt(0));\r\n        availableBox[indexRow][indexColumn] = available;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Logic.java b/src/main/java/Logic.java
+--- a/src/main/java/Logic.java	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/src/main/java/Logic.java	(date 1653190447200)
+@@ -108,7 +108,6 @@
+         String pieceToRemove = myTable[indexRow][indexColumn];
+         myTable[indexRow][indexColumn] = "0";
+         showMatrixTableInTHeConsole();
+-        setAvailableContentPiece(positionPiece,true);
+         return pieceToRemove;
+     }
+ 
+@@ -123,7 +122,7 @@
+         int indexRow = whatIndexRow(positionPiece.charAt(1));
+         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+         if (availableBox[indexRow][indexColumn]) {
+-            //showMatrixTableInTHeConsole();
++            showMatrixTableInTHeConsole();
+             return true;
+         }
+         return false;
+Index: src/main/java/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.sound.sampled.Line;\r\nimport javax.swing.*;\r\nimport javax.swing.event.MenuEvent;\r\nimport javax.swing.event.MenuListener;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.event.MouseAdapter;\r\nimport java.awt.event.MouseEvent;\r\nimport java.io.IOException;\r\nimport java.net.URI;\r\nimport java.net.URISyntaxException;\r\nimport java.util.logging.Level;\r\nimport java.util.logging.Logger;\r\n\r\npublic class Main {\r\n\r\n    static JFrame frame;\r\n    static MainFrame myNineFrame;\r\n\r\n    //Start Game\r\n    public static void main(String[] args) {\r\n        frame = new JFrame(\"Nines men's morris\");\r\n        myNineFrame = new MainFrame();\r\n        addMenuBar(frame);\r\n        frame.setContentPane(myNineFrame.getPanelPrincipal());\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        frame.setBounds(250,100,820,620);\r\n        frame.setVisible(true);\r\n    }\r\n\r\n    private static void addMenuBar(JFrame frame){\r\n        // Barra de Menú\r\n        JMenuBar menuBar = new JMenuBar();\r\n\r\n        // Menú\r\n        JMenu menu = new JMenu(\"Menu\");\r\n        JMenu help = new JMenu(\"Ayuda\");\r\n\r\n        // Items del menú \"Menu\"\r\n        JMenuItem playAgain = new JMenuItem(\"Jugar de Nuevo\");\r\n        JMenuItem showResults = new JMenuItem(\"Mostrar Resultados\");\r\n        JMenuItem quit = new JMenuItem(\"Salir\");\r\n\r\n        // Item del menú \"ayuda\"\r\n        JMenuItem tutorial = new JMenuItem(\"Tutorial\");\r\n\r\n        // Iconos del menú \"Menu\"\r\n        ImageIcon imgPlayAgain = new ImageIcon(\"src/main/resources/Image/imgPlayAgain.png\");\r\n        ImageIcon imgShowResults = new ImageIcon(\"src/main/resources/Image/imgShowResults.png\");\r\n        ImageIcon imgQuit = new ImageIcon(\"src/main/resources/Image/imgQuit.png\");\r\n        playAgain.setIcon(imgPlayAgain);\r\n        showResults.setIcon(imgShowResults);\r\n        quit.setIcon(imgQuit);\r\n\r\n        // Iconos del menu \"Ayuda\"\r\n        ImageIcon imgTutorial = new ImageIcon(\"src/main/resources/Image/imgTutorial.png\");\r\n        tutorial.setIcon(imgTutorial);\r\n\r\n        // Evento para reinciar el juego\r\n        playAgain.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                myNineFrame.restart();\r\n            }\r\n        });\r\n\r\n        // Evento para salir del juego\r\n        quit.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                System.exit(0);\r\n            }\r\n        });\r\n\r\n        // Eventos para ver tutorial\r\n        tutorial.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                try {\r\n                    Desktop.getDesktop().browse(new URI(\"http://www.dma.fi.upm.es/recursos/aplicaciones/matematicas_recreativas/web/nine_mens_morris/reglas.html\"));\r\n                } catch (URISyntaxException | IOException ex) {\r\n                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);\r\n                }\r\n            }\r\n        });\r\n\r\n        // Agragando items al menú \"Ayuda\"\r\n        help.add(tutorial);\r\n\r\n        // Agregando items al menu \"Menú\"\r\n        menu.add(playAgain);\r\n        menu.add(showResults);\r\n        menu.add(quit);\r\n\r\n        // Agregando menús(menu y ayuda) a la barra de menú\r\n        menuBar.add(menu);\r\n        menuBar.add(help);\r\n\r\n        // Agregando la barra de menú a la ventana\r\n        frame.setJMenuBar(menuBar);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Main.java b/src/main/java/Main.java
+--- a/src/main/java/Main.java	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/src/main/java/Main.java	(date 1653195602257)
+@@ -1,104 +1,16 @@
+ import javax.sound.sampled.Line;
+ import javax.swing.*;
+-import javax.swing.event.MenuEvent;
+-import javax.swing.event.MenuListener;
+-import java.awt.*;
+-import java.awt.event.ActionEvent;
+-import java.awt.event.ActionListener;
+-import java.awt.event.MouseAdapter;
+-import java.awt.event.MouseEvent;
+-import java.io.IOException;
+-import java.net.URI;
+-import java.net.URISyntaxException;
+-import java.util.logging.Level;
+-import java.util.logging.Logger;
+ 
+ public class Main {
+ 
+-    static JFrame frame;
+-    static MainFrame myNineFrame;
+-
+     //Start Game
++
+     public static void main(String[] args) {
+-        frame = new JFrame("Nines men's morris");
+-        myNineFrame = new MainFrame();
+-        addMenuBar(frame);
++        JFrame frame = new JFrame("Nines men's morris");
++        MainFrame myNineFrame = new MainFrame();
+         frame.setContentPane(myNineFrame.getPanelPrincipal());
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         frame.setBounds(250,100,820,620);
+         frame.setVisible(true);
+     }
+-
+-    private static void addMenuBar(JFrame frame){
+-        // Barra de Menú
+-        JMenuBar menuBar = new JMenuBar();
+-
+-        // Menú
+-        JMenu menu = new JMenu("Menu");
+-        JMenu help = new JMenu("Ayuda");
+-
+-        // Items del menú "Menu"
+-        JMenuItem playAgain = new JMenuItem("Jugar de Nuevo");
+-        JMenuItem showResults = new JMenuItem("Mostrar Resultados");
+-        JMenuItem quit = new JMenuItem("Salir");
+-
+-        // Item del menú "ayuda"
+-        JMenuItem tutorial = new JMenuItem("Tutorial");
+-
+-        // Iconos del menú "Menu"
+-        ImageIcon imgPlayAgain = new ImageIcon("src/main/resources/Image/imgPlayAgain.png");
+-        ImageIcon imgShowResults = new ImageIcon("src/main/resources/Image/imgShowResults.png");
+-        ImageIcon imgQuit = new ImageIcon("src/main/resources/Image/imgQuit.png");
+-        playAgain.setIcon(imgPlayAgain);
+-        showResults.setIcon(imgShowResults);
+-        quit.setIcon(imgQuit);
+-
+-        // Iconos del menu "Ayuda"
+-        ImageIcon imgTutorial = new ImageIcon("src/main/resources/Image/imgTutorial.png");
+-        tutorial.setIcon(imgTutorial);
+-
+-        // Evento para reinciar el juego
+-        playAgain.addActionListener(new ActionListener() {
+-            @Override
+-            public void actionPerformed(ActionEvent e) {
+-                myNineFrame.restart();
+-            }
+-        });
+-
+-        // Evento para salir del juego
+-        quit.addActionListener(new ActionListener() {
+-            @Override
+-            public void actionPerformed(ActionEvent e) {
+-                System.exit(0);
+-            }
+-        });
+-
+-        // Eventos para ver tutorial
+-        tutorial.addActionListener(new ActionListener() {
+-            @Override
+-            public void actionPerformed(ActionEvent e) {
+-                try {
+-                    Desktop.getDesktop().browse(new URI("http://www.dma.fi.upm.es/recursos/aplicaciones/matematicas_recreativas/web/nine_mens_morris/reglas.html"));
+-                } catch (URISyntaxException | IOException ex) {
+-                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+-                }
+-            }
+-        });
+-
+-        // Agragando items al menú "Ayuda"
+-        help.add(tutorial);
+-
+-        // Agregando items al menu "Menú"
+-        menu.add(playAgain);
+-        menu.add(showResults);
+-        menu.add(quit);
+-
+-        // Agregando menús(menu y ayuda) a la barra de menú
+-        menuBar.add(menu);
+-        menuBar.add(help);
+-
+-        // Agregando la barra de menú a la ventana
+-        frame.setJMenuBar(menuBar);
+-    }
+-
+ }
+Index: src/main/java/MainFrame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\n\r\npublic class MainFrame {\r\n\r\n    public Player player1;\r\n    public Player player2;\r\n\r\n    public Logic currentLogicGame = new Logic();\r\n\r\n    ImageIcon IconWithPiece1 = new ImageIcon(\"src/main/resources/Image/IconWithPiece1.png\");\r\n    ImageIcon IconWithPiece2 = new ImageIcon(\"src/main/resources/Image/IconWithPiece2.png\");\r\n    ImageIcon IconContentEmpty = new ImageIcon(\"src/main/resources/Image/IconContentPiece.png\");\r\n\r\n    private JPanel PanelPrincipal;\r\n    private JPanel CenterPanel;\r\n    private JButton a7;\r\n    private JButton d7;\r\n    private JButton g7;\r\n    private JButton b6;\r\n    private JButton d6;\r\n    private JButton f6;\r\n    private JButton c5;\r\n    private JButton d5;\r\n    private JButton e5;\r\n    private JButton a4;\r\n    private JButton b4;\r\n    private JButton c4;\r\n    private JButton e4;\r\n    private JButton f4;\r\n    private JButton g4;\r\n    private JButton c3;\r\n    private JButton d3;\r\n    private JButton e3;\r\n    private JButton b2;\r\n    private JButton d2;\r\n    private JButton f2;\r\n    private JButton a1;\r\n    private JButton d1;\r\n    private JButton g1;\r\n    private JButton pieceLeft1;\r\n    private JButton pieceLeft2;\r\n    private JButton pieceLeft3;\r\n    private JButton pieceLeft4;\r\n    private JButton pieceLeft5;\r\n    private JButton pieceLeft6;\r\n    private JButton pieceLeft7;\r\n    private JButton pieceLeft8;\r\n    private JButton pieceLeft9;\r\n    private JButton pieceRight1;\r\n    private JButton pieceRight2;\r\n    private JButton pieceRight3;\r\n    private JButton pieceRight4;\r\n    private JButton pieceRight5;\r\n    private JButton pieceRight6;\r\n    private JButton pieceRight7;\r\n    private JButton pieceRight8;\r\n    private JButton pieceRight9;\r\n\r\n\r\n    private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};\r\n    private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};\r\n    private JLabel namePlayerLeft;\r\n    private JLabel namePlayerRight;\r\n    private JLabel showIUResult;\r\n\r\n    //Action Player at the time\r\n    boolean existTicTacToe = false;\r\n\r\n    public int numberPiecesLeft = 9;\r\n    public int numberPiecesRight = 9;\r\n\r\n\r\n    //Methodos que enviaran las entradas de los jugarores\r\n    /**/\r\n\r\n    //Current Player\r\n    public Player currentTurn() {\r\n        if (player1.turn == \"uno\") {\r\n            return player1;\r\n        } else return player2;\r\n    }\r\n\r\n    //Show the turn\r\n    public void showTurnInUI() {\r\n        if (player1.turn == \"uno\") {\r\n            if (namePlayerLeft.getText() == player1.name) {\r\n                namePlayerLeft.setBackground(new Color(94, 0, 215));\r\n                namePlayerRight.setBackground(new Color(32, 36, 74));\r\n            } else {\r\n                namePlayerRight.setBackground(new Color(94, 0, 215));\r\n                namePlayerLeft.setBackground(new Color(32, 36, 74));\r\n            }\r\n        } else {\r\n            if (namePlayerRight.getText() == player2.name) {\r\n                namePlayerRight.setBackground(new Color(94, 0, 215));\r\n                namePlayerLeft.setBackground(new Color(32, 36, 74));\r\n            } else {\r\n                namePlayerLeft.setBackground(new Color(94, 0, 215));\r\n                namePlayerRight.setBackground(new Color(32, 36, 74));\r\n            }\r\n        }\r\n    }\r\n\r\n    //Change turn\r\n    public void changeTurn() {\r\n        String aux = player1.turn;\r\n        player1.turn = player2.turn;\r\n        player2.turn = aux;\r\n        showTurnInUI();\r\n\r\n    }\r\n\r\n    // insetPieceToUI\r\n    public void insertPieceToUI(JButton contentPiece) {\r\n        if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {\r\n            if (numberPiecesLeft != 0 || numberPiecesRight != 0) {\r\n                if (player1.turn == \"uno\") {\r\n                    contentPiece.setIcon(IconWithPiece1);\r\n                    pieceLeft[9 - numberPiecesLeft].setIcon(IconContentEmpty);\r\n                    numberPiecesLeft--;\r\n                    currentLogicGame.insertPiece(contentPiece.getText(), \"1\");\r\n\r\n                } else {\r\n                    contentPiece.setIcon(IconWithPiece2);\r\n                    pieceRight[9 - numberPiecesRight].setIcon(IconContentEmpty);\r\n                    numberPiecesRight--;\r\n                    currentLogicGame.insertPiece(contentPiece.getText(), \"2\");\r\n                }\r\n                changeTurn();\r\n            } else {\r\n                System.out.println(\"Todas las piezas insertadas\");\r\n            }\r\n            currentLogicGame.setAvailableContentPiece(contentPiece.getText(), false);\r\n        }\r\n    }\r\n\r\n    //Remove Opponent's pieces\r\n    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {\r\n\r\n        if (myContentPieceToRemove.getIcon() == IconWithPiece1) {\r\n            myContentPieceToRemove.setIcon(IconContentEmpty);\r\n            currentLogicGame.removePiece(myContentPieceToRemove.getText());\r\n            player1.numberPieces--;\r\n        }\r\n\r\n        if (myContentPieceToRemove.getIcon() == IconWithPiece2) {\r\n            myContentPieceToRemove.setIcon(IconContentEmpty);\r\n            currentLogicGame.removePiece(myContentPieceToRemove.getText());\r\n            player2.numberPieces--;\r\n        }\r\n        //if (player1.numberPieces <= 2 && player2.numberPieces <= 2) {\r\n          //  System.out.println(\"Empate\");\r\n            //showIUResult.setText(\"Empate!\");\r\n        //}\r\n        changeTurn();\r\n    }\r\n\r\n    public void actionPlayerAtTheTime(JButton currentButtonAction) {\r\n\r\n        if (!existTicTacToe) {\r\n            if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {\r\n                showIUResult.setText(\"\");\r\n                //In the Beginning\r\n                insertPieceToUI(currentButtonAction);\r\n                //Verificando el tres en raya\r\n\r\n\r\n                if (player1.turn == \"dos\") {\r\n                    existTicTacToe = scoreThreeInARow(\"1\");\r\n                    if (existTicTacToe) {\r\n                        // Mostrando alerta de tres en raya\r\n                        showIUResult.setText(\"Tres en raya para el jugador 1\");\r\n                        //Regresando el tunos, para que jueue nuevamente\r\n                        changeTurn();\r\n                    }\r\n                } else {\r\n                    if (player2.turn == \"dos\") {\r\n                        existTicTacToe = scoreThreeInARow(\"2\");\r\n                        if (existTicTacToe) {\r\n                            // Mostrando alerta de tres en raya\r\n                            showIUResult.setText(\"Tres en raya para el jugador 2\");\r\n                            //Regresando el tunos, para que jueue nuevamente\r\n                            changeTurn();\r\n                        }\r\n                    }\r\n                }\r\n\r\n            }\r\n        } else {\r\n            removeOpponentsPiecesOfUI(currentButtonAction);\r\n            existTicTacToe = false;\r\n            showIUResult.setText(\"\");\r\n        }\r\n    }\r\n\r\n\r\n    // Verifica tres en raya\r\n    public boolean scoreThreeInARow(String num) {\r\n        boolean ganador = false;\r\n        // Filas\r\n        if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {\r\n            ganador = true;\r\n        } // Columnas\r\n        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {\r\n            ganador = true;\r\n        }// Diagonal\r\n        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {\r\n            ganador = true;\r\n        } else if (currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {\r\n            ganador = true;\r\n        }\r\n        return ganador;\r\n    }\r\n\r\n    private void initActionListenerButtons() {\r\n        a7.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(a7);\r\n                insertPieceToUI(a7);\r\n\r\n            }\r\n        });\r\n        b6.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(b6);\r\n                insertPieceToUI(b6);\r\n            }\r\n        });\r\n        d7.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(d7);\r\n                insertPieceToUI(d7);\r\n            }\r\n        });\r\n        g7.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(g7);\r\n                insertPieceToUI(g7);\r\n            }\r\n        });\r\n        d6.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(d6);\r\n                insertPieceToUI(d6);\r\n            }\r\n        });\r\n        f6.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(f6);\r\n                insertPieceToUI(f6);\r\n            }\r\n\r\n        });\r\n        c5.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(c5);\r\n                insertPieceToUI(c5);\r\n            }\r\n        });\r\n        d5.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(d5);\r\n                insertPieceToUI(d5);\r\n            }\r\n        });\r\n        e5.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(e5);\r\n                insertPieceToUI(e5);\r\n            }\r\n        });\r\n        a4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(a4);\r\n                insertPieceToUI(a4);\r\n            }\r\n        });\r\n        b4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(b4);\r\n                insertPieceToUI(b4);\r\n            }\r\n        });\r\n        c4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(c4);\r\n                insertPieceToUI(c4);\r\n            }\r\n        });\r\n        e4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(e4);\r\n                insertPieceToUI(e4);\r\n            }\r\n        });\r\n        f4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(f4);\r\n                insertPieceToUI(f4);\r\n            }\r\n        });\r\n        g4.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(g4);\r\n                insertPieceToUI(g4);\r\n            }\r\n        });\r\n        c3.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(c3);\r\n\r\n                insertPieceToUI(c3);\r\n            }\r\n        });\r\n        d3.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(d3);\r\n\r\n                insertPieceToUI(d3);\r\n            }\r\n        });\r\n        e3.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(e3);\r\n\r\n                insertPieceToUI(e3);\r\n            }\r\n        });\r\n        b2.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(b2);\r\n\r\n                insertPieceToUI(b2);\r\n            }\r\n        });\r\n        d2.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(d2);\r\n\r\n                insertPieceToUI(d2);\r\n            }\r\n        });\r\n        f2.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(f2);\r\n\r\n                insertPieceToUI(f2);\r\n            }\r\n        });\r\n        a1.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(a1);\r\n\r\n                insertPieceToUI(a1);\r\n            }\r\n        });\r\n        d1.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                actionPlayerAtTheTime(d1);\r\n                insertPieceToUI(d1);\r\n            }\r\n        });\r\n        g1.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                actionPlayerAtTheTime(g1);\r\n                insertPieceToUI(g1);\r\n            }\r\n        });\r\n    }\r\n\r\n    public void restart() {\r\n        currentLogicGame.fillInBoxes();\r\n        currentLogicGame.fillMyTable();\r\n        numberPiecesLeft = 9;\r\n        numberPiecesRight = 9;\r\n        existTicTacToe = false;\r\n        showIUResult.setText(\"\");\r\n        initPieces();\r\n        // a\r\n        a7.setIcon(IconContentEmpty);\r\n        a4.setIcon(IconContentEmpty);\r\n        a1.setIcon(IconContentEmpty);\r\n        // b\r\n        b6.setIcon(IconContentEmpty);\r\n        b4.setIcon(IconContentEmpty);\r\n        b2.setIcon(IconContentEmpty);\r\n        // c\r\n        c5.setIcon(IconContentEmpty);\r\n        c4.setIcon(IconContentEmpty);\r\n        c3.setIcon(IconContentEmpty);\r\n        // d\r\n        d7.setIcon(IconContentEmpty);\r\n        d6.setIcon(IconContentEmpty);\r\n        d5.setIcon(IconContentEmpty);\r\n        d3.setIcon(IconContentEmpty);\r\n        d2.setIcon(IconContentEmpty);\r\n        d1.setIcon(IconContentEmpty);\r\n        // e\r\n        e5.setIcon(IconContentEmpty);\r\n        e4.setIcon(IconContentEmpty);\r\n        e3.setIcon(IconContentEmpty);\r\n        // f\r\n        f6.setIcon(IconContentEmpty);\r\n        f4.setIcon(IconContentEmpty);\r\n        f2.setIcon(IconContentEmpty);\r\n        // g\r\n        g7.setIcon(IconContentEmpty);\r\n        g4.setIcon(IconContentEmpty);\r\n        g1.setIcon(IconContentEmpty);\r\n    }\r\n\r\n    // Iniciar piezas sin jugar en la parte inzquierda y derecha\r\n    private void initPieces() {\r\n        initPiecesLeft();\r\n        initPiecesRight();\r\n    }\r\n\r\n    // Iniciar piezas sin jugar en la parte izquierda\r\n    private void initPiecesLeft() {\r\n        pieceLeft = new JButton[9];\r\n        pieceLeft[0] = pieceLeft1;\r\n        pieceLeft[1] = pieceLeft2;\r\n        pieceLeft[2] = pieceLeft3;\r\n        pieceLeft[3] = pieceLeft4;\r\n        pieceLeft[4] = pieceLeft5;\r\n        pieceLeft[5] = pieceLeft6;\r\n        pieceLeft[6] = pieceLeft7;\r\n        pieceLeft[7] = pieceLeft8;\r\n        pieceLeft[8] = pieceLeft9;\r\n        // Llenar los iconos\r\n        for (int i = 0; i < 9; i++) {\r\n            for (int j = 0; j < 9; j++) {\r\n                pieceLeft[i].setIcon(IconWithPiece1);\r\n            }\r\n        }\r\n    }\r\n\r\n    // Iniciar piezas sin jugar en la parte derecha\r\n    private void initPiecesRight() {\r\n        pieceRight = new JButton[9];\r\n        pieceRight[0] = pieceRight1;\r\n        pieceRight[1] = pieceRight2;\r\n        pieceRight[2] = pieceRight3;\r\n        pieceRight[3] = pieceRight4;\r\n        pieceRight[4] = pieceRight5;\r\n        pieceRight[5] = pieceRight6;\r\n        pieceRight[6] = pieceRight7;\r\n        pieceRight[7] = pieceRight8;\r\n        pieceRight[8] = pieceRight9;\r\n        // Llenar los iconos\r\n        for (int i = 0; i < 9; i++) {\r\n            for (int j = 0; j < 9; j++) {\r\n                pieceRight[i].setIcon(IconWithPiece2);\r\n            }\r\n        }\r\n    }\r\n\r\n    // Iniciar jugadores\r\n    private void initPlayers() {\r\n        player1 = new Player(\"Kenyi\", \"left\", \"uno\");\r\n        player2 = new Player(\"Herry\", \"right\", \"dos\");\r\n        namePlayerLeft.setText(player1.name);\r\n        namePlayerRight.setText(player2.name);\r\n    }\r\n\r\n    public MainFrame() {\r\n        initPlayers();\r\n        initPieces();\r\n        initActionListenerButtons();\r\n        showTurnInUI();\r\n    }\r\n\r\n\r\n    public JPanel getPanelPrincipal() {\r\n        return PanelPrincipal;\r\n    }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/MainFrame.java b/src/main/java/MainFrame.java
+--- a/src/main/java/MainFrame.java	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/src/main/java/MainFrame.java	(date 1653190992057)
+@@ -67,12 +67,6 @@
+     private JLabel namePlayerRight;
+     private JLabel showIUResult;
+ 
+-    //Action Player at the time
+-    boolean existTicTacToe = false;
+-
+-    public int numberPiecesLeft = 9;
+-    public int numberPiecesRight = 9;
+-
+ 
+     //Methodos que enviaran las entradas de los jugarores
+     /**/
+@@ -105,6 +99,7 @@
+         }
+     }
+ 
++
+     //Change turn
+     public void changeTurn() {
+         String aux = player1.turn;
+@@ -114,83 +109,90 @@
+ 
+     }
+ 
++    public int numberPiecesLeft = 9;
++    public int numberPiecesRight = 9;
+     // insetPieceToUI
+-    public void insertPieceToUI(JButton contentPiece) {
+-        if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
+-            if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
+-                if (player1.turn == "uno") {
+-                    contentPiece.setIcon(IconWithPiece1);
+-                    pieceLeft[9 - numberPiecesLeft].setIcon(IconContentEmpty);
+-                    numberPiecesLeft--;
+-                    currentLogicGame.insertPiece(contentPiece.getText(), "1");
++    public void insertPieceToUI(JButton contentPiece){
++            if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
++                if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
++                    if (player1.turn == "uno") {
++                        contentPiece.setIcon(IconWithPiece1);
++                        pieceLeft[9 - numberPiecesLeft].setIcon(IconContentEmpty);
++                        numberPiecesLeft--;
++                        currentLogicGame.insertPiece(contentPiece.getText(), "1");
+ 
+-                } else {
+-                    contentPiece.setIcon(IconWithPiece2);
+-                    pieceRight[9 - numberPiecesRight].setIcon(IconContentEmpty);
+-                    numberPiecesRight--;
+-                    currentLogicGame.insertPiece(contentPiece.getText(), "2");
+-                }
+-                changeTurn();
+-            } else {
+-                System.out.println("Todas las piezas insertadas");
+-            }
+-            currentLogicGame.setAvailableContentPiece(contentPiece.getText(), false);
+-        }
+-    }
++                    } else {
++                        contentPiece.setIcon(IconWithPiece2);
++                        pieceRight[9 - numberPiecesRight].setIcon(IconContentEmpty);
++                        numberPiecesRight--;
++                        currentLogicGame.insertPiece(contentPiece.getText(), "2");
++                    }
++                    changeTurn();
++                } else {
++                    System.out.println("Todas las piezas insertadas");
++                }
++                currentLogicGame.setAvailableContentPiece(contentPiece.getText(), false);
++            }
++        }
+ 
+     //Remove Opponent's pieces
+-    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {
++    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
+ 
+-        if (myContentPieceToRemove.getIcon() == IconWithPiece1) {
+-            myContentPieceToRemove.setIcon(IconContentEmpty);
+-            currentLogicGame.removePiece(myContentPieceToRemove.getText());
+-            player1.numberPieces--;
+-        }
++            if(myContentPieceToRemove.getIcon() == IconWithPiece1){
++                myContentPieceToRemove.setIcon(IconContentEmpty);
++                currentLogicGame.removePiece(myContentPieceToRemove.getText());
++                player1.numberPieces --;
++            }
+ 
+-        if (myContentPieceToRemove.getIcon() == IconWithPiece2) {
+-            myContentPieceToRemove.setIcon(IconContentEmpty);
+-            currentLogicGame.removePiece(myContentPieceToRemove.getText());
+-            player2.numberPieces--;
++        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
++                myContentPieceToRemove.setIcon(IconContentEmpty);
++                currentLogicGame.removePiece(myContentPieceToRemove.getText());
++                player2.numberPieces --;
++            }
++        if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
++            System.out.println("Empate");
++            showIUResult.setText("Empate!");
+         }
+-        //if (player1.numberPieces <= 2 && player2.numberPieces <= 2) {
+-          //  System.out.println("Empate");
+-            //showIUResult.setText("Empate!");
+-        //}
+         changeTurn();
+     }
+ 
++    //Action Player at the time
++    boolean existTicTacToe = false;
++
+     public void actionPlayerAtTheTime(JButton currentButtonAction) {
+ 
+-        if (!existTicTacToe) {
+-            if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
+-                showIUResult.setText("");
+-                //In the Beginning
+-                insertPieceToUI(currentButtonAction);
+-                //Verificando el tres en raya
++       if(!existTicTacToe){
++           if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
++               showIUResult.setText("");
++               //In the Beginning
++               insertPieceToUI(currentButtonAction);
++               //Verificando el tres en raya
+ 
+ 
+-                if (player1.turn == "dos") {
+-                    existTicTacToe = scoreThreeInARow("1");
+-                    if (existTicTacToe) {
+-                        // Mostrando alerta de tres en raya
+-                        showIUResult.setText("Tres en raya para el jugador 1");
+-                        //Regresando el tunos, para que jueue nuevamente
+-                        changeTurn();
+-                    }
+-                } else {
+-                    if (player2.turn == "dos") {
+-                        existTicTacToe = scoreThreeInARow("2");
+-                        if (existTicTacToe) {
+-                            // Mostrando alerta de tres en raya
+-                            showIUResult.setText("Tres en raya para el jugador 2");
+-                            //Regresando el tunos, para que jueue nuevamente
+-                            changeTurn();
+-                        }
+-                    }
+-                }
++
++               if (player1.turn == "dos"){
++                   existTicTacToe =  scoreThreeInARow("1");
++                   if(existTicTacToe){
++                       // Mostrando alerta de tres en raya
++                       showIUResult.setText("Tres en raya para el jugador 1");
++                       //Regresando el tunos, para que jueue nuevamente
++                       changeTurn();
++                   }
++               }
++              else {
++                   if(player2.turn == "dos"){
++                       existTicTacToe= scoreThreeInARow("2");
++                       if (existTicTacToe){
++                           // Mostrando alerta de tres en raya
++                           showIUResult.setText("Tres en raya para el jugador 2");
++                           //Regresando el tunos, para que jueue nuevamente
++                           changeTurn();
++                       }
++                   }
++               }
+ 
+-            }
+-        } else {
++           }
++       }else{
+             removeOpponentsPiecesOfUI(currentButtonAction);
+             existTicTacToe = false;
+             showIUResult.setText("");
+@@ -199,6 +201,7 @@
+ 
+ 
+     // Verifica tres en raya
++
+     public boolean scoreThreeInARow(String num) {
+         boolean ganador = false;
+         // Filas
+@@ -248,7 +251,8 @@
+         return ganador;
+     }
+ 
+-    private void initActionListenerButtons() {
++    public MainFrame() {
++
+         a7.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+@@ -260,35 +264,35 @@
+         b6.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(b6);
+-                insertPieceToUI(b6);
++             actionPlayerAtTheTime(b6);
++            insertPieceToUI(b6);
+             }
+         });
+         d7.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(d7);
++            actionPlayerAtTheTime(d7);
+                 insertPieceToUI(d7);
+             }
+         });
+         g7.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(g7);
++            actionPlayerAtTheTime(g7);
+                 insertPieceToUI(g7);
+             }
+         });
+         d6.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(d6);
++            actionPlayerAtTheTime(d6);
+                 insertPieceToUI(d6);
+             }
+         });
+         f6.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(f6);
++            actionPlayerAtTheTime(f6);
+                 insertPieceToUI(f6);
+             }
+ 
+@@ -296,63 +300,63 @@
+         c5.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(c5);
++            actionPlayerAtTheTime(c5);
+                 insertPieceToUI(c5);
+             }
+         });
+         d5.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(d5);
++            actionPlayerAtTheTime(d5);
+                 insertPieceToUI(d5);
+             }
+         });
+         e5.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(e5);
++            actionPlayerAtTheTime(e5);
+                 insertPieceToUI(e5);
+             }
+         });
+         a4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(a4);
++            actionPlayerAtTheTime(a4);
+                 insertPieceToUI(a4);
+             }
+         });
+         b4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(b4);
++            actionPlayerAtTheTime(b4);
+                 insertPieceToUI(b4);
+             }
+         });
+         c4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(c4);
++            actionPlayerAtTheTime(c4);
+                 insertPieceToUI(c4);
+             }
+         });
+         e4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(e4);
++            actionPlayerAtTheTime(e4);
+                 insertPieceToUI(e4);
+             }
+         });
+         f4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(f4);
++            actionPlayerAtTheTime(f4);
+                 insertPieceToUI(f4);
+             }
+         });
+         g4.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(g4);
++            actionPlayerAtTheTime(g4);
+                 insertPieceToUI(g4);
+             }
+         });
+@@ -360,7 +364,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(c3);
++            actionPlayerAtTheTime(c3);
+ 
+                 insertPieceToUI(c3);
+             }
+@@ -369,7 +373,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(d3);
++            actionPlayerAtTheTime(d3);
+ 
+                 insertPieceToUI(d3);
+             }
+@@ -378,7 +382,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(e3);
++            actionPlayerAtTheTime(e3);
+ 
+                 insertPieceToUI(e3);
+             }
+@@ -387,7 +391,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(b2);
++            actionPlayerAtTheTime(b2);
+ 
+                 insertPieceToUI(b2);
+             }
+@@ -396,7 +400,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(d2);
++            actionPlayerAtTheTime(d2);
+ 
+                 insertPieceToUI(d2);
+             }
+@@ -405,7 +409,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(f2);
++            actionPlayerAtTheTime(f2);
+ 
+                 insertPieceToUI(f2);
+             }
+@@ -414,7 +418,7 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(a1);
++            actionPlayerAtTheTime(a1);
+ 
+                 insertPieceToUI(a1);
+             }
+@@ -423,124 +427,33 @@
+             @Override
+             public void actionPerformed(ActionEvent e) {
+ 
+-                actionPlayerAtTheTime(d1);
++            actionPlayerAtTheTime(d1);
+                 insertPieceToUI(d1);
+             }
+         });
+         g1.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                actionPlayerAtTheTime(g1);
++            actionPlayerAtTheTime(g1);
+                 insertPieceToUI(g1);
+             }
+         });
+-    }
+-
+-    public void restart() {
+-        currentLogicGame.fillInBoxes();
+-        currentLogicGame.fillMyTable();
+-        numberPiecesLeft = 9;
+-        numberPiecesRight = 9;
+-        existTicTacToe = false;
+-        showIUResult.setText("");
+-        initPieces();
+-        // a
+-        a7.setIcon(IconContentEmpty);
+-        a4.setIcon(IconContentEmpty);
+-        a1.setIcon(IconContentEmpty);
+-        // b
+-        b6.setIcon(IconContentEmpty);
+-        b4.setIcon(IconContentEmpty);
+-        b2.setIcon(IconContentEmpty);
+-        // c
+-        c5.setIcon(IconContentEmpty);
+-        c4.setIcon(IconContentEmpty);
+-        c3.setIcon(IconContentEmpty);
+-        // d
+-        d7.setIcon(IconContentEmpty);
+-        d6.setIcon(IconContentEmpty);
+-        d5.setIcon(IconContentEmpty);
+-        d3.setIcon(IconContentEmpty);
+-        d2.setIcon(IconContentEmpty);
+-        d1.setIcon(IconContentEmpty);
+-        // e
+-        e5.setIcon(IconContentEmpty);
+-        e4.setIcon(IconContentEmpty);
+-        e3.setIcon(IconContentEmpty);
+-        // f
+-        f6.setIcon(IconContentEmpty);
+-        f4.setIcon(IconContentEmpty);
+-        f2.setIcon(IconContentEmpty);
+-        // g
+-        g7.setIcon(IconContentEmpty);
+-        g4.setIcon(IconContentEmpty);
+-        g1.setIcon(IconContentEmpty);
+-    }
+ 
+-    // Iniciar piezas sin jugar en la parte inzquierda y derecha
+-    private void initPieces() {
+-        initPiecesLeft();
+-        initPiecesRight();
+-    }
++        //Players
++        this.player1 = new Player("Kenyi", "left", "uno");
++        this.player2 = new Player("Herry", "right", "dos");
+ 
+-    // Iniciar piezas sin jugar en la parte izquierda
+-    private void initPiecesLeft() {
+-        pieceLeft = new JButton[9];
+-        pieceLeft[0] = pieceLeft1;
+-        pieceLeft[1] = pieceLeft2;
+-        pieceLeft[2] = pieceLeft3;
+-        pieceLeft[3] = pieceLeft4;
+-        pieceLeft[4] = pieceLeft5;
+-        pieceLeft[5] = pieceLeft6;
+-        pieceLeft[6] = pieceLeft7;
+-        pieceLeft[7] = pieceLeft8;
+-        pieceLeft[8] = pieceLeft9;
+-        // Llenar los iconos
+-        for (int i = 0; i < 9; i++) {
+-            for (int j = 0; j < 9; j++) {
+-                pieceLeft[i].setIcon(IconWithPiece1);
+-            }
+-        }
+-    }
+-
+-    // Iniciar piezas sin jugar en la parte derecha
+-    private void initPiecesRight() {
+-        pieceRight = new JButton[9];
+-        pieceRight[0] = pieceRight1;
+-        pieceRight[1] = pieceRight2;
+-        pieceRight[2] = pieceRight3;
+-        pieceRight[3] = pieceRight4;
+-        pieceRight[4] = pieceRight5;
+-        pieceRight[5] = pieceRight6;
+-        pieceRight[6] = pieceRight7;
+-        pieceRight[7] = pieceRight8;
+-        pieceRight[8] = pieceRight9;
+-        // Llenar los iconos
+-        for (int i = 0; i < 9; i++) {
+-            for (int j = 0; j < 9; j++) {
+-                pieceRight[i].setIcon(IconWithPiece2);
+-            }
+-        }
+-    }
+-
+-    // Iniciar jugadores
+-    private void initPlayers() {
+-        player1 = new Player("Kenyi", "left", "uno");
+-        player2 = new Player("Herry", "right", "dos");
+         namePlayerLeft.setText(player1.name);
+         namePlayerRight.setText(player2.name);
+-    }
++
+ 
+-    public MainFrame() {
+-        initPlayers();
+-        initPieces();
+-        initActionListenerButtons();
++
+         showTurnInUI();
+     }
+ 
+ 
+-    public JPanel getPanelPrincipal() {
+-        return PanelPrincipal;
++    public JPanel getPanelPrincipal(){
++        return  PanelPrincipal;
+     }
+ 
+ }
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>NIneGame</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-compiler-plugin</artifactId>\r\n                <configuration>\r\n                    <source>17</source>\r\n                    <target>17</target>\r\n                </configuration>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n\r\n    <properties>\r\n        <maven.compiler.source>18</maven.compiler.source>\r\n        <maven.compiler.target>18</maven.compiler.target>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter</artifactId>\r\n            <version>5.8.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-params</artifactId>\r\n            <version>5.8.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-engine</artifactId>\r\n            <version>5.8.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.8.2</version>\r\n        </dependency>\r\n    </dependencies>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/pom.xml	(date 1653190447199)
+@@ -7,18 +7,6 @@
+     <groupId>org.example</groupId>
+     <artifactId>NIneGame</artifactId>
+     <version>1.0-SNAPSHOT</version>
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-compiler-plugin</artifactId>
+-                <configuration>
+-                    <source>17</source>
+-                    <target>17</target>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+ 
+     <properties>
+         <maven.compiler.source>18</maven.compiler.source>
+@@ -28,21 +16,6 @@
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter</artifactId>
+-            <version>5.8.2</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-params</artifactId>
+-            <version>5.8.2</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-engine</artifactId>
+-            <version>5.8.2</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.junit.jupiter</groupId>
+-            <artifactId>junit-jupiter-api</artifactId>
+             <version>5.8.2</version>
+         </dependency>
+     </dependencies>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0cfa01f0-b83b-457f-9f9b-1cad4e687233\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Image/imgPlayAgain.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Image/imgQuit.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Image/imgShowResults.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Image/imgTutorial.png\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Logic.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Logic.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/MainFrame.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/MainFrame.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JUnit5 Test Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"292YcYZTbSPwISxg5UILSCUP5Xg\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"last_opened_file_path\": \"C:/Users/Usuario/Desktop/Nine-men-s-morris-Grupo10/src/main/resources/Image\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Usuario\\Desktop\\Nine-men-s-morris-Grupo10\\src\\main\\resources\\Image\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Nine-men-s-morris-Grupo10\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogicTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Nine-men-s-morris-Grupo10\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LogicTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogicTest.getIsAvailableContentPieceTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Nine-men-s-morris-Grupo10\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LogicTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"getIsAvailableContentPieceTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogicTest.isAvailableContentPieceTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Nine-men-s-morris-Grupo10\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LogicTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"isAvailableContentPieceTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"JUnit.LogicTest\" />\r\n        <item itemvalue=\"JUnit.LogicTest.isAvailableContentPieceTest\" />\r\n        <item itemvalue=\"JUnit.LogicTest.getIsAvailableContentPieceTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0cfa01f0-b83b-457f-9f9b-1cad4e687233\" name=\"Changes\" comment=\"\" />\r\n      <created>1652312729901</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1652312729901</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/.idea/workspace.xml	(date 1653192188406)
+@@ -4,24 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgPlayAgain.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgQuit.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgShowResults.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgTutorial.png" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++    <list default="true" id="66bdf884-b1f2-452a-a1cd-0f957a82df66" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="CodeStyleSettingsInfer">
+-    <option name="done" value="true" />
+   </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+@@ -36,36 +25,21 @@
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
+-  <component name="MavenImportPreferences">
+-    <option name="generalSettings">
+-      <MavenGeneralSettings>
+-        <option name="useMavenConfig" value="true" />
+-      </MavenGeneralSettings>
+-    </option>
+-  </component>
+-  <component name="ProjectCodeStyleSettingsMigration">
+-    <option name="version" value="2" />
+-  </component>
+   <component name="ProjectId" id="292YcYZTbSPwISxg5UILSCUP5Xg" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "last_opened_file_path": "C:/Users/Usuario/Desktop/Nine-men-s-morris-Grupo10/src/main/resources/Image",
+-    "settings.editor.selected.configurable": "preferences.pluginManager"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+-    <key name="CopyFile.RECENT_KEYS">
+-      <recent name="C:\Users\Usuario\Desktop\Nine-men-s-morris-Grupo10\src\main\resources\Image" />
+-    </key>
+     <key name="CreateTestDialog.Recents.Supers">
+       <recent name="" />
+     </key>
+@@ -90,16 +64,6 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LogicTest.getIsAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="Nine-men-s-morris-Grupo10" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="LogicTest" />
+-      <option name="METHOD_NAME" value="getIsAvailableContentPieceTest" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="LogicTest.isAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="Nine-men-s-morris-Grupo10" />
+       <option name="PACKAGE_NAME" value="" />
+@@ -115,7 +79,6 @@
+         <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.LogicTest" />
+         <item itemvalue="JUnit.LogicTest.isAvailableContentPieceTest" />
+-        <item itemvalue="JUnit.LogicTest.getIsAvailableContentPieceTest" />
+       </list>
+     </recent_temporary>
+   </component>
+Index: src/test/java/LogicTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.Test;\r\n\r\nimport static org.junit.jupiter.api.Assertions.*;\r\n\r\nclass LogicTest {\r\n\r\n    @Test\r\n    public void  isAvailableContentPieceTest(){\r\n        Logic currentLogic = new Logic();\r\n\r\n        /*1)Verificando si la casilla a7 esta disponible\r\n        * El metodo debería retornará true (Si esta vacia)*/\r\n        //test\r\n        Assertions.assertEquals(true,currentLogic.getIsAvailableContentPiece(\"a7\"));\r\n\r\n        /*2) Insertamos una pieza al a7\r\n        * El metodo debería retornar fales (No esta vacía)*/\r\n        //Insertando el una pieza del segundo jugador\r\n        currentLogic.insertPiece(\"a7\",\"2\");\r\n        //test\r\n        Assertions.assertEquals(false,currentLogic.getIsAvailableContentPiece(\"a7\"));\r\n\r\n        /*3) Quitando una pieza\r\n        * El metodo debería retornará true (Si esta vacia)*/\r\n        //Quitando la pieza insertada\r\n        currentLogic.removePiece(\"a7\");\r\n        //test\r\n        Assertions.assertEquals(true,currentLogic.getIsAvailableContentPiece(\"a7\"));\r\n\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/LogicTest.java b/src/test/java/LogicTest.java
+--- a/src/test/java/LogicTest.java	(revision 5a33883027710f54dfd52d0ff708808a19a65302)
++++ b/src/test/java/LogicTest.java	(date 1653190447206)
+@@ -12,21 +12,21 @@
+         /*1)Verificando si la casilla a7 esta disponible
+         * El metodo debería retornará true (Si esta vacia)*/
+         //test
+-        Assertions.assertEquals(true,currentLogic.getIsAvailableContentPiece("a7"));
++        Assertions.assertEquals(true,currentLogic.isAvailableContentPiece("a7"));
+ 
+         /*2) Insertamos una pieza al a7
+         * El metodo debería retornar fales (No esta vacía)*/
+         //Insertando el una pieza del segundo jugador
+         currentLogic.insertPiece("a7","2");
+         //test
+-        Assertions.assertEquals(false,currentLogic.getIsAvailableContentPiece("a7"));
++        Assertions.assertEquals(false,currentLogic.isAvailableContentPiece("a7"));
+ 
+         /*3) Quitando una pieza
+         * El metodo debería retornará true (Si esta vacia)*/
+         //Quitando la pieza insertada
+         currentLogic.removePiece("a7");
+         //test
+-        Assertions.assertEquals(true,currentLogic.getIsAvailableContentPiece("a7"));
++        Assertions.assertEquals(true,currentLogic.isAvailableContentPiece("a7"));
+ 
+     }
+ 

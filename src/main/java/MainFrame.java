@@ -2,18 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class MainFrame {
+public class MainFrame extends JFrame {
 
-    public Player player1;
-    public Player player2;
+
+
+    public Player player1 = new Player("left","uno");
+    public Player player2 = new Player("right","dos");
 
     public Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
     ImageIcon IconWithPiece2 = new ImageIcon("src/main/resources/Image/IconWithPiece2.png");
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
+    ImageIcon IconMove = new ImageIcon("src/main/resources/Image/AvailableContent.png");
 
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
@@ -63,15 +71,9 @@ public class MainFrame {
 
     private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
     private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
-    private JLabel namePlayerLeft;
-    private JLabel namePlayerRight;
+    JLabel namePlayerLeft;
+    JLabel namePlayerRight;
     private JLabel showIUResult;
-
-    //Action Player at the time
-    boolean existTicTacToe = false;
-
-    public int numberPiecesLeft = 9;
-    public int numberPiecesRight = 9;
 
 
     //Methodos que enviaran las entradas de los jugarores
@@ -79,23 +81,25 @@ public class MainFrame {
 
     //Current Player
     public Player currentTurn() {
-        if (player1.turn == "uno") {
+        if (player1.turn.equals("uno")) {
             return player1;
         } else return player2;
     }
 
     //Show the turn
     public void showTurnInUI() {
-        if (player1.turn == "uno") {
-            if (namePlayerLeft.getText() == player1.name) {
+        if (player1.turn.equals("uno")) {
+            if (namePlayerLeft.getText().equals(player1.name)) {
                 namePlayerLeft.setBackground(new Color(94, 0, 215));
                 namePlayerRight.setBackground(new Color(32, 36, 74));
             } else {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
             }
-        } else {
-            if (namePlayerRight.getText() == player2.name) {
+        }
+
+        if (player2.turn.equals("uno")){
+            if (namePlayerRight.getText().equals(player2.name)) {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
             } else {
@@ -104,6 +108,7 @@ public class MainFrame {
             }
         }
     }
+
 
     //Change turn
     public void changeTurn() {
@@ -114,8 +119,13 @@ public class MainFrame {
 
     }
 
+    public int numberPiecesLeft = 9;
+    public int numberPiecesRight = 9;
+
+    private JButton lastButton = a7;
+    public int numberMove = 0;
     // insetPieceToUI
-    public void insertPieceToUI(JButton contentPiece) {
+    public void insertPieceToUI(JButton contentPiece){
         if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
             if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
                 if (player1.turn == "uno") {
@@ -138,49 +148,108 @@ public class MainFrame {
         }
     }
 
+    int pushKeybord = 0;
+
+
+    //
+    public void setNameInTheUI(){
+        namePlayerLeft.setText(player1.name);
+        namePlayerRight.setText(player2.name);
+    }
+    //mover pieza
+    public void movePieceToUI(JButton myMoveContentPiece){
+
+        if (player1.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                System.out.println(numberMove);
+            }
+        }
+        if (player2.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                pushKeybord++;
+                System.out.println(numberMove);
+            }
+        }
+
+
+
+        if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
+            if(currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
+                if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
+                    if (player1.turn == "uno") {
+                        System.out.println(numberMove);
+                        numberPiecesLeft++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    } else {
+                        System.out.println(numberMove);
+                        numberPiecesRight++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    }
+                    numberMove--;
+                }
+            }
+        }
+
+    }
     //Remove Opponent's pieces
-    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {
+    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
-        if (myContentPieceToRemove.getIcon() == IconWithPiece1) {
+        if(myContentPieceToRemove.getIcon() == IconWithPiece1){
             myContentPieceToRemove.setIcon(IconContentEmpty);
             currentLogicGame.removePiece(myContentPieceToRemove.getText());
-            player1.numberPieces--;
+            player1.numberPieces --;
         }
 
-        if (myContentPieceToRemove.getIcon() == IconWithPiece2) {
+        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
             myContentPieceToRemove.setIcon(IconContentEmpty);
             currentLogicGame.removePiece(myContentPieceToRemove.getText());
-            player2.numberPieces--;
+            player2.numberPieces --;
         }
-        //if (player1.numberPieces <= 2 && player2.numberPieces <= 2) {
-          //  System.out.println("Empate");
-            //showIUResult.setText("Empate!");
-        //}
+        if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
+            System.out.println("Empate");
+            showIUResult.setText("Empate!");
+        }
         changeTurn();
     }
 
+    //Action Player at the time
+    boolean existTicTacToe = false;
+
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
 
-        if (!existTicTacToe) {
+        movePieceToUI(currentButtonAction);
+
+        if(!existTicTacToe){
             if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                 showIUResult.setText("");
                 //In the Beginning
                 insertPieceToUI(currentButtonAction);
-                //Verificando el tres en raya
 
-
-                if (player1.turn == "dos") {
-                    existTicTacToe = scoreThreeInARow("1");
-                    if (existTicTacToe) {
+                if (player1.turn == "dos"){
+                    existTicTacToe =  scoreThreeInARow("1");
+                    if(existTicTacToe){
                         // Mostrando alerta de tres en raya
                         showIUResult.setText("Tres en raya para el jugador 1");
                         //Regresando el tunos, para que jueue nuevamente
                         changeTurn();
                     }
-                } else {
-                    if (player2.turn == "dos") {
-                        existTicTacToe = scoreThreeInARow("2");
-                        if (existTicTacToe) {
+                }
+                else {
+                    if(player2.turn == "dos"){
+                        existTicTacToe= scoreThreeInARow("2");
+                        if (existTicTacToe){
                             // Mostrando alerta de tres en raya
                             showIUResult.setText("Tres en raya para el jugador 2");
                             //Regresando el tunos, para que jueue nuevamente
@@ -190,294 +259,44 @@ public class MainFrame {
                 }
 
             }
-        } else {
+        }else{
             removeOpponentsPiecesOfUI(currentButtonAction);
             existTicTacToe = false;
             showIUResult.setText("");
+            currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(),true);
         }
     }
 
 
     // Verifica tres en raya
+
     public boolean scoreThreeInARow(String num) {
-        boolean ganador = false;
-        // Filas
-        if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[1][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[2][3].equals(num) && currentLogicGame.myTable[2][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[3][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[3][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[6][0].equals(num) && currentLogicGame.myTable[6][3].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
-        } // Columnas
-        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[3][0].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[3][1].equals(num) && currentLogicGame.myTable[5][1].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][2].equals(num) && currentLogicGame.myTable[3][2].equals(num) && currentLogicGame.myTable[4][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[0][3].equals(num) && currentLogicGame.myTable[1][3].equals(num) && currentLogicGame.myTable[2][3].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][3].equals(num) && currentLogicGame.myTable[5][3].equals(num) && currentLogicGame.myTable[6][3].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[3][4].equals(num) && currentLogicGame.myTable[4][4].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[3][5].equals(num) && currentLogicGame.myTable[5][5].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[0][6].equals(num) && currentLogicGame.myTable[3][6].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
-        }// Diagonal
-        else if (currentLogicGame.myTable[0][0].equals(num) && currentLogicGame.myTable[1][1].equals(num) && currentLogicGame.myTable[2][2].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[2][4].equals(num) && currentLogicGame.myTable[1][5].equals(num) && currentLogicGame.myTable[0][6].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][2].equals(num) && currentLogicGame.myTable[5][1].equals(num) && currentLogicGame.myTable[6][0].equals(num)) {
-            ganador = true;
-        } else if (currentLogicGame.myTable[4][4].equals(num) && currentLogicGame.myTable[5][5].equals(num) && currentLogicGame.myTable[6][6].equals(num)) {
-            ganador = true;
+        boolean threeInArrow = false;
+
+        for (int [][] oneGroupCase: currentLogicGame.CasesTresEnRaya) {
+            int x = oneGroupCase[0][0];
+            int y = oneGroupCase[0][1];
+            int r = oneGroupCase[1][0];
+            int s = oneGroupCase[1][1];
+            int m = oneGroupCase[2][0];
+            int n = oneGroupCase[2][1];
+
+            if (currentLogicGame.myTable[x][y].equals(num) && currentLogicGame.myTable[r][s].equals(num) && currentLogicGame.myTable[m][n].equals(num)) {
+                String caseTresEnRaya = ""+x+y+r+s+m+n;
+                System.out.println(caseTresEnRaya);
+
+                if(!currentLogicGame.isInTheMemory(caseTresEnRaya)){
+                    currentLogicGame.addToMemory(caseTresEnRaya);
+                    threeInArrow = true;
+                    break;
+                }
+            }
+
         }
-        return ganador;
+
+        return threeInArrow;
     }
 
-    private void initActionListenerButtons() {
-        a7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(a7);
-                insertPieceToUI(a7);
-
-            }
-        });
-        b6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(b6);
-                insertPieceToUI(b6);
-            }
-        });
-        d7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d7);
-                insertPieceToUI(d7);
-            }
-        });
-        g7.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(g7);
-                insertPieceToUI(g7);
-            }
-        });
-        d6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d6);
-                insertPieceToUI(d6);
-            }
-        });
-        f6.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(f6);
-                insertPieceToUI(f6);
-            }
-
-        });
-        c5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(c5);
-                insertPieceToUI(c5);
-            }
-        });
-        d5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d5);
-                insertPieceToUI(d5);
-            }
-        });
-        e5.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(e5);
-                insertPieceToUI(e5);
-            }
-        });
-        a4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(a4);
-                insertPieceToUI(a4);
-            }
-        });
-        b4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(b4);
-                insertPieceToUI(b4);
-            }
-        });
-        c4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(c4);
-                insertPieceToUI(c4);
-            }
-        });
-        e4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(e4);
-                insertPieceToUI(e4);
-            }
-        });
-        f4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(f4);
-                insertPieceToUI(f4);
-            }
-        });
-        g4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(g4);
-                insertPieceToUI(g4);
-            }
-        });
-        c3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(c3);
-
-                insertPieceToUI(c3);
-            }
-        });
-        d3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(d3);
-
-                insertPieceToUI(d3);
-            }
-        });
-        e3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(e3);
-
-                insertPieceToUI(e3);
-            }
-        });
-        b2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(b2);
-
-                insertPieceToUI(b2);
-            }
-        });
-        d2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(d2);
-
-                insertPieceToUI(d2);
-            }
-        });
-        f2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(f2);
-
-                insertPieceToUI(f2);
-            }
-        });
-        a1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(a1);
-
-                insertPieceToUI(a1);
-            }
-        });
-        d1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionPlayerAtTheTime(d1);
-                insertPieceToUI(d1);
-            }
-        });
-        g1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(g1);
-                insertPieceToUI(g1);
-            }
-        });
-    }
-
-    public void restart() {
-        currentLogicGame.fillInBoxes();
-        currentLogicGame.fillMyTable();
-        numberPiecesLeft = 9;
-        numberPiecesRight = 9;
-        existTicTacToe = false;
-        showIUResult.setText("");
-        initPieces();
-        // a
-        a7.setIcon(IconContentEmpty);
-        a4.setIcon(IconContentEmpty);
-        a1.setIcon(IconContentEmpty);
-        // b
-        b6.setIcon(IconContentEmpty);
-        b4.setIcon(IconContentEmpty);
-        b2.setIcon(IconContentEmpty);
-        // c
-        c5.setIcon(IconContentEmpty);
-        c4.setIcon(IconContentEmpty);
-        c3.setIcon(IconContentEmpty);
-        // d
-        d7.setIcon(IconContentEmpty);
-        d6.setIcon(IconContentEmpty);
-        d5.setIcon(IconContentEmpty);
-        d3.setIcon(IconContentEmpty);
-        d2.setIcon(IconContentEmpty);
-        d1.setIcon(IconContentEmpty);
-        // e
-        e5.setIcon(IconContentEmpty);
-        e4.setIcon(IconContentEmpty);
-        e3.setIcon(IconContentEmpty);
-        // f
-        f6.setIcon(IconContentEmpty);
-        f4.setIcon(IconContentEmpty);
-        f2.setIcon(IconContentEmpty);
-        // g
-        g7.setIcon(IconContentEmpty);
-        g4.setIcon(IconContentEmpty);
-        g1.setIcon(IconContentEmpty);
-    }
-
-    // Iniciar piezas sin jugar en la parte inzquierda y derecha
     private void initPieces() {
         initPiecesLeft();
         initPiecesRight();
@@ -523,25 +342,291 @@ public class MainFrame {
         }
     }
 
-    // Iniciar jugadores
-    private void initPlayers() {
-        player1 = new Player("Kenyi", "left", "uno");
-        player2 = new Player("Herry", "right", "dos");
-        namePlayerLeft.setText(player1.name);
-        namePlayerRight.setText(player2.name);
+
+    public void restart() {
+        currentLogicGame.fillInBoxes();
+        currentLogicGame.fillMyTable();
+        numberPiecesLeft = 9;
+        numberPiecesRight = 9;
+        existTicTacToe = false;
+        showIUResult.setText("");
+        initPieces();
+        // a
+        a7.setIcon(IconContentEmpty);
+        a4.setIcon(IconContentEmpty);
+        a1.setIcon(IconContentEmpty);
+        // b
+        b6.setIcon(IconContentEmpty);
+        b4.setIcon(IconContentEmpty);
+        b2.setIcon(IconContentEmpty);
+        // c
+        c5.setIcon(IconContentEmpty);
+        c4.setIcon(IconContentEmpty);
+        c3.setIcon(IconContentEmpty);
+        // d
+        d7.setIcon(IconContentEmpty);
+        d6.setIcon(IconContentEmpty);
+        d5.setIcon(IconContentEmpty);
+        d3.setIcon(IconContentEmpty);
+        d2.setIcon(IconContentEmpty);
+        d1.setIcon(IconContentEmpty);
+        // e
+        e5.setIcon(IconContentEmpty);
+        e4.setIcon(IconContentEmpty);
+        e3.setIcon(IconContentEmpty);
+        // f
+        f6.setIcon(IconContentEmpty);
+        f4.setIcon(IconContentEmpty);
+        f2.setIcon(IconContentEmpty);
+        // g
+        g7.setIcon(IconContentEmpty);
+        g4.setIcon(IconContentEmpty);
+        g1.setIcon(IconContentEmpty);
     }
+
+    private void addMenuBar(){
+        // Barra de Menú
+        JMenuBar menuBar = new JMenuBar();
+
+        // Menú
+        JMenu menu = new JMenu("Menu");
+        JMenu help = new JMenu("Ayuda");
+
+        // Items del menú "Menu"
+        JMenuItem playAgain = new JMenuItem("Jugar de Nuevo");
+        JMenuItem showResults = new JMenuItem("Mostrar Resultados");
+        JMenuItem quit = new JMenuItem("Salir");
+
+        // Item del menú "ayuda"
+        JMenuItem tutorial = new JMenuItem("Tutorial");
+
+        // Iconos del menú "Menu"
+        ImageIcon imgPlayAgain = new ImageIcon("src/main/resources/Image/imgPlayAgain.png");
+        ImageIcon imgShowResults = new ImageIcon("src/main/resources/Image/imgShowResults.png");
+        ImageIcon imgQuit = new ImageIcon("src/main/resources/Image/imgQuit.png");
+        playAgain.setIcon(imgPlayAgain);
+        showResults.setIcon(imgShowResults);
+        quit.setIcon(imgQuit);
+
+        // Iconos del menu "Ayuda"
+        ImageIcon imgTutorial = new ImageIcon("src/main/resources/Image/imgTutorial.png");
+        tutorial.setIcon(imgTutorial);
+
+        // Evento para reinciar el juego
+        playAgain.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                restart();
+            }
+        });
+
+        // Evento para salir del juego
+        quit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        // Eventos para ver tutorial
+        tutorial.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("http://www.dma.fi.upm.es/recursos/aplicaciones/matematicas_recreativas/web/nine_mens_morris/reglas.html"));
+                } catch (URISyntaxException | IOException ex) {
+                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+
+        // Agragando items al menú "Ayuda"
+        help.add(tutorial);
+
+        // Agregando items al menu "Menú"
+        menu.add(playAgain);
+        menu.add(showResults);
+        menu.add(quit);
+
+        // Agregando menús(menu y ayuda) a la barra de menú
+        menuBar.add(menu);
+        menuBar.add(help);
+
+        // Agregando la barra de menú a la ventana
+        setJMenuBar(menuBar);
+    }
+
 
     public MainFrame() {
-        initPlayers();
-        initPieces();
-        initActionListenerButtons();
-        showTurnInUI();
+        //Caracteristicas de la ventana que se va abrir
+        setSize(300,300);
+        setContentPane(PanelPrincipal);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(250,100,720,520);
+        setBounds(250,100,820,620);
+        setVisible(true);//mostrar la venta FirstPanel
+
+        addMenuBar();
+
+        a7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a7);
+
+            }
+        });
+        b6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b6);
+            }
+        });
+        d7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d7);
+            }
+        });
+        g7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g7);
+            }
+        });
+        d6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d6);
+            }
+        });
+        f6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f6);
+            }
+
+        });
+        c5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c5);
+            }
+        });
+        d5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d5);
+            }
+        });
+        e5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e5);
+            }
+        });
+        a4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a4);
+            }
+        });
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b4);
+            }
+        });
+        c4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c4);
+            }
+        });
+        e4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e4);
+            }
+        });
+        f4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f4);
+            }
+        });
+        g4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g4);
+            }
+        });
+        c3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(c3);
+            }
+        });
+        d3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d3);
+            }
+        });
+        e3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(e3);
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(b2);
+            }
+        });
+        d2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d2);
+            }
+        });
+        f2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(f2);
+            }
+        });
+        a1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(a1);
+            }
+        });
+        d1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(d1);
+            }
+        });
+        g1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actionPlayerAtTheTime(g1);
+            }
+        });
+
     }
 
-
-    public JPanel getPanelPrincipal() {
-        return PanelPrincipal;
+    public JPanel getPanelPrincipal(){
+        return  PanelPrincipal;
     }
 
 }
+
+/*if(currentLogicGame.isInTheMemory(caseTresEnRaya)){
+                        break;
+                    }else{
+                        currentLogicGame.addToMemory(caseTresEnRaya);
+                        threeInArrow = true;
+                    }*/
 

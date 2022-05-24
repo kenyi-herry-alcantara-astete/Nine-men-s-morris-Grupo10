@@ -1,144 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgPlayAgain.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgQuit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgShowResults.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Image/imgTutorial.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JUnit5 Test Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectId" id="292YcYZTbSPwISxg5UILSCUP5Xg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
+    <component name="AutoImportSettings">
+        <option name="autoReloadType" value="SELECTIVE" />
+    </component>
+    <component name="ChangeListManager">
+        <list default="true" id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="">
+            <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_18_2022_10_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_18_2022_10_21_PM__Changes_.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_9_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_9_51_PM__Changes_.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_9_51_PM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_2022_9_51_PM__Changes_1.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_22__10_09_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_19_22__10_09_PM__Changes_.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
+            <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+        </list>
+        <option name="SHOW_DIALOG" value="false" />
+        <option name="HIGHLIGHT_CONFLICTS" value="true" />
+        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+        <option name="LAST_RESOLUTION" value="IGNORE" />
+    </component>
+    <component name="CodeStyleSettingsInfer">
+        <option name="done" value="true" />
+    </component>
+    <component name="FileTemplateManagerImpl">
+        <option name="RECENT_TEMPLATES">
+            <list>
+                <option value="JUnit5 Test Class" />
+                <option value="Class" />
+            </list>
+        </option>
+    </component>
+    <component name="Git.Settings">
+        <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    </component>
+    <component name="MarkdownSettingsMigration">
+        <option name="stateVersion" value="1" />
+    </component>
+    <component name="MavenImportPreferences">
+        <option name="generalSettings">
+            <MavenGeneralSettings>
+                <option name="useMavenConfig" value="true" />
+            </MavenGeneralSettings>
+        </option>
+    </component>
+    <component name="ProjectCodeStyleSettingsMigration">
+        <option name="version" value="2" />
+    </component>
+    <component name="ProjectId" id="292YcYZTbSPwISxg5UILSCUP5Xg" />
+    <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+    <component name="ProjectViewState">
+        <option name="hideEmptyMiddlePackages" value="true" />
+        <option name="showLibraryContents" value="true" />
+    </component>
+    <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/Nine-men-s-morris-Grupo10/src/main/resources/Image",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/ciclo2022-1/DesarrolloSoftware/semana5/Actividad5-CC3S2",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Usuario\Desktop\Nine-men-s-morris-Grupo10\src\main\resources\Image" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Nine-men-s-morris-Grupo10" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Nine-men-s-morris-Grupo10" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LogicTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogicTest.getIsAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Nine-men-s-morris-Grupo10" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LogicTest" />
-      <option name="METHOD_NAME" value="getIsAvailableContentPieceTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogicTest.isAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Nine-men-s-morris-Grupo10" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LogicTest" />
-      <option name="METHOD_NAME" value="isAvailableContentPieceTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.LogicTest" />
-        <item itemvalue="JUnit.LogicTest.isAvailableContentPieceTest" />
-        <item itemvalue="JUnit.LogicTest.getIsAvailableContentPieceTest" />
-      </list>
-    </recent_temporary>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="" />
-      <created>1652312729901</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1652312729901</updated>
-    </task>
-    <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
+    <component name="RecentsManager">
+        <key name="CreateTestDialog.Recents.Supers">
+            <recent name="" />
+        </key>
+        <key name="CreateTestDialog.RecentsKey">
+            <recent name="" />
+        </key>
+    </component>
+    <component name="RunManager" selected="Application.Main">
+        <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+            <option name="MAIN_CLASS_NAME" value="Main" />
+            <module name="NIneGame" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+            <option name="MAIN_CLASS_NAME" value="Main" />
+            <module name="Nine-men-s-morris-Grupo10" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration name="LogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+            <module name="Nine-men-s-morris-Grupo10" />
+            <option name="PACKAGE_NAME" value="" />
+            <option name="MAIN_CLASS_NAME" value="LogicTest" />
+            <option name="TEST_OBJECT" value="class" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration name="LogicTest.getIsAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+            <module name="Nine-men-s-morris-Grupo10" />
+            <option name="PACKAGE_NAME" value="" />
+            <option name="MAIN_CLASS_NAME" value="LogicTest" />
+            <option name="METHOD_NAME" value="getIsAvailableContentPieceTest" />
+            <option name="TEST_OBJECT" value="method" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <configuration name="LogicTest.isAvailableContentPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+            <module name="Nine-men-s-morris-Grupo10" />
+            <option name="PACKAGE_NAME" value="" />
+            <option name="MAIN_CLASS_NAME" value="LogicTest" />
+            <option name="METHOD_NAME" value="isAvailableContentPieceTest" />
+            <option name="TEST_OBJECT" value="method" />
+            <method v="2">
+                <option name="Make" enabled="true" />
+            </method>
+        </configuration>
+        <recent_temporary>
+            <list>
+                <item itemvalue="Application.Main" />
+                <item itemvalue="Application.Main (1)" />
+                <item itemvalue="JUnit.LogicTest" />
+                <item itemvalue="JUnit.LogicTest.isAvailableContentPieceTest" />
+                <item itemvalue="JUnit.LogicTest.getIsAvailableContentPieceTest" />
+            </list>
+        </recent_temporary>
+    </component>
+    <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+    <component name="TaskManager">
+        <task active="true" id="Default" summary="Default task">
+            <changelist id="0cfa01f0-b83b-457f-9f9b-1cad4e687233" name="Changes" comment="" />
+            <created>1652312729901</created>
+            <option name="number" value="Default" />
+            <option name="presentableId" value="Default" />
+            <updated>1652312729901</updated>
+            <workItem from="1652677605499" duration="11466000" />
+            <workItem from="1652716008311" duration="36000" />
+            <workItem from="1652723815499" duration="14102000" />
+            <workItem from="1652744839151" duration="15000" />
+            <workItem from="1652756580459" duration="3736000" />
+            <workItem from="1652840058665" duration="721000" />
+            <workItem from="1652843395219" duration="3000" />
+            <workItem from="1652846052562" duration="1344000" />
+            <workItem from="1652849737975" duration="2205000" />
+        </task>
+        <servers />
+    </component>
+    <component name="TypeScriptGeneratedFilesManager">
+        <option name="version" value="3" />
+    </component>
+    <component name="Vcs.Log.Tabs.Properties">
+        <option name="TAB_STATES">
+            <map>
+                <entry key="MAIN">
+                    <value>
+                        <State>
+                            <option name="FILTERS">
+                                <map>
+                                    <entry key="branch">
+                                        <value>
+                                            <list>
+                                                <option value="main" />
+                                            </list>
+                                        </value>
+                                    </entry>
+                                </map>
+                            </option>
+                        </State>
+                    </value>
+                </entry>
+            </map>
+        </option>
+    </component>
 </project>
