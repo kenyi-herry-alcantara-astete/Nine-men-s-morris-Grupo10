@@ -39,6 +39,7 @@ public class Logic {
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
 
         String posititon = ""+indexRow+""+indexColumn;
+        ArrayList <String> Temporary = new ArrayList<String>();
 
         for ( String groupPosition:MenoryTreEnRaya) {
            if (MenoryTreEnRaya.size() != 0){
@@ -46,10 +47,15 @@ public class Logic {
                String two = groupPosition.substring(2,4);
                String three = groupPosition.substring(4,6);
                if (one.equals(posititon) || two.equals(posititon) || three.equals(posititon)) {
-                   MenoryTreEnRaya.remove(one+two+three);
+                   Temporary.add(one+two+three);
                }
            }
         }
+        for (String group:Temporary) {
+            MenoryTreEnRaya.remove(group);
+        }
+        //Elimnando Temporary
+        Temporary.clear();
 
     }
 
