@@ -14,7 +14,7 @@ public class Logic {
     int[][][] CasesTresEnRaya = Constants.getCasesTresEnRaya();
 
     //Matriz recuerdo
-    ArrayList<String> MenoryTreEnRaya = new ArrayList<String>();
+    protected ArrayList<String> MenoryTreEnRaya = new ArrayList<String>();
 
     public boolean isInTheMemory(String caseTresEnRaya){
         boolean res = false;
@@ -25,14 +25,52 @@ public class Logic {
             }
         }
         return  res;
+
     }
+
     public void addToMemory(String caseTresEnRaya){
         MenoryTreEnRaya.add(caseTresEnRaya);
     }
 
-    public void removeFoTheMemory(String caseTresEnRaya){
-        MenoryTreEnRaya.remove(caseTresEnRaya);
+    public void removeOfTheMemory(String positionPiece){
+
+
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+
+        String posititon = ""+indexRow+""+indexColumn;
+
+        for ( String groupPosition:MenoryTreEnRaya) {
+           if (MenoryTreEnRaya.size() != 0){
+               String one = groupPosition.substring(0,2);
+               String two = groupPosition.substring(2,4);
+               String three = groupPosition.substring(4,6);
+               if (one.equals(posititon) || two.equals(posititon) || three.equals(posititon)) {
+                   MenoryTreEnRaya.remove(one+two+three);
+               }
+           }
+        }
+
     }
+
+
+
+    public boolean isOneOfUnTresEnRaya(String positionPiece){
+
+        int indexRow = whatIndexRow(positionPiece.charAt(1));
+        int indexColumn = whatIndexColumn(positionPiece.charAt(0));
+
+        String posititon = ""+indexRow+""+indexColumn;
+
+        for ( String groupPosition:MenoryTreEnRaya) {
+            String one = groupPosition.substring(0,2);
+            String two = groupPosition.substring(2,4);
+            String three = groupPosition.substring(4,6);
+            if (one.equals(posititon) || two.equals(posititon) || three.equals(posititon)) return true;
+        }
+        return false;
+    }
+
 
     public Logic() {
         fillInBoxes();

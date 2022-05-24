@@ -71,16 +71,6 @@ public class MainFrame extends JFrame {
     private JLabel showIUResult;
 
 
-    //Methodos que enviaran las entradas de los jugarores
-    /**/
-
-    //Current Player
-    public Player currentTurn() {
-        if (player1.turn.equals("uno")) {
-            return player1;
-        } else return player2;
-    }
-
     //Show the turn
     public void showTurnInUI() {
         if (player1.turn.equals("uno")) {
@@ -207,15 +197,25 @@ public class MainFrame extends JFrame {
                 player1.numberPieces --;
             }
 
-        if(myContentPieceToRemove.getIcon() == IconWithPiece2){
+            if(myContentPieceToRemove.getIcon() == IconWithPiece2){
                 myContentPieceToRemove.setIcon(IconContentEmpty);
                 currentLogicGame.removePiece(myContentPieceToRemove.getText());
                 player2.numberPieces --;
             }
-        if(player1.numberPieces <= 2 && player2.numberPieces <=2 ){
-            System.out.println("Empate");
-            showIUResult.setText("Empate!");
-        }
+            if(player1.numberPieces <= 2){
+                System.out.println("Gana el jugador 2");
+                showIUResult.setText("Gana el jugador 2");
+            }
+            if(player2.numberPieces <= 2){
+                System.out.println("Gana el jugador 1");
+                showIUResult.setText("Gana el jugador 1");
+            }
+
+            //Verificando si la pieza eliminada pertenecia a un tres en raya
+            if (currentLogicGame.isOneOfUnTresEnRaya(myContentPieceToRemove.getText())){
+                //Removing of the memory
+                currentLogicGame.removeOfTheMemory(myContentPieceToRemove.getText());
+            }
         changeTurn();
     }
 
