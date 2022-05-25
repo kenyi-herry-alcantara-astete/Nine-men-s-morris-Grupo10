@@ -13,6 +13,18 @@ public class FirstPanel extends JFrame {
     public  JCheckBox jugador1CheckBox1;
     private JLabel LabelNamePlayer1;
     private JLabel LabelNamePlayer2;
+    private JPanel ifOtherPersonPanel;
+    private JButton siguienteButtonPeoples;
+    private JButton siguienteButtonComputer;
+    private JButton BtnOtraPersonaButton;
+    private JButton BtnComputadoraButton;
+    private JPanel withWhoPanel;
+    private JPanel inComputerPanel;
+    private JPanel turnPanel;
+    private JTextField computerOppnentName;
+
+    // "otherPerson or computer","namePlayer1","namePlayer2,"turn"
+    public String[] configuration = {"","","",""};
 
     public FirstPanel() {
         //Caracteristicas de la ventana que se va abrir
@@ -24,27 +36,95 @@ public class FirstPanel extends JFrame {
         setBounds(250,100,820,620);
         setVisible(true);
 
+        ifOtherPersonPanel.setVisible(false);
+        inComputerPanel.setVisible(false);
+        turnPanel.setVisible(false);
+
 
 
         jugarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String nombre1 , nombre2;
-                //nombre1 = getNamePlayer(1); //textNombre.getText();
-                //nombre2 = getNamePlayer(2);//miNombre.getText();
                 MainFrame obj = new MainFrame();
-                obj.player1.name = Nombre1.getText();
-                obj.player2.name = Nombre2.getText();
+
+                obj.player1.name = configuration[1];
+                obj.player2.name = configuration[2];
+                obj.player1.type = "left";
+                obj.player2.type = "right";
+
+                if (configuration[3].equals("player1")){
+                    obj.player1.turn = "uno";
+                    obj.player2.turn = "dos";
+                }
+
+                if (configuration[3].equals("player2")){
+                    obj.player2.turn = "uno";
+                    obj.player1.turn = "dos";
+                }
+
+                if (configuration[0].equals("withTheComputer")){
+                    obj.isPlayerAComputer = true;
+                }
+                if (configuration[0].equals("withOtherPerson")){
+                    obj.isPlayerAComputer = false;
+                }
                 obj.setNameInTheUI();
                 obj.showTurnInUI();
+                System.out.println(configuration[0]+configuration[1]+configuration[2]+configuration[3]);
 
                 dispose();
-
 
             }
         });
 
+        BtnOtraPersonaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[0] = "withOtherPerson";
+                withWhoPanel.setVisible(false);
+                ifOtherPersonPanel.setVisible(true);
+            }
+        });
+        BtnComputadoraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[0] = "withTheComputer";
+                withWhoPanel.setVisible(false);
+                inComputerPanel.setVisible(true);
+            }
+        });
+        siguienteButtonPeoples.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                configuration[1] = Nombre1.getText();
+                configuration[2] = Nombre2.getText();
+                ifOtherPersonPanel.setVisible(false);
+                turnPanel.setVisible(true);
+            }
+        });
+        siguienteButtonComputer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[1] = computerOppnentName.getText();
+                configuration[2] = "Computer";
+                inComputerPanel.setVisible(false);
+                turnPanel.setVisible(true);
+            }
+        });
+        jugador1CheckBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[3] = "player1";
+            }
+        });
+        jugador2CheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[3] = "player2";
+            }
+        });
     }
     public String getNamePlayer(int n){
         if(n==1) {

@@ -13,8 +13,10 @@ public class MainFrame extends JFrame {
 
 
 
-    public Player player1 = new Player("left","uno");
-    public Player player2 = new Player("right","dos");
+    public Player player1 = new Player();
+    public Player player2 = new Player();
+
+    public boolean isPlayerAComputer = false;
 
     public Logic currentLogicGame = new Logic();
 
@@ -623,11 +625,4 @@ public class MainFrame extends JFrame {
     }
 
 }
-
-/*if(currentLogicGame.isInTheMemory(caseTresEnRaya)){
-                        break;
-                    }else{
-                        currentLogicGame.addToMemory(caseTresEnRaya);
-                        threeInArrow = true;
-                    }*/
 
