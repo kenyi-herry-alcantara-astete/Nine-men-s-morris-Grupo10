@@ -22,9 +22,13 @@ public class FirstPanel extends JFrame {
     private JPanel inComputerPanel;
     private JPanel turnPanel;
     private JTextField computerOppnentName;
+    private JPanel selectDifficultyPanel;
+    private JButton basicButton;
+    private JButton estandarButton;
+    private JButton expertButton;
 
-    // "otherPerson or computer","namePlayer1","namePlayer2,"turn"
-    public String[] configuration = {"","","",""};
+    // "otherPerson or computer","namePlayer1","namePlayer2,"turn","difficulty"
+    public String[] configuration = {"","","","",""};
 
     public FirstPanel() {
         //Caracteristicas de la ventana que se va abrir
@@ -38,6 +42,7 @@ public class FirstPanel extends JFrame {
 
         ifOtherPersonPanel.setVisible(false);
         inComputerPanel.setVisible(false);
+        selectDifficultyPanel.setVisible(false);
         turnPanel.setVisible(false);
 
 
@@ -65,13 +70,14 @@ public class FirstPanel extends JFrame {
 
                 if (configuration[0].equals("withTheComputer")){
                     obj.isPlayerAComputer = true;
+                    obj.modeDifficulty = configuration[4];
                 }
                 if (configuration[0].equals("withOtherPerson")){
                     obj.isPlayerAComputer = false;
                 }
                 obj.setNameInTheUI();
                 obj.showTurnInUI();
-                System.out.println(configuration[0]+configuration[1]+configuration[2]+configuration[3]);
+                System.out.println(configuration[0]+configuration[1]+configuration[2]+configuration[3]+configuration[4]);
 
                 dispose();
 
@@ -110,7 +116,7 @@ public class FirstPanel extends JFrame {
                 configuration[1] = computerOppnentName.getText();
                 configuration[2] = "Computer";
                 inComputerPanel.setVisible(false);
-                turnPanel.setVisible(true);
+                selectDifficultyPanel.setVisible(true);
             }
         });
         jugador1CheckBox1.addActionListener(new ActionListener() {
@@ -123,6 +129,30 @@ public class FirstPanel extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 configuration[3] = "player2";
+            }
+        });
+        basicButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[4] = "basic";
+                selectDifficultyPanel.setVisible(false);
+                turnPanel.setVisible(true);
+            }
+        });
+        estandarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[4] = "estandar";
+                selectDifficultyPanel.setVisible(false);
+                turnPanel.setVisible(true);
+            }
+        });
+        expertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                configuration[4] = "expert";
+                selectDifficultyPanel.setVisible(false);
+                turnPanel.setVisible(true);
             }
         });
     }
