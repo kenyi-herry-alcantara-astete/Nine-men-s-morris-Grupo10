@@ -17,7 +17,7 @@ public class MainFrame extends JFrame {
     public Player player2 = new Player();
 
     public boolean isPlayerAComputer = false; //Estado si se esta jugando con la computadora
-    public String modeDifficulty = ""; //Si juegas con la computado: basic | estandar | expert
+    public String modeDifficulty = ""; //Nivel de la computadora : basic | estandar | expert
 
     public Logic currentLogicGame = new Logic();
 
