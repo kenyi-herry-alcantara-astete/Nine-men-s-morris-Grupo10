@@ -52,6 +52,8 @@ public class MainFrame extends JFrame {
     private JButton a1;
     private JButton d1;
     private JButton g1;
+
+    private JButton [] allBtn = {a7, d7, g7, b6, d6, f6, c5, d5, e5, a4, b4, c4, e4, f4, g4, c3, d3, e3, b2, d2, f2, a1, d1, g1};
     private JButton pieceLeft1;
     private JButton pieceLeft2;
     private JButton pieceLeft3;
@@ -115,7 +117,7 @@ public class MainFrame extends JFrame {
     public int numberPiecesLeft = 9;
     public int numberPiecesRight = 9;
 
-    private JButton lastButton = a7;
+    private JButton lastButton;
     public int numberMove = 0;
     // insetPieceToUI
     public void insertPieceToUI(JButton contentPiece){
@@ -228,12 +230,43 @@ public class MainFrame extends JFrame {
         changeTurn();
     }
 
+    //Moviendo pieza por la computadora
+    public void movePieceByTheComputer(){
+        //Preguntando si la computadora es el oponente y esta de turno
+       if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0){
+           //Se llama dos veces ya que la computadora realizará inmediatamente
+           //luego de elegir que pieza movera
+           // la accion de mover
+           //
+
+           //En comparación al humano que lo hace en dos clicks
+
+           String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+
+           //Buscando la referencia a los botones de la GUI para la First position
+           //Luego aplica el primer paso para mover.
+           for (JButton myOneBtn:allBtn) {
+               if (myOneBtn.getText().equals(parThePositions[0])){
+                   movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
+               }
+           }
+
+           //Buscando la referencia a los botones de la GUI para la End position
+           //Luego aplica el segundo paso para mover.
+           for (JButton myOneBtn:allBtn) {
+               if (myOneBtn.getText().equals((parThePositions[1]))){
+                   movePieceToUI(myOneBtn); //Inserta en el destino la pieza
+               }
+           }
+       }
+    }
+
     //Action Player at the time
     boolean existTicTacToe = false;
 
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
 
-        movePieceToUI(currentButtonAction);
+            movePieceToUI(currentButtonAction);
 
         if(!existTicTacToe){
             if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
@@ -269,8 +302,18 @@ public class MainFrame extends JFrame {
             showIUResult.setText("");
             currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(),true);
         }
+
+        //Siempre entra a este método, pero en el método se pregunta si
+        //la computadora puede mover o no. De lo contrario deja sin efecto.
+        if(isPlayerAComputer){
+            actionComputer();
+        }
     }
 
+
+    public void actionComputer(){
+            movePieceByTheComputer();
+    }
 
     // Verifica tres en raya
 
