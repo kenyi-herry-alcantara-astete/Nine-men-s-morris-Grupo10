@@ -176,8 +176,6 @@ public class MainFrame extends JFrame {
             }
         }
 
-
-
         if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
             if(currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
                 if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
@@ -226,6 +224,18 @@ public class MainFrame extends JFrame {
                 //Removing of the memory
                 currentLogicGame.removeOfTheMemory(myContentPieceToRemove.getText());
             }
+
+        if(player1.numberPieces <= 9 ){
+            WindowWinner windowWinner = new WindowWinner(this, true, player2.name);
+            windowWinner.setVisible(true);
+            restart();
+        }
+        if(player2.numberPieces <= 2){
+            WindowWinner windowWinner = new WindowWinner(this, true, player1.name);
+            windowWinner.pack();
+            windowWinner.setVisible(true);
+            restart();
+        }
 
         changeTurn();
     }
@@ -430,6 +440,8 @@ public class MainFrame extends JFrame {
         g4.setIcon(IconContentEmpty);
         g1.setIcon(IconContentEmpty);
 
+        // Limpiando tres en raya
+        currentLogicGame.MenoryTreEnRaya.clear();
         // Escoger Turno
         chooseTurn();
     }
@@ -437,8 +449,8 @@ public class MainFrame extends JFrame {
     // Escoger turno
     private void  chooseTurn(){
         WhoPlaysFirst whoPlaysFirst = new WhoPlaysFirst(this, true, player1.name, player2.name);
-        whoPlaysFirst.pack();
         whoPlaysFirst.setVisible(true);
+
         String turn = whoPlaysFirst.getTurn();
         if(player1.name.equals(turn)){
             player1.turn = "uno";
@@ -534,8 +546,6 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(250,100,720,520);
         setBounds(250,100,820,620);
-        setVisible(true);//mostrar la venta FirstPanel
-
         addMenuBar();
 
         a7.addActionListener(new ActionListener() {

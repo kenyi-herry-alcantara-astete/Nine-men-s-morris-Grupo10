@@ -52,6 +52,7 @@ public class FirstPanel extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 MainFrame obj = new MainFrame();
+                obj.setVisible(true);
 
                 obj.player1.name = configuration[1];
                 obj.player2.name = configuration[2];

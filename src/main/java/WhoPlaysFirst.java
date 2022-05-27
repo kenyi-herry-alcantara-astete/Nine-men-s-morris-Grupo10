@@ -16,10 +16,12 @@ public class WhoPlaysFirst extends JDialog {
         super(parent, modal);
         this.player1 = player1;
         this.player2 = player2;
-        setContentPane(contentPane);
         initButtons();
+        setContentPane(contentPane);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
+        //setUndecorated(true);
+        pack();
+        setLocationRelativeTo(parent);
 
         btnPlayer1.addActionListener(new ActionListener() {
             @Override
