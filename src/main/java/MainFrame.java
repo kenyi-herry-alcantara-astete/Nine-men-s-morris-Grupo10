@@ -79,6 +79,16 @@ public class MainFrame extends JFrame {
     private JLabel showIUResult;
 
 
+    //Methodos que enviaran las entradas de los jugarores
+    /**/
+
+    //Current Player
+    public Player currentTurn() {
+        if (player1.turn.equals("uno")) {
+            return player1;
+        } else return player2;
+    }
+
     //Show the turn
     public void showTurnInUI() {
         if (player1.turn.equals("uno")) {
@@ -268,6 +278,21 @@ public class MainFrame extends JFrame {
             existTicTacToe = false;
             showIUResult.setText("");
             currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(),true);
+        }
+        if(isPlayerAComputer) {
+            logic();
+        }
+    }
+
+    public void logic(){
+        if(player1.turn == "dos") {
+            if (currentLogicGame.getIsAvailableContentPiece("a1")) {
+                insertPieceToUI(a1);
+            }
+            if (currentLogicGame.myTable[6][0] == "2" ) {
+                insertPieceToUI(g7);
+            }
+
         }
     }
 
@@ -488,7 +513,7 @@ public class MainFrame extends JFrame {
         d7.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d7);
+            actionPlayerAtTheTime(d7);
             }
         });
         g7.addActionListener(new ActionListener() {
@@ -506,120 +531,122 @@ public class MainFrame extends JFrame {
         f6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(f6);
+            actionPlayerAtTheTime(f6);
             }
 
         });
         c5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(c5);
+            actionPlayerAtTheTime(c5);
             }
         });
         d5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d5);
+            actionPlayerAtTheTime(d5);
             }
         });
         e5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(e5);
+            actionPlayerAtTheTime(e5);
             }
         });
         a4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(a4);
+            actionPlayerAtTheTime(a4);
             }
         });
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(b4);
+            actionPlayerAtTheTime(b4);
             }
         });
         c4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(c4);
+            actionPlayerAtTheTime(c4);
             }
         });
         e4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(e4);
+            actionPlayerAtTheTime(e4);
             }
         });
         f4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(f4);
+            actionPlayerAtTheTime(f4);
             }
         });
         g4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(g4);
+            actionPlayerAtTheTime(g4);
             }
         });
         c3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(c3);
+            actionPlayerAtTheTime(c3);
             }
         });
         d3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d3);
+            actionPlayerAtTheTime(d3);
             }
         });
         e3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(e3);
+            actionPlayerAtTheTime(e3);
             }
         });
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(b2);
+            actionPlayerAtTheTime(b2);
             }
         });
         d2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d2);
+            actionPlayerAtTheTime(d2);
             }
         });
         f2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(f2);
+            actionPlayerAtTheTime(f2);
             }
         });
         a1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(a1);
+            actionPlayerAtTheTime(a1);
             }
         });
         d1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(d1);
+            actionPlayerAtTheTime(d1);
             }
         });
         g1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionPlayerAtTheTime(g1);
+            actionPlayerAtTheTime(g1);
             }
         });
 
     }
+
+
 
     public JPanel getPanelPrincipal(){
         return  PanelPrincipal;
