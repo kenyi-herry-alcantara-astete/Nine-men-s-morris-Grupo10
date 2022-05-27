@@ -114,12 +114,22 @@ public class Logic {
 
     }
 
+    //Recibe las notacions de la tabla GUI y retorna la position para la tabla logica.
     public int whatIndexColumn(char notationColumn) {
         return Character.getNumericValue(notationColumn) - 10;
     }
 
     public int whatIndexRow(char notationRow) {
      return 7-Character.getNumericValue(notationRow);
+    }
+
+    //Recibe la postion de la tabla logica y retorna las notaciones de la tabla de la GUI.
+    public String whatNotationColumn(int indexColumn) {
+        return Constants.getLettersAndNumbersEquivalent(indexColumn);
+    }
+
+    public String whatNotationRow(int indexRow) {
+        return ""+(7-indexRow);
     }
 
 
@@ -134,15 +144,14 @@ public class Logic {
         }
     }
 
-    public String removePiece(String positionPiece) {
+    public void removePiece(String positionPiece) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        String pieceToRemove = myTable[indexRow][indexColumn];
         myTable[indexRow][indexColumn] = "0";
         showMatrixTableInTHeConsole();
         setAvailableContentPiece(positionPiece, true);
-        return pieceToRemove;
     }
+
 
     public void movePiece(String positionPieceToRemove) {
         //RemovePiece
@@ -151,6 +160,72 @@ public class Logic {
         removePiece(positionPieceToRemove);
         //insertPiece(newPositionPiece,removePiece(positionPieceToRemove));
     }
+
+    //Metodos utilizados por la computadora a la hora de mover una pieza
+
+    //Devuelve un par de positions de piezas optimos que la computadora debe mover
+    //["Inicio","Destiono"]
+    public String[] getOptimalPositionToMove(){
+        String inicio = "";
+        String destino = "";
+
+        int[] posiblePositionToMove = {-1,-1};
+
+        //Primera instancia
+        //Verificamos si hay un posible tres en raya del oponente humano
+        for (int[][] gPosTresR:Constants.getCasesTresEnRaya()) {
+
+            int x,y,m,n,r,p; //(x,y), (m,n), (r,p) Grupo de tres en raya
+            x = gPosTresR[0][0];
+            y = gPosTresR[0][1];
+            m = gPosTresR[1][0];
+            n = gPosTresR[1][1];
+            r = gPosTresR[2][0];
+            p = gPosTresR[2][1];
+
+            //Verificando para el oponente humano, posibles tres en raya futuros
+            //Entonces la computadora tratará de mover a los lugares con valores "0"
+
+            //1)Buscamos el lugar que tendrá que mover la computadora para evitar el
+            //tres en raya del oponente humano
+
+            if (myTable[x][y].equals("1") && myTable[m][n].equals("1") && myTable[r][p].equals("0")){
+                posiblePositionToMove[0] = r;
+                posiblePositionToMove[1] = p;
+            }else if (myTable[x][y].equals("1") && myTable[m][n].equals("0") && myTable[r][p].equals("1")){
+                posiblePositionToMove[0] = r;
+                posiblePositionToMove[1] = p;
+            }else if (myTable[x][y].equals("0") && myTable[m][n].equals("1") && myTable[r][p].equals("1")){
+                posiblePositionToMove[0] = r;
+                posiblePositionToMove[1] = p;
+            }
+
+            //2)Buscando si la computadora tiene piezas adyacentes al posiblePositionToMove
+            for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
+                // para cada contenedor de piezas.
+                if(oneGrupoAdy[0][0] == posiblePositionToMove[0] && oneGrupoAdy[0][1] == posiblePositionToMove[1]){
+                    //Verificando si sus adyacentes contienen piezas de tipo "2". (Es decir piezas de la computadora).
+                    for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
+                        if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
+                            //Asignado inicio
+                            inicio = whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
+                            //Asignando destino
+                            destino =whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+
+
+        String[] response = {inicio,destino};
+        return response;
+    }
+
+    //====================================================================
 
     // obtener verificación si la casilla está vacía
     public boolean getIsAvailableContentPiece(String positionPiece) {
