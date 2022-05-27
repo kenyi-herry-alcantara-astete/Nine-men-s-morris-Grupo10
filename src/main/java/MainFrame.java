@@ -429,22 +429,41 @@ public class MainFrame extends JFrame {
         g7.setIcon(IconContentEmpty);
         g4.setIcon(IconContentEmpty);
         g1.setIcon(IconContentEmpty);
+
+        // Escoger Turno
+        chooseTurn();
+    }
+
+    // Escoger turno
+    private void  chooseTurn(){
+        WhoPlaysFirst whoPlaysFirst = new WhoPlaysFirst(this, true, player1.name, player2.name);
+        whoPlaysFirst.pack();
+        whoPlaysFirst.setVisible(true);
+        String turn = whoPlaysFirst.getTurn();
+        if(player1.name.equals(turn)){
+            player1.turn = "uno";
+            player2.turn = "dos";
+        }else{
+            player2.turn = "uno";
+            player1.turn = "dos";
+        }
+        showTurnInUI();
     }
 
     private void addMenuBar(){
         // Barra de Menú
         JMenuBar menuBar = new JMenuBar();
 
-        // Menú
+        // Menús en la Barra de Menú
         JMenu menu = new JMenu("Menu");
         JMenu help = new JMenu("Ayuda");
 
-        // Items del menú "Menu"
+        // items del menú "menu"
         JMenuItem playAgain = new JMenuItem("Jugar de Nuevo");
         JMenuItem showResults = new JMenuItem("Mostrar Resultados");
         JMenuItem quit = new JMenuItem("Salir");
 
-        // Item del menú "ayuda"
+        // items de menú "ayuda"
         JMenuItem tutorial = new JMenuItem("Tutorial");
 
         // Iconos del menú "Menu"
@@ -486,11 +505,15 @@ public class MainFrame extends JFrame {
                 }
             }
         });
+        // Colores
+        menu.setForeground(Color.white);
+        help.setForeground(Color.white);
+        menuBar.setBackground(new Color(43, 43, 43));
 
-        // Agragando items al menú "Ayuda"
+        // Agragando items al menú "ayuda"
         help.add(tutorial);
 
-        // Agregando items al menu "Menú"
+        // Agregando items al menu "menu"
         menu.add(playAgain);
         menu.add(showResults);
         menu.add(quit);
