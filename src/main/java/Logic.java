@@ -193,13 +193,14 @@ public class Logic {
                 posiblePositionToMove[0] = r;
                 posiblePositionToMove[1] = p;
             }else if (myTable[x][y].equals("1") && myTable[m][n].equals("0") && myTable[r][p].equals("1")){
-                posiblePositionToMove[0] = r;
-                posiblePositionToMove[1] = p;
+                posiblePositionToMove[0] = m;
+                posiblePositionToMove[1] = n;
             }else if (myTable[x][y].equals("0") && myTable[m][n].equals("1") && myTable[r][p].equals("1")){
-                posiblePositionToMove[0] = r;
-                posiblePositionToMove[1] = p;
-            }
+                posiblePositionToMove[0] = x;
+                posiblePositionToMove[1] = y;
 
+            }
+            boolean encontrado = false;
             //2)Buscando si la computadora tiene piezas adyacentes al posiblePositionToMove
             for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
                 // para cada contenedor de piezas.
@@ -208,14 +209,20 @@ public class Logic {
                     for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
                         if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
                             //Asignado inicio
-                            inicio = whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
+                            inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
                             //Asignando destino
-                            destino =whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
+                            destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
+                            System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
+                            System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
+                            encontrado = true;
                             break;
                         }
                     }
                     break;
                 }
+            }
+            if (encontrado){
+                break;
             }
         }
 

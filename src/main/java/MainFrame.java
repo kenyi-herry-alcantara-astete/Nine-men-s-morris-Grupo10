@@ -242,22 +242,29 @@ public class MainFrame extends JFrame {
            //En comparación al humano que lo hace en dos clicks
 
            String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+           System.out.println("Part inicio"+parThePositions[0] + " "+ "Part destino:"+parThePositions[1]);
 
            //Buscando la referencia a los botones de la GUI para la First position
            //Luego aplica el primer paso para mover.
            for (JButton myOneBtn:allBtn) {
                if (myOneBtn.getText().equals(parThePositions[0])){
+                   System.out.println("Aqui 1");
                    movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
+
                }
            }
 
            //Buscando la referencia a los botones de la GUI para la End position
            //Luego aplica el segundo paso para mover.
            for (JButton myOneBtn:allBtn) {
-               if (myOneBtn.getText().equals((parThePositions[1]))){
-                   movePieceToUI(myOneBtn); //Inserta en el destino la pieza
+               if (myOneBtn.getText().equals(parThePositions[1])){
+                   System.out.println("Aqui 2");
+                   actionPlayerAtTheTime(myOneBtn); //Inserta en el destino la pieza
+
                }
            }
+
+
        }
     }
 
