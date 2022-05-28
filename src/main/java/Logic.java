@@ -294,7 +294,7 @@ public class Logic {
         //Si no hay la posibilidad de que la computadora mueva una pieza
         //para evitar un tres en raya del oponente humano
         //Entonces por ahora moverá a un lugar random disponible.
-        if(inicio.equals("")||destino.equals("")){
+        if(inicio.equals("")&&destino.equals("")){
 
             for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
 
