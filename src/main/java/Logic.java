@@ -215,6 +215,7 @@ public class Logic {
                             destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
+                            System.out.println(inicio);
                             encontrado = true;
                             String[] response = {inicio,destino};
                             return response;
@@ -320,6 +321,128 @@ public class Logic {
 
         String[] response = {inicio,destino};
         return response;
+    }
+
+    public String optimalPositionToInsert(){
+        int[] posiblePositionToInsert = {-1,-1};
+        String destinoInsert = "";
+        String response1 = "l";
+        for (int[][] gPosTresR1:Constants.getCasesTresEnRaya()) {
+
+            int x, y, m, n, r, p; //(x,y), (m,n), (r,p) Grupo de tres en raya
+            x = gPosTresR1[0][0];
+            y = gPosTresR1[0][1];
+            m = gPosTresR1[1][0];
+            n = gPosTresR1[1][1];
+            r = gPosTresR1[2][0];
+            p = gPosTresR1[2][1];
+
+            if (myTable[x][y].equals("1") && myTable[m][n].equals("1") && myTable[r][p].equals("0")) {
+                posiblePositionToInsert[0] = r;
+                posiblePositionToInsert[1] = p;
+                destinoInsert =whatNotationColumn(posiblePositionToInsert[1])+whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            } if (myTable[x][y].equals("1") && myTable[m][n].equals("0") && myTable[r][p].equals("1")) {
+                posiblePositionToInsert[0] = m;
+                posiblePositionToInsert[1] = n;
+                destinoInsert =whatNotationColumn(posiblePositionToInsert[1])+whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            } if (myTable[x][y].equals("0") && myTable[m][n].equals("1") && myTable[r][p].equals("1")) {
+                posiblePositionToInsert[0] = x;
+                posiblePositionToInsert[1] = y;
+                destinoInsert =whatNotationColumn(posiblePositionToInsert[1])+whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            }
+
+        }
+
+        return response1;
+
+    }
+    public String optimalPositionToRemove() {
+        int[] posiblePositionToInsert = {-1, -1};
+        String destinoInsert = "";
+        String response1 = "l";
+        for (int[][] gPosTresR1 : Constants.getCasesTresEnRaya()) {
+
+            int x, y, m, n, r, p; //(x,y), (m,n), (r,p) Grupo de tres en raya
+            x = gPosTresR1[0][0];
+            y = gPosTresR1[0][1];
+            m = gPosTresR1[1][0];
+            n = gPosTresR1[1][1];
+            r = gPosTresR1[2][0];
+            p = gPosTresR1[2][1];
+
+            if (myTable[x][y].equals("1") && myTable[m][n].equals("1") && myTable[r][p].equals("0")) {
+                posiblePositionToInsert[0] = x;
+                posiblePositionToInsert[1] = y;
+                destinoInsert = whatNotationColumn(posiblePositionToInsert[1]) + whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            }
+            if (myTable[x][y].equals("1") && myTable[m][n].equals("0") && myTable[r][p].equals("1")) {
+                posiblePositionToInsert[0] = r;
+                posiblePositionToInsert[1] = p;
+                destinoInsert = whatNotationColumn(posiblePositionToInsert[1]) + whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            }
+            if (myTable[x][y].equals("0") && myTable[m][n].equals("1") && myTable[r][p].equals("1")) {
+                posiblePositionToInsert[0] = m;
+                posiblePositionToInsert[1] = n;
+                destinoInsert = whatNotationColumn(posiblePositionToInsert[1]) + whatNotationRow(posiblePositionToInsert[0]);
+                response1 = destinoInsert;
+                return response1;
+            }
+
+        }
+
+        return response1;
+    }
+
+
+
+        public String optimalPositionToInsert2(){
+        int[] posiblePositionToInsert2 = {-1,-1};
+        String destinoInsert2 = "";
+        String response2 = "l";
+        for (int[][] gPosTresR1:Constants.getCasesTresEnRaya()) {
+
+            int x, y, m, n, r, p; //(x,y), (m,n), (r,p) Grupo de tres en raya
+            x = gPosTresR1[0][0];
+            y = gPosTresR1[0][1];
+            m = gPosTresR1[1][0];
+            n = gPosTresR1[1][1];
+            r = gPosTresR1[2][0];
+            p = gPosTresR1[2][1];
+
+            if (myTable[x][y].equals("2") && myTable[m][n].equals("2") && myTable[r][p].equals("0")) {
+                posiblePositionToInsert2[0] = r;
+                posiblePositionToInsert2[1] = p;
+                destinoInsert2 =whatNotationColumn(posiblePositionToInsert2[1])+whatNotationRow(posiblePositionToInsert2[0]);
+                response2 = destinoInsert2;
+                return response2;
+            } if (myTable[x][y].equals("2") && myTable[m][n].equals("0") && myTable[r][p].equals("2")) {
+                posiblePositionToInsert2[0] = m;
+                posiblePositionToInsert2[1] = n;
+                destinoInsert2 =whatNotationColumn(posiblePositionToInsert2[1])+whatNotationRow(posiblePositionToInsert2[0]);
+                response2 = destinoInsert2;
+                return response2;
+            } if (myTable[x][y].equals("0") && myTable[m][n].equals("2") && myTable[r][p].equals("2")) {
+                posiblePositionToInsert2[0] = x;
+                posiblePositionToInsert2[1] = y;
+                destinoInsert2 =whatNotationColumn(posiblePositionToInsert2[1])+whatNotationRow(posiblePositionToInsert2[0]);
+                response2 = destinoInsert2;
+                return response2;
+            }
+
+        }
+
+        return response2;
+
     }
 
     //====================================================================
