@@ -1,5 +1,4 @@
-import javax.sound.sampled.Line;
-import javax.swing.*;
+package sprint2;
 
 public class Main {
 

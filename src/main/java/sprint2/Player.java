@@ -1,3 +1,5 @@
+package sprint2;
+
 public class Player extends User {
 
     public String type; //left || right

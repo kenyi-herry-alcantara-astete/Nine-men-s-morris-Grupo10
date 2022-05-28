@@ -1,7 +1,8 @@
+package sprint1;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import sprint2.Logic;
 
 class LogicTest {
 

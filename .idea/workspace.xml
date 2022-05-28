@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WhoPlaysFirst.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WhoPlaysFirst.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WhoPlaysFirst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WhoPlaysFirst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WindowShowResults.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WindowShowResults.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WindowShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WindowShowResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WindowWinner.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WindowWinner.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WindowWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/WindowWinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LogicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +67,7 @@
       <recent name="C:\Users\Usuario\Desktop\carpeta\Nine-men-s-morris-Grupo10\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.sprint2.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -70,8 +84,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sprint2.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sprint2.Main" />
+      <module name="NIneGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.sprint2.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.WindowWinner" />
       </list>

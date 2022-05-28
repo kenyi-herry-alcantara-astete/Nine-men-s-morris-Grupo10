@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Timeout;
+package sprint2;
 
 import javax.swing.*;
 import java.awt.*;

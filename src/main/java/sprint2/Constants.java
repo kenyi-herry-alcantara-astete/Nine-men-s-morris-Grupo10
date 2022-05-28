@@ -1,3 +1,5 @@
+package sprint2;
+
 public class Constants {
     private static int[][][] CasesTresEnRaya = {
             //Filas
