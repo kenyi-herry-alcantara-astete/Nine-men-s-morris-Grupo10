@@ -9,7 +9,7 @@
       <background color="-14670774"/>
       <foreground color="-16008448"/>
     </properties>
-    <border type="none"/>
+    <border type="line"/>
     <children>
       <component id="49cfc" class="javax.swing.JButton" binding="pieceLeft1">
         <constraints>
