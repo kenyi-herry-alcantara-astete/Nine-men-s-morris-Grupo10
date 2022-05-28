@@ -12,7 +12,6 @@ import java.util.logging.Logger;
 public class MainFrame extends JFrame {
 
 
-
     public Player player1 = new Player();
     public Player player2 = new Player();
 
@@ -53,7 +52,7 @@ public class MainFrame extends JFrame {
     private JButton d1;
     private JButton g1;
 
-    private JButton [] allBtn = {a7, d7, g7, b6, d6, f6, c5, d5, e5, a4, b4, c4, e4, f4, g4, c3, d3, e3, b2, d2, f2, a1, d1, g1};
+    private JButton[] allBtn = {a7, d7, g7, b6, d6, f6, c5, d5, e5, a4, b4, c4, e4, f4, g4, c3, d3, e3, b2, d2, f2, a1, d1, g1};
     private JButton pieceLeft1;
     private JButton pieceLeft2;
     private JButton pieceLeft3;
@@ -93,7 +92,7 @@ public class MainFrame extends JFrame {
             }
         }
 
-        if (player2.turn.equals("uno")){
+        if (player2.turn.equals("uno")) {
             if (namePlayerRight.getText().equals(player2.name)) {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
@@ -119,8 +118,9 @@ public class MainFrame extends JFrame {
 
     private JButton lastButton;
     public int numberMove = 0;
+
     // insetPieceToUI
-    public void insertPieceToUI(JButton contentPiece){
+    public void insertPieceToUI(JButton contentPiece) {
         if (currentLogicGame.getIsAvailableContentPiece(contentPiece.getText())) {
             if (numberPiecesLeft != 0 || numberPiecesRight != 0) {
                 if (player1.turn == "uno") {
@@ -147,12 +147,13 @@ public class MainFrame extends JFrame {
 
 
     //
-    public void setNameInTheUI(){
+    public void setNameInTheUI() {
         namePlayerLeft.setText(player1.name);
         namePlayerRight.setText(player2.name);
     }
+
     //mover pieza
-    public void movePieceToUI(JButton myMoveContentPiece){
+    public void movePieceToUI(JButton myMoveContentPiece) {
 
         if (player1.turn == "uno") {
 
@@ -176,8 +177,8 @@ public class MainFrame extends JFrame {
             }
         }
 
-        if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
-            if(currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
+        if (numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
+            if (currentLogicGame.validateMove(myMoveContentPiece.getText(), lastButton.getText())) {
                 if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
                     if (player1.turn == "uno") {
                         System.out.println(numberMove);
@@ -196,41 +197,36 @@ public class MainFrame extends JFrame {
         }
 
     }
-    //Remove Opponent's pieces
-    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
-        if(myContentPieceToRemove.getIcon() == IconWithPiece1){
+    //Remove Opponent's pieces
+    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {
+
+        if (myContentPieceToRemove.getIcon() == IconWithPiece1) {
             myContentPieceToRemove.setIcon(IconContentEmpty);
             currentLogicGame.removePiece(myContentPieceToRemove.getText());
-            player1.numberPieces --;
+            player1.numberPieces--;
         }
 
-            if(myContentPieceToRemove.getIcon() == IconWithPiece2){
-                myContentPieceToRemove.setIcon(IconContentEmpty);
-                currentLogicGame.removePiece(myContentPieceToRemove.getText());
-                player2.numberPieces --;
-            }
-            if(player1.numberPieces <= 2){
-                System.out.println("Gana el jugador 2");
-                showIUResult.setText("Gana el jugador 2");
-            }
-            if(player2.numberPieces <= 2){
-                System.out.println("Gana el jugador 1");
-                showIUResult.setText("Gana el jugador 1");
-            }
+        if (myContentPieceToRemove.getIcon() == IconWithPiece2) {
+            myContentPieceToRemove.setIcon(IconContentEmpty);
+            currentLogicGame.removePiece(myContentPieceToRemove.getText());
+            player2.numberPieces--;
+        }
 
-            //Verificando si la pieza eliminada pertenecia a un tres en raya
-            if (currentLogicGame.isOneOfUnTresEnRaya(myContentPieceToRemove.getText())){
-                //Removing of the memory
-                currentLogicGame.removeOfTheMemory(myContentPieceToRemove.getText());
-            }
+        //Verificando si la pieza eliminada pertenecia a un tres en raya
+        if (currentLogicGame.isOneOfUnTresEnRaya(myContentPieceToRemove.getText())) {
+            //Removing of the memory
+            currentLogicGame.removeOfTheMemory(myContentPieceToRemove.getText());
+        }
 
-        if(player1.numberPieces <= 9 ){
+        if (player1.numberPieces <= 2) {
+            player2.victories += 1;
             WindowWinner windowWinner = new WindowWinner(this, true, player2.name);
             windowWinner.setVisible(true);
             restart();
         }
-        if(player2.numberPieces <= 2){
+        if (player2.numberPieces <= 2) {
+            player1.victories += 1;
             WindowWinner windowWinner = new WindowWinner(this, true, player1.name);
             windowWinner.pack();
             windowWinner.setVisible(true);
@@ -241,34 +237,34 @@ public class MainFrame extends JFrame {
     }
 
     //Moviendo pieza por la computadora
-    public void movePieceByTheComputer(){
+    public void movePieceByTheComputer() {
         //Preguntando si la computadora es el oponente y esta de turno
-       if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0){
-           //Se llama dos veces ya que la computadora realizará inmediatamente
-           //luego de elegir que pieza movera
-           // la accion de mover
-           //
+        if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0) {
+            //Se llama dos veces ya que la computadora realizará inmediatamente
+            //luego de elegir que pieza movera
+            // la accion de mover
+            //
 
-           //En comparación al humano que lo hace en dos clicks
+            //En comparación al humano que lo hace en dos clicks
 
-           String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+            String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
 
-           //Buscando la referencia a los botones de la GUI para la First position
-           //Luego aplica el primer paso para mover.
-           for (JButton myOneBtn:allBtn) {
-               if (myOneBtn.getText().equals(parThePositions[0])){
-                   movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
-               }
-           }
+            //Buscando la referencia a los botones de la GUI para la First position
+            //Luego aplica el primer paso para mover.
+            for (JButton myOneBtn : allBtn) {
+                if (myOneBtn.getText().equals(parThePositions[0])) {
+                    movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
+                }
+            }
 
-           //Buscando la referencia a los botones de la GUI para la End position
-           //Luego aplica el segundo paso para mover.
-           for (JButton myOneBtn:allBtn) {
-               if (myOneBtn.getText().equals((parThePositions[1]))){
-                   movePieceToUI(myOneBtn); //Inserta en el destino la pieza
-               }
-           }
-       }
+            //Buscando la referencia a los botones de la GUI para la End position
+            //Luego aplica el segundo paso para mover.
+            for (JButton myOneBtn : allBtn) {
+                if (myOneBtn.getText().equals((parThePositions[1]))) {
+                    movePieceToUI(myOneBtn); //Inserta en el destino la pieza
+                }
+            }
+        }
     }
 
     //Action Player at the time
@@ -276,27 +272,26 @@ public class MainFrame extends JFrame {
 
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
 
-            movePieceToUI(currentButtonAction);
+        movePieceToUI(currentButtonAction);
 
-        if(!existTicTacToe){
+        if (!existTicTacToe) {
             if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                 showIUResult.setText("");
                 //In the Beginning
                 insertPieceToUI(currentButtonAction);
 
-                if (player1.turn == "dos"){
-                    existTicTacToe =  scoreThreeInARow("1");
-                    if(existTicTacToe){
+                if (player1.turn == "dos") {
+                    existTicTacToe = scoreThreeInARow("1");
+                    if (existTicTacToe) {
                         // Mostrando alerta de tres en raya
                         showIUResult.setText("Tres en raya para el jugador 1");
                         //Regresando el tunos, para que jueue nuevamente
                         changeTurn();
                     }
-                }
-                else {
-                    if(player2.turn == "dos"){
-                        existTicTacToe= scoreThreeInARow("2");
-                        if (existTicTacToe){
+                } else {
+                    if (player2.turn == "dos") {
+                        existTicTacToe = scoreThreeInARow("2");
+                        if (existTicTacToe) {
                             // Mostrando alerta de tres en raya
                             showIUResult.setText("Tres en raya para el jugador 2");
                             //Regresando el tunos, para que jueue nuevamente
@@ -306,23 +301,23 @@ public class MainFrame extends JFrame {
                 }
 
             }
-        }else{
+        } else {
             removeOpponentsPiecesOfUI(currentButtonAction);
             existTicTacToe = false;
             showIUResult.setText("");
-            currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(),true);
+            currentLogicGame.setAvailableContentPiece(currentButtonAction.getText(), true);
         }
 
         //Siempre entra a este método, pero en el método se pregunta si
         //la computadora puede mover o no. De lo contrario deja sin efecto.
-        if(isPlayerAComputer){
+        if (isPlayerAComputer) {
             actionComputer();
         }
     }
 
 
-    public void actionComputer(){
-            movePieceByTheComputer();
+    public void actionComputer() {
+        movePieceByTheComputer();
     }
 
     // Verifica tres en raya
@@ -330,7 +325,7 @@ public class MainFrame extends JFrame {
     public boolean scoreThreeInARow(String num) {
         boolean threeInArrow = false;
 
-        for (int [][] oneGroupCase: currentLogicGame.CasesTresEnRaya) {
+        for (int[][] oneGroupCase : currentLogicGame.CasesTresEnRaya) {
             int x = oneGroupCase[0][0];
             int y = oneGroupCase[0][1];
             int r = oneGroupCase[1][0];
@@ -339,10 +334,10 @@ public class MainFrame extends JFrame {
             int n = oneGroupCase[2][1];
 
             if (currentLogicGame.myTable[x][y].equals(num) && currentLogicGame.myTable[r][s].equals(num) && currentLogicGame.myTable[m][n].equals(num)) {
-                String caseTresEnRaya = ""+x+y+r+s+m+n;
+                String caseTresEnRaya = "" + x + y + r + s + m + n;
                 System.out.println(caseTresEnRaya);
 
-                if(!currentLogicGame.isInTheMemory(caseTresEnRaya)){
+                if (!currentLogicGame.isInTheMemory(caseTresEnRaya)) {
                     currentLogicGame.addToMemory(caseTresEnRaya);
                     threeInArrow = true;
                     break;
@@ -447,22 +442,22 @@ public class MainFrame extends JFrame {
     }
 
     // Escoger turno
-    private void  chooseTurn(){
+    private void chooseTurn() {
         WhoPlaysFirst whoPlaysFirst = new WhoPlaysFirst(this, true, player1.name, player2.name);
         whoPlaysFirst.setVisible(true);
 
         String turn = whoPlaysFirst.getTurn();
-        if(player1.name.equals(turn)){
+        if (player1.name.equals(turn)) {
             player1.turn = "uno";
             player2.turn = "dos";
-        }else{
+        } else {
             player2.turn = "uno";
             player1.turn = "dos";
         }
         showTurnInUI();
     }
 
-    private void addMenuBar(){
+    private void addMenuBar() {
         // Barra de Menú
         JMenuBar menuBar = new JMenuBar();
 
@@ -495,6 +490,14 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 restart();
+            }
+        });
+
+        // Evento para ver resultados
+        showResults.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showWindowShowResults();
             }
         });
 
@@ -538,14 +541,19 @@ public class MainFrame extends JFrame {
         setJMenuBar(menuBar);
     }
 
+    private void showWindowShowResults(){
+        WindowShowResults windowShowResults = new WindowShowResults(this, true, player1.name, player2.name, player1.victories, player2.victories);
+        windowShowResults.setVisible(true);
+    }
+
 
     public MainFrame() {
         //Caracteristicas de la ventana que se va abrir
-        setSize(300,300);
+        setSize(300, 300);
         setContentPane(PanelPrincipal);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(250,100,720,520);
-        setBounds(250,100,820,620);
+        setBounds(250, 100, 720, 520);
+        setBounds(250, 100, 820, 620);
         addMenuBar();
 
         a7.addActionListener(new ActionListener() {
@@ -697,8 +705,8 @@ public class MainFrame extends JFrame {
 
     }
 
-    public JPanel getPanelPrincipal(){
-        return  PanelPrincipal;
+    public JPanel getPanelPrincipal() {
+        return PanelPrincipal;
     }
 
 }
