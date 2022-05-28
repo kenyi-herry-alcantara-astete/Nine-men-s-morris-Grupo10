@@ -283,19 +283,19 @@ public class MainFrame extends JFrame {
     public void movePieceByTheComputer() {
         //Preguntando si la computadora es el oponente y esta de turno
         if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0) {
-            //Se llama dos veces ya que la computadora realizará inmediatamente
-            //luego de elegir que pieza movera
-            // la accion de mover
-            //
-
+            //Se llama dos veces, ya que la computadora realizará inmediatamente
+            //La acción de elegir y insertar en el campo destino.
             //En comparación al humano que lo hace en dos clicks
             String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+
+            System.out.println("Inicio:"+parThePositions[0]+"  Destino:"+parThePositions[1]);
 
             //Buscando la referencia a los botones de la GUI para la First position
             //Luego aplica el primer paso para mover.
             for (JButton myOneBtn : allBtn) {
                 if (myOneBtn.getText().equals(parThePositions[0])) {
-                    movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
+                    myOneBtn.setIcon(IconContentEmpty);
+                    currentLogicGame.removePiece(parThePositions[0]);
                 }
             }
 
@@ -303,33 +303,12 @@ public class MainFrame extends JFrame {
             //Luego aplica el segundo paso para mover.
             for (JButton myOneBtn : allBtn) {
                 if (myOneBtn.getText().equals((parThePositions[1]))) {
-                    movePieceToUI(myOneBtn); //Inserta en el destino la pieza
+                    myOneBtn.setIcon(IconWithPiece2);
+                    currentLogicGame.insertPiece(parThePositions[1],"2");
+                    changeTurn();
                 }
             }
         }
-        String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
-        System.out.println("Part inicio:" + parThePositions[0] + " " + "Part destino:" + parThePositions[1]);
-
-        //Buscando la referencia a los botones de la GUI para la First position
-        //Luego aplica el primer paso para mover.
-        for (JButton myOneBtn : allBtn) {
-            if (myOneBtn.getText().equals(parThePositions[0])) {
-                System.out.println("Aqui 1");
-                movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
-
-            }
-        }
-
-        //Buscando la referencia a los botones de la GUI para la End position
-        //Luego aplica el segundo paso para mover.
-        for (JButton myOneBtn : allBtn) {
-            if (myOneBtn.getText().equals(parThePositions[1])) {
-                System.out.println("Aqui 2");
-                actionPlayerAtTheTime(myOneBtn); //Inserta en el destino la pieza
-
-            }
-        }
-
 
     }
 
@@ -345,7 +324,7 @@ public class MainFrame extends JFrame {
         if (!existTicTacToe) {
             if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                 showIUResult.setText("");
-                //In the Beginning
+
                 insertPieceToUI(currentButtonAction);
 
                 if (player1.turn == "dos") {
@@ -381,6 +360,12 @@ public class MainFrame extends JFrame {
         if (isPlayerAComputer) {
             actionComputer();
         }
+    }
+
+    public void actionComputer() {
+        insertPieceByComputer();
+        movePieceByTheComputer();
+        scoreThreeInARowComputer();
     }
 
     public boolean scoreThreeInARowComputer() {
@@ -476,11 +461,6 @@ public class MainFrame extends JFrame {
         return false;
     }
 
-    public void actionComputer() {
-        insertPieceByComputer();
-        movePieceByTheComputer();
-        scoreThreeInARowComputer();
-    }
 
 
     // Verifica tres en raya

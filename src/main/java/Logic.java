@@ -216,17 +216,14 @@ public class Logic {
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
                             System.out.println(inicio);
-                            encontrado = true;
+
                             String[] response = {inicio,destino};
                             return response;
                         }
                     }
-                    break;
                 }
             }
-            if (encontrado){
-                break;
-            }
+
         }
 
         //Reasignamos al valor original, para hacer una nueva búsqueda.
@@ -263,7 +260,6 @@ public class Logic {
                 posiblePositionToMove[1] = y;
 
             }
-            boolean encontrado = false;
             //2)Buscando si la computadora tiene piezas adyacentes al posiblePositionToMove
             for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
                 // para cada contenedor de piezas.
@@ -277,16 +273,11 @@ public class Logic {
                             destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
-                            encontrado = true;
                             String[] response = {inicio,destino};
                             return response;
                         }
                     }
-                    break;
                 }
-            }
-            if (encontrado){
-                break;
             }
         }
 
@@ -298,22 +289,21 @@ public class Logic {
 
             for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
 
-                // Verifica si hay un lugar disponible.
-                if(myTable[oneGrupoAdy[0][0]][oneGrupoAdy[0][1]].equals("0")){
-                    //Verificando si sus adyacentes contienen piezas de tipo "2". (Es decir piezas de la computadora).
+                //Busca una pieza de la computadora.
+                if(myTable[oneGrupoAdy[0][0]][oneGrupoAdy[0][1]].equals("2")){
+                    //Busca un adyacente vacío
                     for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
-                        if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
+                        if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("0")){
                             //Asignado inicio
-                            inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
+                            destino = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
                             //Asignando destino
-                            destino =whatNotationColumn(oneGrupoAdy[0][1])+whatNotationRow(oneGrupoAdy[0][0]);
+                            inicio=whatNotationColumn(oneGrupoAdy[0][1])+whatNotationRow(oneGrupoAdy[0][0]);
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+oneGrupoAdy[0][0]+" "+oneGrupoAdy[0][1]);
                             String[] response = {inicio,destino};
                             return response;
                         }
                     }
-                    break;
                 }
             }
         }
