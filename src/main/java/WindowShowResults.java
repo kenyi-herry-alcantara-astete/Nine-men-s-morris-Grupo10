@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -43,6 +44,7 @@ public class WindowShowResults extends JDialog {
         model.addRow(victories);
 //        table.setSize(250, 150);
         table.setModel(model);
+        table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 18));
     }
 }
 /*
