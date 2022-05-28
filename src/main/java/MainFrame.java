@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Timeout;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -279,38 +282,7 @@ public class MainFrame extends JFrame {
         changeTurn();
     }
 
-    //Moviendo pieza por la computadora
-    public void movePieceByTheComputer() {
-        //Preguntando si la computadora es el oponente y esta de turno
-        if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0) {
-            //Se llama dos veces, ya que la computadora realizará inmediatamente
-            //La acción de elegir y insertar en el campo destino.
-            //En comparación al humano que lo hace en dos clicks
-            String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
 
-            System.out.println("Inicio:"+parThePositions[0]+"  Destino:"+parThePositions[1]);
-
-            //Buscando la referencia a los botones de la GUI para la First position
-            //Luego aplica el primer paso para mover.
-            for (JButton myOneBtn : allBtn) {
-                if (myOneBtn.getText().equals(parThePositions[0])) {
-                    myOneBtn.setIcon(IconContentEmpty);
-                    currentLogicGame.removePiece(parThePositions[0]);
-                }
-            }
-
-            //Buscando la referencia a los botones de la GUI para la End position
-            //Luego aplica el segundo paso para mover.
-            for (JButton myOneBtn : allBtn) {
-                if (myOneBtn.getText().equals((parThePositions[1]))) {
-                    myOneBtn.setIcon(IconWithPiece2);
-                    currentLogicGame.insertPiece(parThePositions[1],"2");
-                    changeTurn();
-                }
-            }
-        }
-
-    }
 
     //Action Player at the time
     boolean existTicTacToe = false;
@@ -366,6 +338,45 @@ public class MainFrame extends JFrame {
         insertPieceByComputer();
         movePieceByTheComputer();
         scoreThreeInARowComputer();
+    }
+
+    //Moviendo pieza por la computadora
+    public void movePieceByTheComputer() {
+        //Preguntando si la computadora es el oponente y esta de turno
+        if (isPlayerAComputer && player2.turn == "uno" && numberPiecesLeft == 0 && numberPiecesRight == 0) {
+            //Se llama dos veces, ya que la computadora realizará inmediatamente
+            //La acción de elegir y insertar en el campo destino.
+            //En comparación al humano que lo hace en dos clicks
+            String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+
+            System.out.println("Inicio:"+parThePositions[0]+"  Destino:"+parThePositions[1]);
+
+            //Buscando la referencia a los botones de la GUI para la First position
+            //Luego aplica el primer paso para mover.
+            for (JButton myOneBtn : allBtn) {
+                if (myOneBtn.getText().equals(parThePositions[0])) {
+                    myOneBtn.setIcon(IconContentEmpty);
+                    currentLogicGame.removePiece(parThePositions[0]);
+                }
+            }
+
+            //Tiempo de demora
+
+            TimeUnit.SECONDS.toSeconds(1);
+
+
+            //Buscando la referencia a los botones de la GUI para la End position
+            //Luego aplica el segundo paso para mover.
+            for (JButton myOneBtn : allBtn) {
+                if (myOneBtn.getText().equals((parThePositions[1]))) {
+                    myOneBtn.setIcon(IconWithPiece2);
+                    currentLogicGame.insertPiece(parThePositions[1],"2");
+                    changeTurn();
+                }
+            }
+
+        }
+
     }
 
     public boolean scoreThreeInARowComputer() {
@@ -453,6 +464,9 @@ public class MainFrame extends JFrame {
             int indexRow = currentLogicGame.whatIndexRow(myOneBtn.getText().charAt(1));
             int indexColumn = currentLogicGame.whatIndexColumn(myOneBtn.getText().charAt(0));
             if (currentLogicGame.myTable[indexRow][indexColumn] == "0" && currentLogicGame.availableBox[indexRow][indexColumn]) {
+                //Tiempo de demora
+                TimeUnit.SECONDS.toSeconds(1);
+
                 insertPieceToUI(myOneBtn);
                 return true;
             }
