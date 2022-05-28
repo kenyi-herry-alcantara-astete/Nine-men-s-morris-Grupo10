@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b44b8ef1-a58d-4369-9da8-edb636b1f71e" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/WindowShowResults.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WindowShowResults.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/WindowShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WindowShowResults.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logic.java" afterDir="false" />
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +49,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;301&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/carpeta/Nine-men-s-morris-Grupo10&quot;
   }
@@ -54,11 +60,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+=======
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;177&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/carpeta/Nine-men-s-morris-Grupo10&quot;
+  }
+}</component>
+  <component name="RunManager">
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="Nine-men-s-morris-Grupo10" />
+      <module name="NIneGame" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,8 +99,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653433654849</updated>
+      <workItem from="1653689574905" duration="12191000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

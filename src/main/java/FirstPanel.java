@@ -51,6 +51,9 @@ public class FirstPanel extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                String nombre1 , nombre2;
+                //nombre1 = getNamePlayer(1); //textNombre.getText();
+                //nombre2 = getNamePlayer(2);//miNombre.getText();
                 MainFrame obj = new MainFrame();
                 obj.setVisible(true);
 

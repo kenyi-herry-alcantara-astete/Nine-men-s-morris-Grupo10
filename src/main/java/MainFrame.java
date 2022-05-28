@@ -157,7 +157,7 @@ public class MainFrame extends JFrame {
 
         if (player1.turn == "uno") {
 
-            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0) {
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0 && player1.numberPieces > 3) {
 
                 lastButton = myMoveContentPiece;
                 myMoveContentPiece.setIcon(IconMove);
@@ -167,7 +167,7 @@ public class MainFrame extends JFrame {
         }
         if (player2.turn == "uno") {
 
-            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0) {
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0 && player2.numberPieces > 3) {
 
                 lastButton = myMoveContentPiece;
                 myMoveContentPiece.setIcon(IconMove);
@@ -197,6 +197,54 @@ public class MainFrame extends JFrame {
         }
 
     }
+<<<<<<< HEAD
+=======
+
+    public void volarPieza(JButton myMoveContentPiece){
+        System.out.println("contando"+player1.numberPieces);
+        if (player1.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0 && player1.numberPieces <= 3) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                System.out.println(numberMove);
+            }
+        }
+        if (player2.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0 && player2.numberPieces <= 3) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                pushKeybord++;
+                System.out.println(numberMove);
+            }
+        }
+        if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText()) && (player2.numberPieces <= 3 || player1.numberPieces <= 3)){
+
+                if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
+                    if (player1.turn == "uno") {
+                        System.out.println(numberMove);
+                        numberPiecesLeft++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    } else {
+                        System.out.println(numberMove);
+                        numberPiecesRight++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    }
+                    numberMove--;
+                }
+
+        }
+    }
+    //Remove Opponent's pieces
+    public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
 
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {
@@ -247,6 +295,7 @@ public class MainFrame extends JFrame {
 
             //En comparación al humano que lo hace en dos clicks
 
+<<<<<<< HEAD
             String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
 
             //Buscando la referencia a los botones de la GUI para la First position
@@ -265,6 +314,33 @@ public class MainFrame extends JFrame {
                 }
             }
         }
+=======
+           String[] parThePositions = currentLogicGame.getOptimalPositionToMove();
+           System.out.println("Part inicio:"+parThePositions[0] + " "+ "Part destino:"+parThePositions[1]);
+
+           //Buscando la referencia a los botones de la GUI para la First position
+           //Luego aplica el primer paso para mover.
+           for (JButton myOneBtn:allBtn) {
+               if (myOneBtn.getText().equals(parThePositions[0])){
+                   System.out.println("Aqui 1");
+                   movePieceToUI(myOneBtn); //Asignar la pieza que se moverá
+
+               }
+           }
+
+           //Buscando la referencia a los botones de la GUI para la End position
+           //Luego aplica el segundo paso para mover.
+           for (JButton myOneBtn:allBtn) {
+               if (myOneBtn.getText().equals(parThePositions[1])){
+                   System.out.println("Aqui 2");
+                   actionPlayerAtTheTime(myOneBtn); //Inserta en el destino la pieza
+
+               }
+           }
+
+
+       }
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
     }
 
     //Action Player at the time
@@ -273,6 +349,10 @@ public class MainFrame extends JFrame {
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
 
         movePieceToUI(currentButtonAction);
+<<<<<<< HEAD
+=======
+        volarPieza(currentButtonAction);
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
 
         if (!existTicTacToe) {
             if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
@@ -314,11 +394,110 @@ public class MainFrame extends JFrame {
             actionComputer();
         }
     }
+    public boolean scoreThreeInARowComputer(){
+        boolean validate = false;
+        validate = scoreThreeInARow("2");
+        if (validate){
+            changeTurn();
+            // Mostrando alerta de tres en raya
+            showIUResult.setText("Tres en raya para Computador");
+            //Regresando el tunos, para que jueue nuevamente
+           // removeOpponentsPiecesOfUI(c4);
+            if (!currentLogicGame.optimalPositionToRemove().equals("l")) {
+                String parThePositions1 = currentLogicGame.optimalPositionToRemove();
 
+                for (JButton myOneBtn : allBtn) {
+                    if (myOneBtn.getText().equals((parThePositions1))) {
+                        removeOpponentsPiecesOfUI(myOneBtn); //Remueve en el destino la pieza
+                        showIUResult.setText("");
+                        currentLogicGame.setAvailableContentPiece(myOneBtn.getText(),true);
+                        return true;
+                    }
+                }
 
+<<<<<<< HEAD
     public void actionComputer() {
         movePieceByTheComputer();
+=======
+           }
+            for (JButton myOneBtn : allBtn){
+                int indexRow = currentLogicGame.whatIndexRow(myOneBtn.getText().charAt(1));
+                int indexColumn = currentLogicGame.whatIndexColumn(myOneBtn.getText().charAt(0));
+                if (currentLogicGame.myTable[indexRow][indexColumn] == "1") {
+                    removeOpponentsPiecesOfUI(myOneBtn); //Remueve en el destino la pieza
+                    showIUResult.setText("");
+                    currentLogicGame.setAvailableContentPiece(myOneBtn.getText(),true);
+                    return true;
+                }
+            }
+
+            return true;
+        }
+        return false;
+>>>>>>> bd869e5b434f90454b79fba160b232eea7cb3eb0
     }
+    public boolean insertPieceByComputer(){
+        System.out.println(currentLogicGame.optimalPositionToInsert());
+        if (player2.turn == "uno" && (numberPiecesLeft != 0 || numberPiecesRight != 0)) {
+            if (!currentLogicGame.optimalPositionToInsert2().equals("l")) {
+                String parThePositions1 = currentLogicGame.optimalPositionToInsert2();
+
+                for (JButton myOneBtn : allBtn) {
+                    if (myOneBtn.getText().equals((parThePositions1))) {
+                        insertPieceToUI(myOneBtn);
+                        return true;//Inserta en el destino la pieza
+                    }
+                }
+
+
+            }
+            if (!currentLogicGame.optimalPositionToInsert().equals("l")) {
+                String parThePositions1 = currentLogicGame.optimalPositionToInsert();
+
+                for (JButton myOneBtn : allBtn) {
+                    if (myOneBtn.getText().equals((parThePositions1))) {
+                        insertPieceToUI(myOneBtn);
+                        return true;//Inserta en el destino la pieza
+                    }
+                }
+
+
+            }
+
+            System.out.println("llego aca1");
+            if (currentLogicGame.getIsAvailableContentPiece("a1")) {
+                System.out.println("llego aca2");
+                insertPieceToUI(a1);
+                return true;
+            }
+            if (currentLogicGame.myTable[6][0] == "2" && currentLogicGame.getIsAvailableContentPiece("g7")) {
+                System.out.println("llego aca3");
+                insertPieceToUI(g7);
+                return true;
+            }
+           if(currentLogicGame.myTable[6][0] == "2" && currentLogicGame.myTable[0][6] == "2" && currentLogicGame.availableBox[6][6]){
+                System.out.println("llego aca4");
+                insertPieceToUI(g1);
+                return true;
+            }
+        }
+        for (JButton myOneBtn : allBtn){
+            int indexRow = currentLogicGame.whatIndexRow(myOneBtn.getText().charAt(1));
+            int indexColumn = currentLogicGame.whatIndexColumn(myOneBtn.getText().charAt(0));
+            if (currentLogicGame.myTable[indexRow][indexColumn] == "0" && currentLogicGame.availableBox[indexRow][indexColumn]) {
+               insertPieceToUI(myOneBtn);
+                return true;
+            }
+        }
+
+        return false;
+    }
+    public void actionComputer(){
+            insertPieceByComputer();
+            movePieceByTheComputer();
+            scoreThreeInARowComputer();
+    }
+
 
     // Verifica tres en raya
 
