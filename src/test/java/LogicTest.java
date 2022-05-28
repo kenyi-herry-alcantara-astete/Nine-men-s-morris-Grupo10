@@ -30,4 +30,9 @@ class LogicTest {
 
     }
 
+    @Test
+    public void getIsAvailableContentPieceTest(){
+
+    }
+
 }
