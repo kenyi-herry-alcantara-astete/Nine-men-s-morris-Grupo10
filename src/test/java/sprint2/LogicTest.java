@@ -9,6 +9,29 @@ import static org.junit.jupiter.api.Assertions.*;
 class LogicTest {
 
 
+    @Test
+    void insertAndRemovePieceTest(){
+        Logic curretLogic = new Logic();
+
+        //Al principio myTabla 7x7 está con "0"s
+        //Insertemos un "1"(Jugador left) en la posición "d3"
+        //Que en la tabla sería la posición (4,3)
+
+        //Insertamos
+        curretLogic.insertPiece("d3","1");
+
+        //Verificamos
+        Assertions.assertEquals("1",curretLogic.myTable[4][3]);
+
+        //Insertamos
+        curretLogic.removePiece("d3");
+
+        //Verificamos
+        Assertions.assertEquals("0",curretLogic.myTable[4][3]);
+
+    }
+
+
 
     @Test
     public void getOptimalPositionToMoveTest(){

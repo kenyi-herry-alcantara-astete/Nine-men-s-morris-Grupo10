@@ -139,10 +139,12 @@ public class Logic {
 
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (availableBox[indexRow][indexColumn]) {
+        if (myTable[indexRow][indexColumn].equals("0")) {
             myTable[indexRow][indexColumn] = player1o2;
             showMatrixTableInTHeConsole();
             availableBox[indexRow][indexColumn] = false;
+        }else{
+            System.out.println("Llegue aqui");
         }
     }
 
@@ -151,7 +153,7 @@ public class Logic {
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
         myTable[indexRow][indexColumn] = "0";
         showMatrixTableInTHeConsole();
-        setAvailableContentPiece(positionPiece, true);
+        //setAvailableContentPiece(positionPiece, true);
     }
 
 

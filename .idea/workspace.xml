@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,23 +71,7 @@
       <recent name="sprint2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LogicTest.getOptimalPositionToMoveTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="NIneGame" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WindowWinner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="WindowWinner" />
-      <module name="Nine-men-s-morris-Grupo10" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.sprint2.Main">
     <configuration name="sprint2.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sprint2.Main" />
       <module name="NIneGame" />
@@ -100,7 +85,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogicTest.getOptimalPositionToMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="NIneGame" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +95,53 @@
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
       <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
-      <option name="METHOD_NAME" value="getOptimalPositionToMoveTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogicTest.insertAndRemovePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="METHOD_NAME" value="insertAndRemovePieceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrameTest.movePieceByTheComputerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="METHOD_NAME" value="movePieceByTheComputerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,10 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LogicTest.getOptimalPositionToMoveTest" />
         <item itemvalue="Application.sprint2.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.WindowWinner" />
+        <item itemvalue="JUnit.MainFrameTest" />
+        <item itemvalue="JUnit.LogicTest" />
+        <item itemvalue="JUnit.LogicTest.insertAndRemovePieceTest" />
+        <item itemvalue="JUnit.MainFrameTest.movePieceByTheComputerTest" />
       </list>
     </recent_temporary>
   </component>

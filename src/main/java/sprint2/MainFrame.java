@@ -356,7 +356,7 @@ public class MainFrame extends JFrame {
             for (JButton myOneBtn : allBtn) {
                 if (myOneBtn.getText().equals(parThePositions[0])) {
                     myOneBtn.setIcon(IconContentEmpty);
-                    currentLogicGame.removePiece(parThePositions[0]);
+                    currentLogicGame.removePiece(myOneBtn.getText());
                 }
             }
 
@@ -368,9 +368,12 @@ public class MainFrame extends JFrame {
             //Buscando la referencia a los botones de la GUI para la End position
             //Luego aplica el segundo paso para mover.
             for (JButton myOneBtn : allBtn) {
-                if (myOneBtn.getText().equals((parThePositions[1]))) {
+                if (myOneBtn.getText().equals(parThePositions[1])) {
                     myOneBtn.setIcon(IconWithPiece2);
-                    currentLogicGame.insertPiece(parThePositions[1],"2");
+                    System.out.println("====Moviendo por la computadora");
+                    currentLogicGame.insertPiece(myOneBtn.getText(),"2");
+                    currentLogicGame.showMatrixTableInTHeConsole();
+                    System.out.println("=============");
                     changeTurn();
                 }
             }
