@@ -214,16 +214,20 @@ public class Logic {
                 if(oneGrupoAdy[0][0] == posiblePositionToMove[0] && oneGrupoAdy[0][1] == posiblePositionToMove[1]){
                     //Verificando si sus adyacentes contienen piezas de tipo "2". (Es decir piezas de la computadora).
                     for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
-                        if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
-                            //Asignado inicio
-                            inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
-                            //Asignando destino
-                            destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
-                            System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
-                            System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
-                            String[] response = {inicio,destino};
-                            return response;
-                        }
+                           if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
+                               if(!((x==oneGrupoAdy[i][0] && y==oneGrupoAdy[i][1])||(m==oneGrupoAdy[i][0] && m==oneGrupoAdy[i][1])||(r==oneGrupoAdy[i][0] && p==oneGrupoAdy[i][1]))){
+                                   //Asignado inicio
+                                   inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
+                                   //Asignando destino
+                                   destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
+                                   System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
+                                   System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
+                                   String[] response = {inicio,destino};
+                                   System.out.println("Primera instancia");
+                                   return response;
+                               }
+                           }
+
                     }
                 }
             }
@@ -280,8 +284,8 @@ public class Logic {
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
                             System.out.println(inicio);
-
                             String[] response = {inicio,destino};
+                            System.out.println("Segunda instancia");
                             return response;
                         }
                     }
@@ -311,6 +315,7 @@ public class Logic {
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+oneGrupoAdy[0][0]+" "+oneGrupoAdy[0][1]);
                             String[] response = {inicio,destino};
+                            System.out.println("Tercera instancia");
                             return response;
                         }
                     }

@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,18 +40,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;false&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;301&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kenyi/Desktop/2022-1/Desarrollo de software/Nine-men-s-morris-Grupo10/src/main/java/sprint1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "301",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/home/kenyi/Desktop/2022-1/Desarrollo de software/Nine-men-s-morris-Grupo10/src/main/java/sprint1"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/sprint1" />
@@ -152,8 +150,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.sprint2.Main" />
-        <item itemvalue="JUnit.MainFrameTest.movePieceByTheComputerTest" />
         <item itemvalue="JUnit.LogicTest.getOptimalPositionToMoveTest" />
+        <item itemvalue="JUnit.MainFrameTest.movePieceByTheComputerTest" />
         <item itemvalue="JUnit.LogicTest.insertAndRemovePieceTest (1)" />
         <item itemvalue="JUnit.MainFrameTest" />
       </list>
