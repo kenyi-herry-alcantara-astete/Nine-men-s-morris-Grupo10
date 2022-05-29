@@ -479,6 +479,12 @@ public class MainFrame extends JFrame {
     }
 
 
+    void firstArctionWheTheComputerIsFirst(){
+        if(player2.name == "computadora" && player2.turn == "uno"){
+            actionComputer();
+        }
+    }
+
 
     // Verifica tres en raya
 

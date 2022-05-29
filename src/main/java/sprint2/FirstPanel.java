@@ -88,6 +88,8 @@ public class FirstPanel extends JFrame {
 
                 dispose();
 
+                obj.firstArctionWheTheComputerIsFirst();
+
             }
         });
 
