@@ -23,7 +23,7 @@ class LogicTest {
         //Verificamos
         Assertions.assertEquals("1",curretLogic.myTable[4][3]);
 
-        //Insertamos
+        //Remover
         curretLogic.removePiece("d3");
 
         //Verificamos
