@@ -445,7 +445,7 @@ public class Logic {
     public boolean getIsAvailableContentPiece(String positionPiece) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (availableBox[indexRow][indexColumn]) {
+        if (myTable[indexRow][indexColumn] == "0") {
             return true;
         }
         return false;
