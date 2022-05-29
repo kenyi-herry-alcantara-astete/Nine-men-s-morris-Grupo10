@@ -5,12 +5,10 @@ import java.awt.event.ActionListener;
 
 
 public class MainFrame extends JFrame {
-
-
-
+    //creamos 2 objetos del tipo Player
     public Player player1 = new Player("left","uno");
     public Player player2 = new Player("right","dos");
-
+    //creamos 1 objeto del tipo Logic
     public Logic currentLogicGame = new Logic();
 
     ImageIcon IconWithPiece1 = new ImageIcon("src/main/resources/Image/IconWithPiece1.png");
@@ -20,54 +18,17 @@ public class MainFrame extends JFrame {
 
     private JPanel PanelPrincipal;
     private JPanel CenterPanel;
-    private JButton a7;
-    private JButton d7;
-    private JButton g7;
-    private JButton b6;
-    private JButton d6;
-    private JButton f6;
-    private JButton c5;
-    private JButton d5;
-    private JButton e5;
-    private JButton a4;
-    private JButton b4;
-    private JButton c4;
-    private JButton e4;
-    private JButton f4;
-    private JButton g4;
-    private JButton c3;
-    private JButton d3;
-    private JButton e3;
-    private JButton b2;
-    private JButton d2;
-    private JButton f2;
-    private JButton a1;
-    private JButton d1;
-    private JButton g1;
-    private JButton pieceLeft1;
-    private JButton pieceLeft2;
-    private JButton pieceLeft3;
-    private JButton pieceLeft4;
-    private JButton pieceLeft5;
-    private JButton pieceLeft6;
-    private JButton pieceLeft7;
-    private JButton pieceLeft8;
-    private JButton pieceLeft9;
-    private JButton pieceRight1;
-    private JButton pieceRight2;
-    private JButton pieceRight3;
-    private JButton pieceRight4;
-    private JButton pieceRight5;
-    private JButton pieceRight6;
-    private JButton pieceRight7;
-    private JButton pieceRight8;
-    private JButton pieceRight9;
+    private JButton a7, d7,g7,b6,d6,f6,c5,d5,e5,a4,b4,c4,e4,f4,g4,c3,d3,e3,b2,d2,f2,a1,d1,g1;
+    private JButton pieceLeft1,pieceLeft2, pieceLeft3, pieceLeft4,pieceLeft5,pieceLeft6,pieceLeft7,pieceLeft8,pieceLeft9;
+    private JButton pieceRight1,pieceRight2,pieceRight3,pieceRight4,pieceRight5,pieceRight6,pieceRight7,pieceRight8,pieceRight9;
 
 
     private JButton[] pieceLeft = {pieceLeft1, pieceLeft2, pieceLeft3, pieceLeft4, pieceLeft5, pieceLeft6, pieceLeft7, pieceLeft8, pieceLeft9};
     private JButton[] pieceRight = {pieceRight1, pieceRight2, pieceRight3, pieceRight4, pieceRight5, pieceRight6, pieceRight7, pieceRight8, pieceRight9};
-    JLabel namePlayerLeft;
-    JLabel namePlayerRight;
+
+    JLabel namePlayerLeft; //Nombre del jugador izquierdo
+
+    JLabel namePlayerRight;//Nombre del jugador derecho
     private JLabel showIUResult;
 
 
@@ -151,6 +112,15 @@ public class MainFrame extends JFrame {
     }
     //mover pieza
     public void movePieceToUI(JButton myMoveContentPiece){
+    //--------- AQUI AGREGUE UNA CONDICIONAL --> CHAUCA ANGEL---------------------------------------------------------------------------------
+    // Aqui agregue la condicional para que filtre el caso en que algun jugador tenga 3 piezas.
+    // Si en un momento se cumple la condicion, se invoca a la funcion " mover_piezas_de_forma_libre() " que permitira mover
+    // cualquier pieza a cualquier posicion libre.
+
+            if(player1.numberPieces==3 || player2.numberPieces==3){
+                mover_piezas_de_forma_libre(myMoveContentPiece);
+            }
+    //---------------------------------------------------------------------------------------------------------
 
             if (player1.turn == "uno") {
 
@@ -196,6 +166,56 @@ public class MainFrame extends JFrame {
         }
 
     }
+//-------------------MI PARTE ----- ANGEL CHAUCA-----------------------------
+
+    public void mover_piezas_de_forma_libre(JButton myMoveContentPiece){
+        if (player1.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                System.out.println(numberMove);
+            }
+        }
+        if (player2.turn == "uno") {
+
+            if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece2 && numberMove == 0) {
+
+                lastButton = myMoveContentPiece;
+                myMoveContentPiece.setIcon(IconMove);
+                numberMove++;
+                pushKeybord++;
+                System.out.println(numberMove);
+            }
+        }
+
+
+
+        if(numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())){
+            if(true) {
+                if (currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText())) {
+                    if (player1.turn == "uno") {
+                        System.out.println(numberMove);
+                        numberPiecesLeft++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    } else {
+                        System.out.println(numberMove);
+                        numberPiecesRight++;
+                        currentLogicGame.movePiece(lastButton.getText());
+                        lastButton.setIcon(IconContentEmpty);
+                    }
+                    numberMove--;
+                }
+            }
+        }
+    }
+
+//-------------------------------------------------------------------------------
+
+
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove){
 
@@ -224,7 +244,7 @@ public class MainFrame extends JFrame {
 
         movePieceToUI(currentButtonAction);
 
-       if(!existTicTacToe){
+        if(!existTicTacToe){
            if ((numberPiecesLeft != 0 || numberPiecesRight != 0) && (currentLogicGame.getIsAvailableContentPiece(currentButtonAction.getText()))) {
                showIUResult.setText("");
                //In the Beginning
@@ -289,6 +309,8 @@ public class MainFrame extends JFrame {
 
         return ganador;
     }
+
+
 
     public MainFrame() {
         //Caracteristicas de la ventana que se va abrir

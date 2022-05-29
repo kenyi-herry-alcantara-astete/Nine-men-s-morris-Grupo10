@@ -37,10 +37,7 @@ public class FirstPanel extends JFrame {
                 obj.player1.name = Nombre1.getText();
                 obj.player2.name = Nombre2.getText();
                 obj.setNameInTheUI();
-
                 dispose();
-
-
             }
         });
 
