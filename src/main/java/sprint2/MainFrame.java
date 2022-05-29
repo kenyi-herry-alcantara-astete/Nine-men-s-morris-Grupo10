@@ -599,13 +599,17 @@ public class MainFrame extends JFrame {
         currentLogicGame.MenoryTreEnRaya.clear();
         // Escoger Turno
         chooseTurn();
+        if(player2.name == "computadora" && player2.turn == "uno"){
+            actionComputer();
+        }
     }
 
     // Escoger turno
     private void chooseTurn() {
         WhoPlaysFirst whoPlaysFirst = new WhoPlaysFirst(this, true, player1.name, player2.name);
-        whoPlaysFirst.setVisible(true);
 
+        whoPlaysFirst.setVisible(true);
+        System.out.println(whoPlaysFirst.getTurn());
         String turn = whoPlaysFirst.getTurn();
         if (player1.name.equals(turn)) {
             player1.turn = "uno";

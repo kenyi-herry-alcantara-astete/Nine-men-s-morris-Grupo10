@@ -76,6 +76,7 @@ public class FirstPanel extends JFrame {
 
                 if (configuration[0].equals("withTheComputer")){
                     obj.isPlayerAComputer = true;
+                    obj.player2.name = "computadora";
                     obj.modeDifficulty = configuration[4];
                 }
                 if (configuration[0].equals("withOtherPerson")){
