@@ -68,13 +68,13 @@ public class Logic {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
 
-        String posititon = ""+indexRow+""+indexColumn;
+        String position = Integer.toString(indexRow)+Integer.toString(indexColumn);
 
         for ( String groupPosition:MenoryTreEnRaya) {
             String one = groupPosition.substring(0,2);
             String two = groupPosition.substring(2,4);
             String three = groupPosition.substring(4,6);
-            if (one.equals(posititon) || two.equals(posititon) || three.equals(posititon)) return true;
+            if (one.equals(position) || two.equals(position) || three.equals(position)) return true;
         }
         return false;
     }
