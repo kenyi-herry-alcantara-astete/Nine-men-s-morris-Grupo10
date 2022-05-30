@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="" />
+    <list default="true" id="f2cf39a4-ec54-4ff6-9356-2e97732ad137" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,59 +70,34 @@
       <recent name="sprint2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainFrameTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sprint1.Main" />
-      <module name="NIneGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sprint1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="sprint2.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sprint2.Main" />
-      <module name="NIneGame" />
+  <component name="RunManager" selected="JUnit.LogicTest.validateMoveTest">
+    <configuration name="LogicTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sprint2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="METHOD_NAME" value="movePieceTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogicTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NIneGame" />
+    <configuration name="LogicTest.validateMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sprint1.*" />
+          <option name="PATTERN" value="sprint2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="sprint1" />
-      <option name="MAIN_CLASS_NAME" value="sprint1.LogicTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LogicTest.insertAndRemovePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NIneGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sprint1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="sprint1" />
-      <option name="MAIN_CLASS_NAME" value="sprint1.LogicTest" />
-      <option name="METHOD_NAME" value="insertAndRemovePieceTest" />
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="METHOD_NAME" value="validateMoveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,13 +118,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainFrameTest.movePieceToUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Nine-men-s-morris-Grupo10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="METHOD_NAME" value="movePieceToUITest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrameTest.volarPieza" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Nine-men-s-morris-Grupo10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="METHOD_NAME" value="volarPieza" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LogicTest.validateMoveTest" />
+        <item itemvalue="JUnit.LogicTest.movePieceTest" />
+        <item itemvalue="JUnit.MainFrameTest.volarPieza" />
+        <item itemvalue="JUnit.MainFrameTest.movePieceToUITest" />
         <item itemvalue="JUnit.MainFrameTest" />
-        <item itemvalue="JUnit.LogicTest (1)" />
-        <item itemvalue="JUnit.LogicTest.insertAndRemovePieceTest" />
-        <item itemvalue="Application.sprint2.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
