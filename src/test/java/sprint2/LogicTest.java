@@ -71,58 +71,7 @@ class LogicTest {
 
         Assertions.assertEquals("d5",curretLogic.getOptimalPositionToMove()[0]);
         Assertions.assertEquals("d6",curretLogic.getOptimalPositionToMove()[1]);
-    }
-
-    @Test
-    public void isAvailableContentPieceTest() {
-        Logic currentLogic = new Logic();
-
-        /*1)Verificando si la casilla a7 esta disponible
-         * El metodo debería retornará true (Si esta vacia)*/
-        //test
-        Assertions.assertEquals(true, currentLogic.getIsAvailableContentPiece("a7"));
-        /*2) Insertamos una pieza al a7
-         * El metodo debería retornar fales (No esta vacía)*/
-        //Insertando el una pieza del segundo jugador
-        currentLogic.insertPiece("a7", "2");
-        //test
-        Assertions.assertEquals(false, currentLogic.getIsAvailableContentPiece("a7"));
-
-        /*3) Quitando una pieza
-         * El metodo debería retornará true (Si esta vacia)*/
-        //Quitando la pieza insertada
-        currentLogic.removePiece("a7");
-        //test
-        Assertions.assertEquals(true, currentLogic.getIsAvailableContentPiece("a7"));
-
-    }
 
 
-    @Test
-    void getIsAvailabletPieceTest() {
-        // Posiciones no ocupadas
-        String[] rc = {"a7", "a4", "a1",
-                "b6", "b4", "b2",
-                "c5", "c4", "c3",
-                "d7", "d6", "d5",
-                "d3", "d2", "d1",
-                "e5", "e4", "e3",
-                "f6", "f4", "f2",
-                "g7", "g4", "g1"};
-        String player = "1";
-
-        // Verificamos posiciones vacias
-        Logic currentLogic = new Logic();
-        for (String e : rc) {
-            assertTrue(currentLogic.getIsAvailableContentPiece(e));
-        }
-        // Colocamos piezas
-        for (String e : rc) {
-            currentLogic.insertPiece(e, player);
-        }
-        // Verificamos posiciones ocupadas (no vacias)
-        for (String e : rc) {
-            assertFalse(currentLogic.getIsAvailableContentPiece(e));
-        }
     }
 }

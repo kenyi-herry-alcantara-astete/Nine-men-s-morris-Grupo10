@@ -176,6 +176,70 @@ public class Logic {
         int[] posiblePositionToMove = {-1,-1};
 
         //1)Primera instancia
+
+
+        //Que la computadora busque formar un tres en raya
+
+        for (int[][] gPosTresR:Constants.getCasesTresEnRaya()) {
+
+            int x,y,m,n,r,p; //(x,y), (m,n), (r,p) Grupo de tres en raya
+            x = gPosTresR[0][0];
+            y = gPosTresR[0][1];
+            m = gPosTresR[1][0];
+            n = gPosTresR[1][1];
+            r = gPosTresR[2][0];
+            p = gPosTresR[2][1];
+
+            //Verificando si puede formar un posible tres en raya.
+            //Entonces la computadora tratará de mover al lugar con valor "0"
+            //para completar el tres en raya
+
+            //1)Buscamos el lugar que tendrá que mover la computadora para formar el
+            //tres en raya
+
+            if (myTable[x][y].equals("2") && myTable[m][n].equals("2") && myTable[r][p].equals("0")){
+                posiblePositionToMove[0] = r;
+                posiblePositionToMove[1] = p;
+            }else if (myTable[x][y].equals("2") && myTable[m][n].equals("0") && myTable[r][p].equals("2")){
+                posiblePositionToMove[0] = m;
+                posiblePositionToMove[1] = n;
+            }else if (myTable[x][y].equals("0") && myTable[m][n].equals("2") && myTable[r][p].equals("2")){
+                posiblePositionToMove[0] = x;
+                posiblePositionToMove[1] = y;
+
+            }
+            //2)Buscando si la computadora tiene piezas adyacentes al posiblePositionToMove
+            for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
+                // para cada contenedor de piezas.
+                if(oneGrupoAdy[0][0] == posiblePositionToMove[0] && oneGrupoAdy[0][1] == posiblePositionToMove[1]){
+                    //Verificando si sus adyacentes contienen piezas de tipo "2". (Es decir piezas de la computadora).
+                    for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
+                           if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
+                               if(!((x==oneGrupoAdy[i][0] && y==oneGrupoAdy[i][1])||(m==oneGrupoAdy[i][0] && m==oneGrupoAdy[i][1])||(r==oneGrupoAdy[i][0] && p==oneGrupoAdy[i][1]))){
+                                   //Asignado inicio
+                                   inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
+                                   //Asignando destino
+                                   destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
+                                   System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
+                                   System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
+                                   String[] response = {inicio,destino};
+                                   System.out.println("Primera instancia");
+                                   return response;
+                               }
+                           }
+
+                    }
+                }
+            }
+        }
+
+
+
+        //Reasignamos al valor original, para hacer una nueva búsqueda.
+        posiblePositionToMove[0] = -1; //
+        posiblePositionToMove[1] = -1; //
+        //2)Instancia
+
         //Verificamos si hay un posible tres en raya del oponente humano
         for (int[][] gPosTresR:Constants.getCasesTresEnRaya()) {
 
@@ -220,8 +284,8 @@ public class Logic {
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
                             System.out.println(inicio);
-
                             String[] response = {inicio,destino};
+                            System.out.println("Segunda instancia");
                             return response;
                         }
                     }
@@ -230,60 +294,6 @@ public class Logic {
 
         }
 
-        //Reasignamos al valor original, para hacer una nueva búsqueda.
-        posiblePositionToMove[0] = -1; //
-        posiblePositionToMove[1] = -1; //
-        //2)Instancia
-        //Que la computadora busque formar un tres en raya
-
-        for (int[][] gPosTresR:Constants.getCasesTresEnRaya()) {
-
-            int x,y,m,n,r,p; //(x,y), (m,n), (r,p) Grupo de tres en raya
-            x = gPosTresR[0][0];
-            y = gPosTresR[0][1];
-            m = gPosTresR[1][0];
-            n = gPosTresR[1][1];
-            r = gPosTresR[2][0];
-            p = gPosTresR[2][1];
-
-            //Verificando si puede formar un posible tres en raya.
-            //Entonces la computadora tratará de mover al lugar con valor "0"
-            //para completar el tres en raya
-
-            //1)Buscamos el lugar que tendrá que mover la computadora para formar el
-            //tres en raya
-
-            if (myTable[x][y].equals("2") && myTable[m][n].equals("2") && myTable[r][p].equals("0")){
-                posiblePositionToMove[0] = r;
-                posiblePositionToMove[1] = p;
-            }else if (myTable[x][y].equals("2") && myTable[m][n].equals("0") && myTable[r][p].equals("2")){
-                posiblePositionToMove[0] = m;
-                posiblePositionToMove[1] = n;
-            }else if (myTable[x][y].equals("0") && myTable[m][n].equals("2") && myTable[r][p].equals("2")){
-                posiblePositionToMove[0] = x;
-                posiblePositionToMove[1] = y;
-
-            }
-            //2)Buscando si la computadora tiene piezas adyacentes al posiblePositionToMove
-            for (int [][] oneGrupoAdy:Constants.getAdjALasPiezas()) { //Recorriendo la matriz de adyacencia
-                // para cada contenedor de piezas.
-                if(oneGrupoAdy[0][0] == posiblePositionToMove[0] && oneGrupoAdy[0][1] == posiblePositionToMove[1]){
-                    //Verificando si sus adyacentes contienen piezas de tipo "2". (Es decir piezas de la computadora).
-                    for (int i = 1; i < oneGrupoAdy.length; i++) { //Recorriendo sus adyacentes
-                        if (myTable[oneGrupoAdy[i][0]][oneGrupoAdy[i][1]].equals("2")){
-                            //Asignado inicio
-                            inicio = whatNotationColumn(oneGrupoAdy[i][1])+ whatNotationRow(oneGrupoAdy[i][0]);
-                            //Asignando destino
-                            destino =whatNotationColumn(posiblePositionToMove[1])+whatNotationRow(posiblePositionToMove[0]);
-                            System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
-                            System.out.println("Destino:"+posiblePositionToMove[0]+" "+posiblePositionToMove[1]);
-                            String[] response = {inicio,destino};
-                            return response;
-                        }
-                    }
-                }
-            }
-        }
 
         //3) Tercera instancia
         //Si no hay la posibilidad de que la computadora mueva una pieza
@@ -305,6 +315,7 @@ public class Logic {
                             System.out.println("Inicio:"+oneGrupoAdy[i][0]+" "+oneGrupoAdy[0][1]);
                             System.out.println("Destino:"+oneGrupoAdy[0][0]+" "+oneGrupoAdy[0][1]);
                             String[] response = {inicio,destino};
+                            System.out.println("Tercera instancia");
                             return response;
                         }
                     }
