@@ -31,8 +31,6 @@ class LogicTest {
 
     }
 
-
-
     @Test
     public void getOptimalPositionToMoveTest(){
         Logic curretLogic = new Logic();
@@ -74,6 +72,7 @@ class LogicTest {
 
 
     }
+
     @Test
     public void movePieceTest(){
         Logic curretLogic = new Logic();

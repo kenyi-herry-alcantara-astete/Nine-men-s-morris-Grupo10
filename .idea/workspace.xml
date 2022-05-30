@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2cf39a4-ec54-4ff6-9356-2e97732ad137" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,5 +179,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Nine_men_s_morris_Grupo10$sprint2_Main.ic" NAME="sprint2.Main Coverage Results" MODIFIED="1653837358909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sprint2.*</FILTER>
+    </SUITE>
   </component>
 </project>
