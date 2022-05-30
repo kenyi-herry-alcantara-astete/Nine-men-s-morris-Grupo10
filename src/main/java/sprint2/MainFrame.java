@@ -28,32 +28,32 @@ public class MainFrame extends JFrame {
     ImageIcon IconContentEmpty = new ImageIcon("src/main/resources/Image/IconContentPiece.png");
     ImageIcon IconMove = new ImageIcon("src/main/resources/Image/AvailableContent.png");
 
-    private JPanel PanelPrincipal;
-    private JPanel CenterPanel;
-    private JButton a7;
-    private JButton d7;
-    private JButton g7;
-    private JButton b6;
-    private JButton d6;
-    private JButton f6;
-    private JButton c5;
-    private JButton d5;
-    private JButton e5;
-    private JButton a4;
-    private JButton b4;
-    private JButton c4;
-    private JButton e4;
-    private JButton f4;
-    private JButton g4;
-    private JButton c3;
-    private JButton d3;
-    private JButton e3;
-    private JButton b2;
-    private JButton d2;
-    private JButton f2;
-    private JButton a1;
-    private JButton d1;
-    private JButton g1;
+    public JPanel PanelPrincipal;
+    public JPanel CenterPanel;
+    public JButton a7;
+    public JButton d7;
+    public JButton g7;
+    public JButton b6;
+    public JButton d6;
+    public JButton f6;
+    public JButton c5;
+    public JButton d5;
+    public JButton e5;
+    public JButton a4;
+    public JButton b4;
+    public JButton c4;
+    public JButton e4;
+    public JButton f4;
+    public JButton g4;
+    public JButton c3;
+    public JButton d3;
+    public JButton e3;
+    public JButton b2;
+    public JButton d2;
+    public JButton f2;
+    public JButton a1;
+    public JButton d1;
+    public JButton g1;
 
     private JButton[] allBtn = {a7, d7, g7, b6, d6, f6, c5, d5, e5, a4, b4, c4, e4, f4, g4, c3, d3, e3, b2, d2, f2, a1, d1, g1};
     private JButton pieceLeft1;
@@ -202,7 +202,7 @@ public class MainFrame extends JFrame {
     }
 
     public void volarPieza(JButton myMoveContentPiece) {
-        System.out.println("contando" + player1.numberPieces);
+
         if (player1.turn == "uno") {
 
             if (numberPiecesLeft == 0 && numberPiecesRight == 0 && myMoveContentPiece.getIcon() == IconWithPiece1 && numberMove == 0 && player1.numberPieces <= 3) {
@@ -210,7 +210,7 @@ public class MainFrame extends JFrame {
                 lastButton = myMoveContentPiece;
                 myMoveContentPiece.setIcon(IconMove);
                 numberMove++;
-                System.out.println(numberMove);
+
             }
         }
         if (player2.turn == "uno") {
@@ -221,7 +221,7 @@ public class MainFrame extends JFrame {
                 myMoveContentPiece.setIcon(IconMove);
                 numberMove++;
                 pushKeybord++;
-                System.out.println(numberMove);
+               // System.out.println(numberMove);
             }
         }
         if (numberMove == 1 && currentLogicGame.getIsAvailableContentPiece(myMoveContentPiece.getText()) && (player2.numberPieces <= 3 || player1.numberPieces <= 3)) {
@@ -420,7 +420,7 @@ public class MainFrame extends JFrame {
         return false;
     }
     public boolean insertPieceByComputer() {
-        System.out.println(currentLogicGame.optimalPositionToInsert());
+
         if (player2.turn == "uno" && (numberPiecesLeft != 0 || numberPiecesRight != 0)) {
             if (!currentLogicGame.optimalPositionToInsert2().equals("l")) {
                 String parThePositions1 = currentLogicGame.optimalPositionToInsert2();
@@ -446,19 +446,19 @@ public class MainFrame extends JFrame {
 
             }
 
-            System.out.println("llego aca1");
+
             if (currentLogicGame.getIsAvailableContentPiece("a1")) {
-                System.out.println("llego aca2");
+
                 insertPieceToUI(a1);
                 return true;
             }
             if (currentLogicGame.myTable[6][0] == "2" && currentLogicGame.getIsAvailableContentPiece("g7")) {
-                System.out.println("llego aca3");
+
                 insertPieceToUI(g7);
                 return true;
             }
             if (currentLogicGame.myTable[6][0] == "2" && currentLogicGame.myTable[0][6] == "2" && currentLogicGame.availableBox[6][6]) {
-                System.out.println("llego aca4");
+
                 insertPieceToUI(g1);
                 return true;
             }

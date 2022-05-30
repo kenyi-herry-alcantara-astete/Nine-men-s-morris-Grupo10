@@ -74,4 +74,26 @@ class LogicTest {
 
 
     }
+    @Test
+    public void movePieceTest(){
+        Logic curretLogic = new Logic();
+
+        //una vez efectuado el moverPieza el metodo movePiece liberara la pieza que se
+        //mover a un estado de libre para que pueda se usada despues
+        curretLogic.movePiece("a1");
+        Assertions.assertEquals(true ,curretLogic.getIsAvailableContentPiece("a1") );
+    }
+
+    @Test
+    public void validateMoveTest(){
+        Logic curretLogic = new Logic();
+
+        //Test para corroborar si una posición es adyacente a otra
+
+        // a4 es adyacente de a1 entonces la función tiene que devolverte true
+        Assertions.assertEquals(true,curretLogic.validateMove("a4","a1"));
+        // a7 no es adyacente de a1 entonces la función tiene que devolverte false
+        Assertions.assertEquals(false,curretLogic.validateMove("g7","a1"));
+
+    }
 }
