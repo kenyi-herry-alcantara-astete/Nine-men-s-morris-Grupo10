@@ -52,8 +52,8 @@ class MainFrameTest {
 
         myFrame.movePieceByTheComputer();
 
-        //Verificamos la posicion (2,3) el cual es "d5" continen "0"
-        Assertions.assertEquals("2",myFrame.currentLogicGame.myTable[1][3]);
+        //Verificamos la posición (2,3) el cual es "d5" contienen "0"
+        Assertions.assertEquals("0",myFrame.currentLogicGame.myTable[2][3]);
 
         //Verificamos la posición (1,3) el cual es "d6" contiene "2"
 

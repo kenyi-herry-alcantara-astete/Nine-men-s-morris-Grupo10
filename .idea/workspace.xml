@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="b44b8ef1-a58d-4369-9da8-edb636b1f71e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_28_22__5_25_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_28_22__5_25_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" afterDir="false" />
+=======
+    <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" afterDir="false" />
+>>>>>>> origin/main
       <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" afterDir="false" />
     </list>
@@ -73,9 +79,33 @@
       <recent name="sprint2" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="JUnit.LogicTest.validateMoveTest">
     <configuration name="LogicTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Nine-men-s-morris-Grupo10" />
+=======
+  <component name="RunManager" selected="Application.sprint2.Main">
+    <configuration name="sprint2.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sprint2.Main" />
+      <module name="NIneGame" />
+>>>>>>> origin/main
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+<<<<<<< HEAD
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="METHOD_NAME" value="movePieceTest" />
+=======
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogicTest.getOptimalPositionToMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sprint2.*" />
@@ -84,7 +114,24 @@
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
       <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
-      <option name="METHOD_NAME" value="movePieceTest" />
+      <option name="METHOD_NAME" value="getOptimalPositionToMoveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogicTest.insertAndRemovePieceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sprint2" />
+      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="METHOD_NAME" value="insertAndRemovePieceTest" />
+>>>>>>> origin/main
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,8 +168,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="MainFrameTest.movePieceToUITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Nine-men-s-morris-Grupo10" />
+=======
+    <configuration name="MainFrameTest.movePieceByTheComputerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="NIneGame" />
+>>>>>>> origin/main
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sprint2.*" />
@@ -131,6 +183,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
       <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+<<<<<<< HEAD
       <option name="METHOD_NAME" value="movePieceToUITest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -148,6 +201,9 @@
       <option name="PACKAGE_NAME" value="sprint2" />
       <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
       <option name="METHOD_NAME" value="volarPieza" />
+=======
+      <option name="METHOD_NAME" value="movePieceByTheComputerTest" />
+>>>>>>> origin/main
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,11 +211,19 @@
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="JUnit.LogicTest.validateMoveTest" />
         <item itemvalue="JUnit.LogicTest.movePieceTest" />
         <item itemvalue="JUnit.MainFrameTest.volarPieza" />
         <item itemvalue="JUnit.MainFrameTest (1)" />
         <item itemvalue="JUnit.MainFrameTest.movePieceToUITest" />
+=======
+        <item itemvalue="Application.sprint2.Main" />
+        <item itemvalue="JUnit.LogicTest.getOptimalPositionToMoveTest" />
+        <item itemvalue="JUnit.MainFrameTest.movePieceByTheComputerTest" />
+        <item itemvalue="JUnit.LogicTest.insertAndRemovePieceTest (1)" />
+        <item itemvalue="JUnit.MainFrameTest" />
+>>>>>>> origin/main
       </list>
     </recent_temporary>
   </component>
