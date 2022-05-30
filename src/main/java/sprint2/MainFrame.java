@@ -82,7 +82,6 @@ public class MainFrame extends JFrame {
     JLabel namePlayerRight;
     private JLabel showIUResult;
 
-
     //Show the turn
     public void showTurnInUI() {
         if (player1.turn.equals("uno")) {
@@ -93,6 +92,7 @@ public class MainFrame extends JFrame {
                 namePlayerRight.setBackground(new Color(94, 0, 215));
                 namePlayerLeft.setBackground(new Color(32, 36, 74));
             }
+            System.out.println(player1.name);
         }
 
         if (player2.turn.equals("uno")) {
@@ -103,6 +103,7 @@ public class MainFrame extends JFrame {
                 namePlayerLeft.setBackground(new Color(94, 0, 215));
                 namePlayerRight.setBackground(new Color(32, 36, 74));
             }
+            System.out.println(player2.name);
         }
     }
 
@@ -113,7 +114,6 @@ public class MainFrame extends JFrame {
         player1.turn = player2.turn;
         player2.turn = aux;
         showTurnInUI();
-
     }
 
     public int numberPiecesLeft = 9;
@@ -246,6 +246,7 @@ public class MainFrame extends JFrame {
 
     //Remove Opponent's pieces
     public void removeOpponentsPiecesOfUI(JButton myContentPieceToRemove) {
+        boolean change = true;
 
         if (myContentPieceToRemove.getIcon() == IconWithPiece1) {
             myContentPieceToRemove.setIcon(IconContentEmpty);
@@ -270,16 +271,21 @@ public class MainFrame extends JFrame {
             WindowWinner windowWinner = new WindowWinner(this, true, player2.name);
             windowWinner.setVisible(true);
             restart();
+            chooseTurn();
+            change = false;
+            showTurnInUI();
         }
-        if (player2.numberPieces <= 2) {
+        else if (player2.numberPieces <= 2) {
             player1.victories += 1;
             WindowWinner windowWinner = new WindowWinner(this, true, player1.name);
             windowWinner.pack();
             windowWinner.setVisible(true);
             restart();
+            chooseTurn();
+            change = false;
+            showTurnInUI();
         }
-
-        changeTurn();
+        if(change) changeTurn();
     }
 
 
@@ -288,7 +294,13 @@ public class MainFrame extends JFrame {
     boolean existTicTacToe = false;
 
     public void actionPlayerAtTheTime(JButton currentButtonAction) {
-
+        System.out.println("ingresa al action player at the time");
+        System.out.println("--------------------------------------");
+        System.out.println("jugador 1: " + player1.name );
+        System.out.println("jugador 1 turno: " + player1.turn);
+        System.out.println("jugador 2: " + player2.name );
+        System.out.println("jugador 2 turno: " + player2.turn);
+        System.out.println("--------------------------------------");
         movePieceToUI(currentButtonAction);
 
         volarPieza(currentButtonAction);
@@ -332,6 +344,14 @@ public class MainFrame extends JFrame {
         if (isPlayerAComputer) {
             actionComputer();
         }
+
+        System.out.println("--------------------------------------");
+        System.out.println("jugador 1: " + player1.name );
+        System.out.println("jugador 1 turno: " + player1.turn);
+        System.out.println("jugador 2: " + player2.name );
+        System.out.println("jugador 2 turno: " + player2.turn);
+        System.out.println("--------------------------------------");
+        System.out.println("SALE al action player at the time");
     }
 
     public void actionComputer() {
@@ -562,13 +582,30 @@ public class MainFrame extends JFrame {
 
 
     public void restart() {
-        currentLogicGame.fillInBoxes();
-        currentLogicGame.fillMyTable();
+        // incializamos casillas en vacias
+        currentLogicGame.initBoxes();
+
+        // inicializamos tablas sin piezas
+        currentLogicGame.initTable();
+
+        // número de piezas izquierda y derecha en la interfaz igual 9
         numberPiecesLeft = 9;
         numberPiecesRight = 9;
+
+        // número de piezas jugador 1 y jugador 2 igual a 9
+        player1.numberPieces = 9;
+        player2.numberPieces = 9;
+
+        // no exite tic tac toe al iniciar el juego
         existTicTacToe = false;
+
+        // no mostrar texto en la interfaz
         showIUResult.setText("");
+
+        // inicializamos piezas en la interfaz
         initPieces();
+
+        // inicializamos tablero vacio
         // a
         a7.setIcon(IconContentEmpty);
         a4.setIcon(IconContentEmpty);
@@ -603,20 +640,19 @@ public class MainFrame extends JFrame {
 
         // Limpiando tres en raya
         currentLogicGame.MenoryTreEnRaya.clear();
-        // Escoger Turno
-        chooseTurn();
-        if(player2.name == "computadora" && player2.turn == "uno"){
+
+        if(player2.name.equals("computadora") && player2.turn.equals("uno")){
             actionComputer();
         }
     }
 
     // Escoger turno
-    private void chooseTurn() {
+    public void chooseTurn() {
         WhoPlaysFirst whoPlaysFirst = new WhoPlaysFirst(this, true, player1.name, player2.name);
-
         whoPlaysFirst.setVisible(true);
-        System.out.println(whoPlaysFirst.getTurn());
+
         String turn = whoPlaysFirst.getTurn();
+
         if (player1.name.equals(turn)) {
             player1.turn = "uno";
             player2.turn = "dos";
@@ -624,7 +660,6 @@ public class MainFrame extends JFrame {
             player2.turn = "uno";
             player1.turn = "dos";
         }
-        showTurnInUI();
     }
 
     private void addMenuBar() {
@@ -660,6 +695,8 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 restart();
+                chooseTurn();
+                showTurnInUI();
             }
         });
 

@@ -12,7 +12,7 @@ public class Logic {
     //Matriz tabla que muestra las jugadas en el tiempo
     protected String[][] myTable = new String[n][n];
 
-    //CasesTresEnRaya
+    //Casos tres en raya
     int[][][] CasesTresEnRaya = Constants.getCasesTresEnRaya();
 
     //Matriz recuerdo
@@ -81,11 +81,11 @@ public class Logic {
 
 
     public Logic() {
-        fillInBoxes();
-        fillMyTable();
+        initBoxes();
+        initTable();
     }
 
-    public void fillInBoxes() {
+    public void initBoxes() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 availableBox[i][j] = true;
@@ -96,7 +96,7 @@ public class Logic {
         }
     }
 
-    public void fillMyTable() {
+    public void initTable() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 myTable[i][j] = "0";
@@ -445,10 +445,7 @@ public class Logic {
     public boolean getIsAvailableContentPiece(String positionPiece) {
         int indexRow = whatIndexRow(positionPiece.charAt(1));
         int indexColumn = whatIndexColumn(positionPiece.charAt(0));
-        if (myTable[indexRow][indexColumn] == "0") {
-            return true;
-        }
-        return false;
+        return availableBox[indexRow][indexColumn];
     }
 
     // establecer si la casilla esta vacia o llena
