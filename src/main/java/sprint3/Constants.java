@@ -1,6 +1,29 @@
-package sprint2;
+package sprint3;
+
+import java.security.PublicKey;
 
 public class Constants {
+
+    // Orden de la matriz
+    private static int ORDEN_MATRIX = 7;
+    public static int NOT_ALLOWED = -1;
+    public static int EMPTY_BOX = 0;
+    public static int PLAYER_ONE = 1;
+    public static int PLAYER_TWO = 2;
+
+public static int [][] table={
+        {0, -1, -1, 0, -1, -1, 0},
+        {-1, 0, -1, 0, -1, 0, -1},
+        {-1, -1, 0, 0, 0, -1, -1},
+        {0, 0, 0, -1, 0, 0, 0},
+        {-1, -1, 0, 0, 0, -1, -1},
+        {-1, 0, -1, 0, -1, 0, -1},
+        {0, -1, -1, 0, -1, -1, 0}};
+
+    public static int getOrdenMatrix() {
+        return ORDEN_MATRIX;
+    }
+
     private static int[][][] CasesTresEnRaya = {
             //Filas
             {{0,0},{0,3},{0,6}},

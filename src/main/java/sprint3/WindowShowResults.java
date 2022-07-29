@@ -1,4 +1,4 @@
-package sprint2;
+package sprint3;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

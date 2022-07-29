@@ -2,7 +2,7 @@ package sprint1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import sprint2.Logic;
+import sprint3.Logic;
 
 class LogicTest {
 

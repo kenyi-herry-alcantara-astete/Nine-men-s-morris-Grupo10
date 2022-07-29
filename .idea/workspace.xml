@@ -5,7 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17595a29-e4e0-49ef-b30b-3e2bc1cdac68" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sprint3/ComplementsMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sprint3/LogicComputer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sprint3/LogicHuman.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sprint3/Memory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sprint3/OptimalPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_10_20_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_10_20_PM__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_9_50_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_25_2022_9_50_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_27_2022_12_33_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_27_2022_12_33_AM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_28_22,_5_25_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_28_22__5_25_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/FirstPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/FirstPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/Logic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/MainFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WhoPlaysFirst.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WhoPlaysFirst.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WhoPlaysFirst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WhoPlaysFirst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WindowShowResults.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WindowShowResults.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WindowShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WindowShowResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WindowWinner.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WindowWinner.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sprint2/WindowWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sprint3/WindowWinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint1/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint1/LogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/LogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint3/LogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sprint2/MainFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sprint3/MainFrameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +51,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -28,6 +60,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
@@ -68,17 +107,30 @@
       <recent name="sprint2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LogicTest.validateMoveTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sprint3.Main" />
+      <module name="Nine-men-s-morris-Grupo10" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sprint3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogicTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sprint2.*" />
+          <option name="PATTERN" value="sprint3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
-      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="MAIN_CLASS_NAME" value="sprint3.LogicTest" />
       <option name="METHOD_NAME" value="movePieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -89,29 +141,14 @@
       <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sprint2.*" />
+          <option name="PATTERN" value="sprint3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
-      <option name="MAIN_CLASS_NAME" value="sprint2.LogicTest" />
+      <option name="MAIN_CLASS_NAME" value="sprint3.LogicTest" />
       <option name="METHOD_NAME" value="validateMoveTest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainFrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="NIneGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sprint2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="sprint2" />
-      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,12 +157,12 @@
       <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sprint2.*" />
+          <option name="PATTERN" value="sprint3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
-      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="MAIN_CLASS_NAME" value="sprint3.MainFrameTest" />
       <option name="METHOD_NAME" value="movePieceToUITest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -136,12 +173,12 @@
       <module name="Nine-men-s-morris-Grupo10" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sprint2.*" />
+          <option name="PATTERN" value="sprint3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sprint2" />
-      <option name="MAIN_CLASS_NAME" value="sprint2.MainFrameTest" />
+      <option name="MAIN_CLASS_NAME" value="sprint3.MainFrameTest" />
       <option name="METHOD_NAME" value="volarPieza" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -150,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LogicTest.validateMoveTest" />
         <item itemvalue="JUnit.LogicTest.movePieceTest" />
         <item itemvalue="JUnit.MainFrameTest.volarPieza" />
         <item itemvalue="JUnit.MainFrameTest.movePieceToUITest" />
-        <item itemvalue="JUnit.MainFrameTest" />
       </list>
     </recent_temporary>
   </component>

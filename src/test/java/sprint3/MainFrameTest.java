@@ -1,4 +1,4 @@
-package sprint2;
+package sprint3;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
